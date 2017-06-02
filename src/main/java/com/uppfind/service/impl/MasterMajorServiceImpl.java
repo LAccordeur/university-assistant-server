@@ -36,7 +36,7 @@ public class MasterMajorServiceImpl implements MasterMajorService {
         response.setData(masterMajors);
         response.setTotal(masterMajors.size());
         response.setCount(masterMajors.size());
-        response.setCount(0);
+        response.setStart(0);
 
         return response;
     }

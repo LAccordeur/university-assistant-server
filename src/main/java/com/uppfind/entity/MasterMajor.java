@@ -1,9 +1,12 @@
 package com.uppfind.entity;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 /**
  * Created by LAccordeur on 2017/6/1.
  * 与MasterMajor视图对应的实体类
  */
+@JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
 public class MasterMajor {
     private String name;        //导师姓名
 

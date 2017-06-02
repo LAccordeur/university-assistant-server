@@ -39,13 +39,18 @@ public class UniversityController {
                     method = RequestMethod.GET,
                     produces = {"application/json;charset=utf8"})
     @ResponseBody
-    public Response<List<University>> queryUniversityList(String mode, @RequestParam(required = false) String u, @RequestParam(required = false) String uc) {
+    public Response<List<University>> queryUniversityList(String mode,
+                                                          @RequestParam(required = false) String u,
+                                                          @RequestParam(required = false) String uc,
+                                                          @RequestParam(required = false) String l) {
 
 
         if ("2".equals(mode) && u != null) {
             return universityService.queryUniversityList(u);
         } else if ("3".equals(mode) && uc != null) {
             return universityService.queryUniversityInfo(uc);
+        } else if ("1".equals(mode) && l != null) {
+            return universityService.queryUniversitySet(l);
         }
         return null;
     }

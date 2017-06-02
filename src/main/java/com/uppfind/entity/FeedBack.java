@@ -1,10 +1,13 @@
 package com.uppfind.entity;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 import java.sql.Timestamp;
 
 /**
  * Created by LAccordeur on 2017/6/2.
  */
+@JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
 public class FeedBack {
     private Integer num;        //问题序号
 
