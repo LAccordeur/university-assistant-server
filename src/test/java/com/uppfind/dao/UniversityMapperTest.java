@@ -23,7 +23,7 @@ import java.util.Map;
 public class UniversityMapperTest {
     @Test
     public void queryUniversityInfo() throws Exception {
-        University university = universityMapper.queryUniversityInfo(10614);
+        List<University> university = universityMapper.queryUniversityInfo(10614);
         System.out.println(university);
     }
 

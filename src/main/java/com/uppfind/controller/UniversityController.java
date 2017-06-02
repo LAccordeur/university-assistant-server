@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +23,8 @@ public class UniversityController {
     @Autowired
     private UniversityService universityService;
 
+
+
     @RequestMapping(value = "/queryProvince.do",
                     method = RequestMethod.GET,
                     produces = {"application/json;charset=utf8"})
@@ -31,15 +34,18 @@ public class UniversityController {
     }
 
 
+
     @RequestMapping(value = "/queryUniversity.do",
                     method = RequestMethod.GET,
                     produces = {"application/json;charset=utf8"})
     @ResponseBody
-    public Response<List<University>> queryUniversityList(String mode, String u) {
+    public Response<List<University>> queryUniversityList(String mode, @RequestParam(required = false) String u, @RequestParam(required = false) String uc) {
 
 
-        if ("2".equals(mode)) {
+        if ("2".equals(mode) && u != null) {
             return universityService.queryUniversityList(u);
+        } else if ("3".equals(mode) && uc != null) {
+            return universityService.queryUniversityInfo(uc);
         }
         return null;
     }

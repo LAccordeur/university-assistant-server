@@ -37,5 +37,5 @@ public interface UniversityMapper {
      * @param universityCode
      * @return
      */
-    University queryUniversityInfo(@Param("universityCode") Integer universityCode);
+    List<University> queryUniversityInfo(@Param("universityCode") Integer universityCode);
 }

@@ -37,7 +37,7 @@
 
 
   <select id="queryUniversitySet" resultType="University">
-    SELECT university
+    SELECT university, universityCode
     FROM universitysheet
     WHERE location=#{province}
   </select>

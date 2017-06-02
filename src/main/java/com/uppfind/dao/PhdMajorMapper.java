@@ -28,8 +28,9 @@ public interface PhdMajorMapper {
 
     /**
      * 查询某专业的具体信息
+     * @param schoolCode
      * @param majorCode
      * @return
      */
-    PhdMajor queryPhdMajorInfo(@Param("schoolCode") Long schoolCode, @Param("majorCode") Integer majorCode);
+    List<PhdMajor> queryPhdMajorInfo(@Param("schoolCode") Long schoolCode, @Param("majorCode") Integer majorCode);
 }

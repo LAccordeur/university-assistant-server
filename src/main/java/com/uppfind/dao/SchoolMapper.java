@@ -31,7 +31,7 @@ public interface SchoolMapper {
      * @param schoolCode
      * @return
      */
-    School querySchoolInfo(@Param("schoolCode") Long schoolCode);
+    List<School> querySchoolInfo(@Param("schoolCode") Long schoolCode);
 
 
 

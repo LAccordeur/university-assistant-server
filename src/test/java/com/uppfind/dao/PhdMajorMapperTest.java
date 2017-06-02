@@ -36,7 +36,7 @@ public class PhdMajorMapperTest {
 
     @Test
     public void queryPhdMajorInfo() throws Exception {
-        PhdMajor phdMajor = phdMajorMapper.queryPhdMajorInfo(10614022L,83500);
+        List<PhdMajor> phdMajor = phdMajorMapper.queryPhdMajorInfo(10614022L,83500);
         System.out.println(phdMajor);
     }
 

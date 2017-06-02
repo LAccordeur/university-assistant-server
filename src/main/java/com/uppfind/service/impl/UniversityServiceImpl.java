@@ -19,13 +19,13 @@ public class UniversityServiceImpl implements UniversityService {
     @Autowired
     private UniversityMapper universityMapper;
 
-    public Response<List<University>> queryProvinceSet() {
+    public Response queryProvinceSet() {
 
         Response<List<University>> response = new Response<List<University>>();
         //组装返回的Response对象
-        List<University> data = universityMapper.queryProvinceSet();
-        response.setData(data);
-        response.setTotal(data.size());
+        List<University> universities = universityMapper.queryProvinceSet();
+        response.setData(universities);
+        response.setTotal(universities.size());
 
         return response;
     }
@@ -34,12 +34,33 @@ public class UniversityServiceImpl implements UniversityService {
 
         Response<List<University>> response = new Response<List<University>>();
         //组装返回的Response对象
-        List<University> data = universityMapper.queryUniversityList(keyword);
-        response.setData(data);
-        response.setTotal(data.size());
+        List<University> universities = universityMapper.queryUniversityList(keyword);
+        response.setData(universities);
+        response.setTotal(universities.size());
         response.setStart(0);
-        response.setCount(data.size());
+        response.setCount(universities.size());
 
+        return response;
+    }
+
+    public Response queryUniversitySet(String province) {
+
+        Response<List<University>> response = new Response<List<University>>();
+        //组装返回的Response对象
+        List<University> universities = universityMapper.queryUniversitySet(province);
+        response.setData(universities);
+        response.setTotal(universities.size());
+
+        return response;
+    }
+
+    public Response queryUniversityInfo(String universityCode) {
+
+        Response<List<University>> response = new Response<List<University>>();
+        //组装返回的Response对象
+        List<University> university = universityMapper.queryUniversityInfo(Integer.parseInt(universityCode));
+        response.setData(university);
+        response.setTotal(university.size());
         return response;
     }
 }

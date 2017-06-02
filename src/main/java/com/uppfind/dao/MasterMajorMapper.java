@@ -35,8 +35,9 @@ public interface MasterMajorMapper {
 
     /**
      * 查询具体硕士专业的详细信息
+     * @param schoolCode
      * @param majorCode
      * @return
      */
-    MasterMajor queryMajorMajorInfo(@Param("schoolCode") Long schoolCode, @Param("majorCode") Integer majorCode);
+    List<MasterMajor> queryMasterMajorInfo(@Param("schoolCode") Long schoolCode, @Param("majorCode") Integer majorCode);
 }

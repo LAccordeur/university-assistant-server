@@ -48,7 +48,7 @@
     LIMIT 0 , 10
   </select>
 
-  <select id="queryMajorMajorInfo" resultType="MasterMajor">
+  <select id="queryMasterMajorInfo" resultType="MasterMajor">
     SELECT  m.Major ,m.MajorCode, m.University, m.School,m.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Image
     FROM  mastermajorview AS m
     WHERE m.SchoolCode= #{schoolCode}

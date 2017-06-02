@@ -32,5 +32,5 @@ public interface TeacherMapper {
      * @param teacherId
      * @return
      */
-    Teacher queryTeacherInfo(@Param("teacherId") Long teacherId);
+    List<Teacher> queryTeacherInfo(@Param("teacherId") Long teacherId);
 }

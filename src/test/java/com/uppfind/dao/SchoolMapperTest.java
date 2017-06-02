@@ -26,7 +26,7 @@ public class SchoolMapperTest {
 
     @Test
     public void querySchoolInfo() throws Exception {
-        School school = schoolMapper.querySchoolInfo(10614022L);
+        List<School> school = schoolMapper.querySchoolInfo(10614022L);
         System.out.println(school);
     }
 

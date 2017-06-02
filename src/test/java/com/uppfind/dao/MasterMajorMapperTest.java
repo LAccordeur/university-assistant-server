@@ -44,7 +44,7 @@ public class MasterMajorMapperTest {
 
     @Test
     public void queryMajorMajorInfo() throws Exception {
-        MasterMajor masterMajor = masterMajorMapper.queryMajorMajorInfo(10614022L,83500);
+        List<MasterMajor> masterMajor = masterMajorMapper.queryMasterMajorInfo(10614022L,83500);
         System.out.println(masterMajor);
     }
 
