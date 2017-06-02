@@ -1,0 +1,45 @@
+package com.uppfind.service.impl;
+
+import com.uppfind.dao.UniversityMapper;
+import com.uppfind.dto.Response;
+import com.uppfind.entity.University;
+import com.uppfind.service.UniversityService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Created by LAccordeur on 2017/5/31.
+ */
+@Service
+public class UniversityServiceImpl implements UniversityService {
+
+    @Autowired
+    private UniversityMapper universityMapper;
+
+    public Response<List<University>> queryProvinceSet() {
+
+        Response<List<University>> response = new Response<List<University>>();
+        //组装返回的Response对象
+        List<University> data = universityMapper.queryProvinceSet();
+        response.setData(data);
+        response.setTotal(data.size());
+
+        return response;
+    }
+
+    public Response queryUniversityList(String keyword) {
+
+        Response<List<University>> response = new Response<List<University>>();
+        //组装返回的Response对象
+        List<University> data = universityMapper.queryUniversityList(keyword);
+        response.setData(data);
+        response.setTotal(data.size());
+        response.setStart(0);
+        response.setCount(data.size());
+
+        return response;
+    }
+}
