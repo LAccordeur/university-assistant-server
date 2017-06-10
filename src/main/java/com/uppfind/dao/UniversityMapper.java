@@ -19,18 +19,20 @@ public interface UniversityMapper {
 
 
     /**
+     * 查询指定省份下学校的集合
+     * @param province
+     * @return
+     */
+    List<University> queryUniversitySet(@Param("province") String province);
+
+    /**
      * 根据关键字查询学校列表（有部分详细信息）
      * @param keyword
      * @return
      */
     List<University> queryUniversityList(@Param("keyword") String keyword);
 
-    /**
-     * 查询指定省份下学校的集合
-     * @param province
-     * @return
-     */
-    List<University> queryUniversitySet(@Param("province") String province);
+
 
     /**
      * 查询指定学校的详细信息

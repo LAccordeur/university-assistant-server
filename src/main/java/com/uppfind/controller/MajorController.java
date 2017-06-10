@@ -26,6 +26,7 @@ public class MajorController {
     @Autowired
     private MasterMajorService masterMajorService;
 
+
     @RequestMapping(value = "/queryMajor.do",
             method = RequestMethod.GET,
             produces = {"application/json;charset=utf8"})
