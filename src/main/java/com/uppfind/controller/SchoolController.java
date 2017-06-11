@@ -17,6 +17,7 @@ import java.util.List;
 
 /**
  * Created by LAccordeur on 2017/6/2.
+ * 学院信息查询相关的controller
  */
 @Controller
 @RequestMapping
@@ -36,10 +37,15 @@ public class SchoolController {
                                               @RequestParam(required = false) String sc) {
 
         if ("1".equals(mode) && l != null && u != null) {
+            //根据省份和学校名查询学院名集合
             return schoolService.querySchoolSet(l, u);
+
         } else if ("2".equals(mode) && s != null) {
+            //根据关键词查询学院列表
             return schoolService.querySchoolList(s);
+
         } else if ("3".equals(mode) && sc != null) {
+            //根据学院代码查询学院详细信息
             return schoolService.querySchoolInfo(sc);
         }
 
