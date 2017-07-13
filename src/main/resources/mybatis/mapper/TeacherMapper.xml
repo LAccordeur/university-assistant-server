@@ -34,7 +34,12 @@
     SELECT t.Name, t.School, t.University, t.Title, t.Degree, t.Icon, t.Id
     FROM teacherview AS t
     WHERE t.Name LIKE concat(concat('%',#{keyword}),'%')
-    LIMIT 0 , 10
+  </select>
+
+  <select id="queryTeacherListById" resultType="Teacher">
+    SELECT t.Name, t.School, t.University, t.Title, t.Degree, t.Icon, t.Id
+    FROM teacherview AS t
+    WHERE SchoolCode = #{schoolCode}
   </select>
 
   <select id="queryTeacherInfo" resultType="Teacher">

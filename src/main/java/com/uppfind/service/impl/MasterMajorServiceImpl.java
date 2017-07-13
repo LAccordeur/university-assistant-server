@@ -23,7 +23,7 @@ public class MasterMajorServiceImpl implements MasterMajorService {
         Response<List<MasterMajor>> response = new Response<List<MasterMajor>>();
         //组装返回的Response对象
         List<MasterMajor> masterMajors = masterMajorMapper.queryMasterMajorSet(province, university, school);
-        response.setData(masterMajors);
+        response.setResult(masterMajors);
         response.setTotal(masterMajors.size());
 
         return response;
@@ -33,7 +33,7 @@ public class MasterMajorServiceImpl implements MasterMajorService {
         Response<List<MasterMajor>> response = new Response<List<MasterMajor>>();
         //组装返回的Response对象
         List<MasterMajor> masterMajors = masterMajorMapper.queryMasterMajorList(keyword);
-        response.setData(masterMajors);
+        response.setResult(masterMajors);
         response.setTotal(masterMajors.size());
         response.setCount(masterMajors.size());
         response.setStart(0);
@@ -41,23 +41,12 @@ public class MasterMajorServiceImpl implements MasterMajorService {
         return response;
     }
 
-    public Response queryMajorFieldList(String keyword) {
-        Response<List<MasterMajor>> response = new Response<List<MasterMajor>>();
-        //组装返回的Response对象
-        List<MasterMajor> masterMajors = masterMajorMapper.queryMajorFieldList(keyword);
-        response.setData(masterMajors);
-        response.setTotal(masterMajors.size());
-        response.setCount(masterMajors.size());
-        response.setStart(0);
-
-        return response;
-    }
 
     public Response queryMasterMajorInfo(String schoolCode, String majorCode) {
         Response<List<MasterMajor>> response = new Response<List<MasterMajor>>();
         //组装返回的Response对象
         List<MasterMajor> masterMajors = masterMajorMapper.queryMasterMajorInfo(Long.parseLong(schoolCode), Integer.parseInt(majorCode));
-        response.setData(masterMajors);
+        response.setResult(masterMajors);
         response.setTotal(masterMajors.size());
 
         return response;

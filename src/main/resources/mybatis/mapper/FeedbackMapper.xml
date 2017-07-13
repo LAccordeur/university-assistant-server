@@ -22,14 +22,6 @@
 
 <mapper namespace="com.uppfind.dao.FeedbackMapper">
 
-  <select id="queryMasterMajorSet" resultType="MasterMajor">
-    SELECT  m.Major ,m.MajorCode  FROM  mastermajorview as m  WHERE  (SELECT u.Location FROM universitysheet AS u
-    WHERE m.UniversityCode=u.UniversityCode)= #{province}
-    AND m.University=#{university}
-    AND m.School=#{school}
-    AND  m.Major !=''
-    GROUP BY  m.Major, M.MajorCode
-  </select>
 
   <insert id="addFeedbackInfo" parameterType="Feedback">
     INSERT INTO feedbacksheet (Contact,Problem,Detail) VALUES (#{contact},#{problem},#{detail})

@@ -8,13 +8,14 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  */
 @JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
 public class Response<T> {
+
+    private T result;
+
     private Integer total;      //总记录数
 
     private Integer start;
 
     private Integer count;
-
-    private T data;
 
     @Override
     public String toString() {
@@ -22,7 +23,7 @@ public class Response<T> {
                 "total=" + total +
                 ", start=" + start +
                 ", count=" + count +
-                ", data=" + data +
+                ", result=" + result +
                 '}';
     }
 
@@ -50,11 +51,11 @@ public class Response<T> {
         this.count = count;
     }
 
-    public T getData() {
-        return data;
+    public T getResult() {
+        return result;
     }
 
-    public void setData(T data) {
-        this.data = data;
+    public void setResult(T result) {
+        this.result = result;
     }
 }

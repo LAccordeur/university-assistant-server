@@ -27,6 +27,13 @@ public interface SchoolMapper {
     List<School> querySchoolList(@Param("keyword") String keyword);
 
     /**
+     * 根据大学id查询相关学院信息
+     * @param universityCode
+     * @return
+     */
+    List<School> querySchoolListById(@Param("universityCode") String universityCode);
+
+    /**
      * 根据学院编号查询学院的具体信息
      * @param schoolCode
      * @return

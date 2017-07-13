@@ -23,7 +23,7 @@ public class TeacherServiceImpl implements TeacherService {
         Response<List<Teacher>> response = new Response<List<Teacher>>();
         //组装返回的Response对象
         List<Teacher> teachers = teacherMapper.queryTeacherSet(province, university, school);
-        response.setData(teachers);
+        response.setResult(teachers);
         response.setTotal(teachers.size());
 
         return response;
@@ -33,7 +33,19 @@ public class TeacherServiceImpl implements TeacherService {
         Response<List<Teacher>> response = new Response<List<Teacher>>();
         //组装返回的Response对象
         List<Teacher> teachers = teacherMapper.queryTeacherList(keyword);
-        response.setData(teachers);
+        response.setResult(teachers);
+        response.setTotal(teachers.size());
+        response.setCount(teachers.size());
+        response.setStart(0);
+
+        return response;
+    }
+
+    public Response queryTeacherListById(String schoolCode) {
+        Response<List<Teacher>> response = new Response<List<Teacher>>();
+        //组装返回的Response对象
+        List<Teacher> teachers = teacherMapper.queryTeacherListById(schoolCode);
+        response.setResult(teachers);
         response.setTotal(teachers.size());
         response.setCount(teachers.size());
         response.setStart(0);
@@ -45,7 +57,7 @@ public class TeacherServiceImpl implements TeacherService {
         Response<List<Teacher>> response = new Response<List<Teacher>>();
         //组装返回的Response对象
         List<Teacher> teacher = teacherMapper.queryTeacherInfo(Long.parseLong(teacherCode));
-        response.setData(teacher);
+        response.setResult(teacher);
         response.setTotal(teacher.size());
 
         return response;

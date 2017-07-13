@@ -23,6 +23,13 @@ public interface SchoolService {
     Response querySchoolList(String keyword);
 
     /**
+     * 根据大学id查询相关学院列表
+     * @param universityCode
+     * @return
+     */
+    Response querySchoolListById(String universityCode);
+
+    /**
      * 查询学院详细信息
      * @param schoolCode
      * @return

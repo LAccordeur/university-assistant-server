@@ -26,12 +26,6 @@ public interface MasterMajorMapper {
      */
     List<MasterMajor> queryMasterMajorList(@Param("keyword") String keyword);
 
-    /**
-     * 根据关键词查询所有相关的研究方向的老师，返回含有视图中部分信息的列表
-     * @param keyword
-     * @return
-     */
-    List<MasterMajor> queryMajorFieldList(@Param("keyword") String keyword);
 
     /**
      * 查询具体硕士专业的详细信息

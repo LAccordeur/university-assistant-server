@@ -38,7 +38,7 @@ public class Teacher {
 
     private String project;     //科研项目
 
-    private String papre;       //发表论文
+    private String paper;       //发表论文
 
     private Integer phdMajor;       //博士招生资格
 
@@ -62,7 +62,7 @@ public class Teacher {
                 ", experience='" + experience + '\'' +
                 ", introduction='" + introduction + '\'' +
                 ", project='" + project + '\'' +
-                ", papre='" + papre + '\'' +
+                ", paper='" + paper + '\'' +
                 ", phdMajor=" + phdMajor +
                 ", masterMajor=" + masterMajor +
                 '}';
@@ -188,12 +188,12 @@ public class Teacher {
         this.project = project;
     }
 
-    public String getPapre() {
-        return papre;
+    public String getPaper() {
+        return paper;
     }
 
-    public void setPapre(String papre) {
-        this.papre = papre;
+    public void setPaper(String paper) {
+        this.paper = paper;
     }
 
     public Integer getPhdMajor() {

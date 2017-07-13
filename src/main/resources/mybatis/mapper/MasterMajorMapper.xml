@@ -23,7 +23,7 @@
 <mapper namespace="com.uppfind.dao.MasterMajorMapper">
 
   <select id="queryMasterMajorSet" resultType="MasterMajor">
-    SELECT  m.Major ,m.MajorCode  FROM  mastermajorview as m  WHERE  (SELECT u.Location FROM universitysheet AS u
+    SELECT  m.Major ,m.MajorCode AS id  FROM  mastermajorview as m  WHERE  (SELECT u.Location FROM universitysheet AS u
     WHERE m.UniversityCode=u.UniversityCode)= #{province}
     AND m.University=#{university}
     AND m.School=#{school}
@@ -32,12 +32,11 @@
   </select>
 
   <select id="queryMasterMajorList" resultType="MasterMajor">
-    SELECT  m.Major ,m.MajorCode, m.University, m.School,m.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Image
+    SELECT  m.Major ,m.MajorCode AS id, m.University, m.School,m.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Image
     FROM  mastermajorview AS m
     WHERE m.Major LIKE concat(concat('%',#{keyword}),'%')
     AND  m.Major !=''
     GROUP BY  m.Major, m.MajorCode, m.University, m.School, m.SchoolCode
-    LIMIT 0 , 10
   </select>
 
   <select id="queryMajorFieldList" resultType="MasterMajor">
@@ -45,17 +44,15 @@
     FROM  mastermajorview AS j
     WHERE j.Field LIKE concat(concat('%',#{keyword}),'%')
     AND j.Field !=''
-    LIMIT 0 , 10
   </select>
 
   <select id="queryMasterMajorInfo" resultType="MasterMajor">
-    SELECT  m.Major ,m.MajorCode, m.University, m.School,m.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Image
+    SELECT  m.Major ,m.MajorCode AS id, m.University, m.School,m.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Image
     FROM  mastermajorview AS m
     WHERE m.SchoolCode= #{schoolCode}
     AND m.MajorCode= #{majorCode}
     AND  m.Major !=''
     GROUP BY  m.Major,m.MajorCode, m.University, m.School,m.SchoolCode
-    LIMIT 0 , 10
   </select>
 
 

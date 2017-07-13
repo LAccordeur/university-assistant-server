@@ -29,21 +29,20 @@
   </select>
 
   <select id="queryUniversityList" resultType="University">
-    SELECT university, universityCode, location, property, uType, icon
+    SELECT university, universityCode AS id, location, property, uType, icon
     FROM universitysheet
     WHERE university LIKE concat(concat('%',#{keyword}),'%')
-    LIMIT 0, 10
   </select>
 
 
   <select id="queryUniversitySet" resultType="University">
-    SELECT university, universityCode
+    SELECT university, universityCode AS id
     FROM universitysheet
     WHERE location=#{province}
   </select>
 
   <select id="queryUniversityInfo" resultType="University">
-    SELECT universityCode,
+    SELECT universityCode AS id,
     university,
     englishName,
     establishedTime,

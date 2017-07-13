@@ -36,11 +36,7 @@ public class MasterMajorMapperTest {
         System.out.println(masterMajors);
     }
 
-    @Test
-    public void queryMajorFieldList() throws Exception {
-        List<MasterMajor> masterMajors = masterMajorMapper.queryMajorFieldList("人工");
-        System.out.println(masterMajors);
-    }
+
 
     @Test
     public void queryMajorMajorInfo() throws Exception {

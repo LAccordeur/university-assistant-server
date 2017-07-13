@@ -23,21 +23,39 @@
 <mapper namespace="com.uppfind.dao.SchoolMapper">
 
   <select id="querySchoolSet" resultType="School">
-    SELECT s.School, s.SchoolCode FROM schoolsheet AS s
+    SELECT s.School, s.SchoolCode AS id FROM schoolsheet AS s
     WHERE (SELECT u.Location FROM universitysheet AS u WHERE s.UniversityCode= u.UniversityCode)= #{province}
     AND (SELECT u.University FROM universitysheet AS u WHERE s.UniversityCode= u.UniversityCode)= #{university}
     AND s.School!=''
   </select>
 
   <select id="querySchoolList" resultType="School">
-    SELECT s.School, s.SchoolCode, s.Website, s.EstablishedTime, s.Icon, (SELECT u.University FROM universitysheet AS u WHERE s.UniversityCode= u.UniversityCode) AS university
+    SELECT s.School, s.SchoolCode AS id, s.Website, s.EstablishedTime, s.Icon, (SELECT u.University FROM universitysheet AS u WHERE s.UniversityCode= u.UniversityCode) AS university
     FROM schoolsheet AS s
     WHERE S.School LIKE concat(concat('%',#{keyword}),'%')
     LIMIT 0 , 10
   </select>
 
+  <select id="querySchoolListById" resultType="School">
+    SELECT s.School, s.SchoolCode AS id, s.Website, s.EstablishedTime, s.Icon, (SELECT u.University FROM universitysheet AS u WHERE s.UniversityCode= u.UniversityCode) AS university
+    FROM schoolsheet AS s
+    WHERE s.UniversityCode = #{universityCode}
+    LIMIT 0 , 10
+  </select>
+
   <select id="querySchoolInfo" resultType="School">
-    SELECT *, (SELECT u.University FROM universitysheet AS u WHERE s.UniversityCode= u.UniversityCode) AS university
+    SELECT
+    SchoolCode AS id,
+    School,
+    EnglishName,
+    UniversityCode,
+    EstablishedTime,
+    Icon,
+    Image,
+    Website,
+    Introduction,
+    Majors,
+     (SELECT u.University FROM universitysheet AS u WHERE s.UniversityCode= u.UniversityCode) AS university
     FROM schoolsheet AS s
     WHERE s.School!=''
     AND s.SchoolCode= #{schoolCode}

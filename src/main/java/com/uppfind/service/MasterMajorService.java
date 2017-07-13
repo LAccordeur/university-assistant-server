@@ -23,12 +23,6 @@ public interface MasterMajorService {
      */
     Response queryMasterMajorList(String keyword);
 
-    /**
-     * 根据关键词查询相关专业方向信息
-     * @param keyword
-     * @return
-     */
-    Response queryMajorFieldList(String keyword);
 
     /**
      * 查询专业详细信息

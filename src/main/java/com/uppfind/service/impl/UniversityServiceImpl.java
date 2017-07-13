@@ -24,7 +24,7 @@ public class UniversityServiceImpl implements UniversityService {
         Response<List<University>> response = new Response<List<University>>();
         //组装返回的Response对象
         List<University> universities = universityMapper.queryProvinceSet();
-        response.setData(universities);
+        response.setResult(universities);
         response.setTotal(universities.size());
 
         return response;
@@ -35,7 +35,7 @@ public class UniversityServiceImpl implements UniversityService {
         Response<List<University>> response = new Response<List<University>>();
         //组装返回的Response对象
         List<University> universities = universityMapper.queryUniversityList(keyword);
-        response.setData(universities);
+        response.setResult(universities);
         response.setTotal(universities.size());
         response.setStart(0);
         response.setCount(universities.size());
@@ -48,7 +48,7 @@ public class UniversityServiceImpl implements UniversityService {
         Response<List<University>> response = new Response<List<University>>();
         //组装返回的Response对象
         List<University> universities = universityMapper.queryUniversitySet(province);
-        response.setData(universities);
+        response.setResult(universities);
         response.setTotal(universities.size());
 
         return response;
@@ -59,7 +59,7 @@ public class UniversityServiceImpl implements UniversityService {
         Response<List<University>> response = new Response<List<University>>();
         //组装返回的Response对象
         List<University> university = universityMapper.queryUniversityInfo(Integer.parseInt(universityCode));
-        response.setData(university);
+        response.setResult(university);
         response.setTotal(university.size());
         return response;
     }

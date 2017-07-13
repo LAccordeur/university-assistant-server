@@ -26,7 +26,7 @@ public class SchoolController {
     @Autowired
     private SchoolService schoolService;
 
-    @RequestMapping(value = "/querySchool.do",
+    @RequestMapping(value = "/searchschool.php",
             method = RequestMethod.GET,
             produces = {"application/json;charset=utf8"})
     @ResponseBody
@@ -34,7 +34,8 @@ public class SchoolController {
                                               @RequestParam(required = false) String l,
                                               @RequestParam(required = false) String u,
                                               @RequestParam(required = false) String s,
-                                              @RequestParam(required = false) String sc) {
+                                              @RequestParam(required = false) String sc,
+                                              @RequestParam(required = false) String uc) {
 
         if ("1".equals(mode) && l != null && u != null) {
             //根据省份和学校名查询学院名集合
@@ -47,6 +48,8 @@ public class SchoolController {
         } else if ("3".equals(mode) && sc != null) {
             //根据学院代码查询学院详细信息
             return schoolService.querySchoolInfo(sc);
+        } else if ("2".equals(mode) && uc != null) {
+            return schoolService.querySchoolListById(uc);
         }
 
         return null;

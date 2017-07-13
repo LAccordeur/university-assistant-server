@@ -23,7 +23,7 @@ public class TeacherController {
     @Autowired
     private TeacherService teacherService;
 
-    @RequestMapping(value = "/queryTeacher.do",
+    @RequestMapping(value = "/searchteacher.php",
             method = RequestMethod.GET,
             produces = {"application/json;charset=utf8"})
     @ResponseBody
@@ -32,7 +32,8 @@ public class TeacherController {
                                                @RequestParam(required = false) String u,
                                                @RequestParam(required = false) String s,
                                                @RequestParam(required = false) String n,
-                                               @RequestParam(required = false) String nc) {
+                                               @RequestParam(required = false) String nc,
+                                               @RequestParam(required = false) String sc) {
 
         if ("1".equals(mode) && l != null && u != null && s!= null) {
             //根据省份、学校名、学院名查询该学院下的老师集合
@@ -41,6 +42,10 @@ public class TeacherController {
         } else if ("2".equals(mode) && n != null) {
             //根据关键词查询老师列表
             return teacherService.queryTeacherList(n);
+
+        } else if ("2".equals(mode) && sc != null) {
+            //根据学院id查询老师列表
+            return teacherService.queryTeacherListById(sc);
 
         } else if ("3".equals(mode) && nc != null) {
             //根据老师代码查询详细信息

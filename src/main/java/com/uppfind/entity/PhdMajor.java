@@ -13,7 +13,7 @@ import java.util.Locale;
 public class PhdMajor {
     private String name;        //导师姓名
 
-    private Long id;        //导师代码
+    private Long teacherCode;        //导师代码
 
     private String university;      //学校名称
 
@@ -29,7 +29,7 @@ public class PhdMajor {
 
     private String major;       //招生专业名称
 
-    private Integer majorCode;      //招生专业代码
+    private Integer id;      //招生专业代码
 
     private String field;       //专业细分方向
 
@@ -37,7 +37,7 @@ public class PhdMajor {
     public String toString() {
         return "PhdMajor{" +
                 "name='" + name + '\'' +
-                ", id=" + id +
+                ", teacherCode=" + teacherCode +
                 ", university='" + university + '\'' +
                 ", universityCode=" + universityCode +
                 ", school='" + school + '\'' +
@@ -45,7 +45,7 @@ public class PhdMajor {
                 ", icon='" + icon + '\'' +
                 ", image='" + image + '\'' +
                 ", major='" + major + '\'' +
-                ", majorCode=" + majorCode +
+                ", id=" + id +
                 ", field='" + field + '\'' +
                 '}';
     }
@@ -58,12 +58,12 @@ public class PhdMajor {
         this.name = name;
     }
 
-    public Long getId() {
-        return id;
+    public Long getTeacherCode() {
+        return teacherCode;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTeacherCode(Long teacherCode) {
+        this.teacherCode = teacherCode;
     }
 
     public String getUniversity() {
@@ -122,12 +122,12 @@ public class PhdMajor {
         this.major = major;
     }
 
-    public Integer getMajorCode() {
-        return majorCode;
+    public Integer getId() {
+        return id;
     }
 
-    public void setMajorCode(Integer majorCode) {
-        this.majorCode = majorCode;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getField() {

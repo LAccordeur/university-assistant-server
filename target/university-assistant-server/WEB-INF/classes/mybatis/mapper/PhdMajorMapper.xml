@@ -23,7 +23,7 @@
 <mapper namespace="com.uppfind.dao.PhdMajorMapper">
 
   <select id="queryPhdMajorSet" resultType="PhdMajor">
-    SELECT  p.Major ,p.MajorCode  FROM  phdmajorview as p
+    SELECT  p.Major ,p.MajorCode AS id  FROM  phdmajorview as p
     WHERE  (SELECT u.Location FROM universitysheet AS u WHERE p.UniversityCode=u.UniversityCode)= #{province}
     AND p.University=#{university}
     AND p.School=#{school}
@@ -32,7 +32,7 @@
   </select>
 
   <select id="queryPhdMajorList" resultType="PhdMajor">
-    SELECT  p.Major ,p.MajorCode, p.University, p.School,p.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode) AS Image
+    SELECT  p.Major ,p.MajorCode AS id, p.University, p.School,p.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode) AS Image
     FROM  phdmajorview as p
     WHERE p.Major LIKE concat(concat('%',#{keyword}),'%')
     AND  p.Major !=''
@@ -41,7 +41,7 @@
   </select>
 
   <select id="queryPhdMajorInfo" resultType="PhdMajor">
-    SELECT  p.Major ,p.MajorCode, p.University, p.School,p.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode ) AS Image
+    SELECT  p.Major ,p.MajorCode AS id, p.University, p.School,p.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode ) AS Image
     FROM  phdmajorview as p
     WHERE p.SchoolCode= #{schoolCode}
     AND p.MajorCode= #{majorCode}

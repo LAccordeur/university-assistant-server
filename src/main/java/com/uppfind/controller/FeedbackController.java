@@ -16,7 +16,7 @@ public class FeedbackController {
     @Autowired
     private FeedbackServiceImpl feedbackService;
 
-    @RequestMapping(value = "addFeedbackInfo.do", method = RequestMethod.POST)
+    @RequestMapping(value = "/addFeedbackInfo.do", method = RequestMethod.POST)
     public void addFeedbackInfo() {
 
     }

@@ -28,11 +28,11 @@ public class MajorController {
     private MasterMajorService masterMajorService;
 
 
-    @RequestMapping(value = "/queryMajor.do",
+    @RequestMapping(value = "/searchmajor.php",
             method = RequestMethod.GET,
             produces = {"application/json;charset=utf8"})
     @ResponseBody
-    public Response<List<School>> queryTeacher(String mode,
+    public Response<List<School>> queryMajor(String mode,
                                                String coin,
                                                @RequestParam(required = false) String l,
                                                @RequestParam(required = false) String u,
@@ -53,10 +53,6 @@ public class MajorController {
             } else if ("2".equals(mode) && m != null) {
                 //根据关键词查询专业列表
                 return masterMajorService.queryMasterMajorList(m);
-
-            } else if ("2".equals(mode) && f != null) {
-                //根据关键词查询方向列表
-                return masterMajorService.queryMajorFieldList(f);
 
             } else if ("3".equals(mode) && sc != null && mc != null) {
                 //根据学院代码和专业代码查详情
@@ -82,6 +78,8 @@ public class MajorController {
 
         return null;
     }
+
+
 
 
 }

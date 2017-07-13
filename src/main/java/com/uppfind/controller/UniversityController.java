@@ -26,7 +26,7 @@ public class UniversityController {
 
 
 
-    @RequestMapping(value = "/queryProvince.do",
+    @RequestMapping(value = "/searchlocation.php",
                     method = RequestMethod.GET,
                     produces = {"application/json;charset=utf8"})
     @ResponseBody
@@ -36,7 +36,7 @@ public class UniversityController {
 
 
 
-    @RequestMapping(value = "/queryUniversity.do",
+    @RequestMapping(value = "/searchuniversity.php",
                     method = RequestMethod.GET,
                     produces = {"application/json;charset=utf8"})
     @ResponseBody

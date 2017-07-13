@@ -24,6 +24,13 @@ public interface TeacherService {
     Response queryTeacherList(String keyword);
 
     /**
+     * 根据学院id查询老师信息（部分信息）
+     * @param schoolCode
+     * @return
+     */
+    Response queryTeacherListById(String schoolCode);
+
+    /**
      * 查询老师的详细信息
      * @param teacherCode
      * @return

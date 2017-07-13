@@ -28,6 +28,13 @@ public interface TeacherMapper {
     List<Teacher> queryTeacherList(@Param("keyword") String keyword);
 
     /**
+     * 查询某学院下所有老师，返回老师信息列表
+     * @param schoolCode
+     * @return
+     */
+    List<Teacher> queryTeacherListById(@Param("schoolCode") String schoolCode);
+
+    /**
      * 根据id查询老师的具体信息
      * @param teacherId
      * @return

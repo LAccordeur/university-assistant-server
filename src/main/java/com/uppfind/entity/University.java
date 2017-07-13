@@ -12,7 +12,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  */
 @JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
 public class University {
-    private Integer universityCode;     //学校代码
+    private Integer id;     //学校代码
 
     private String university;      //学校名称
 
@@ -41,7 +41,7 @@ public class University {
     @Override
     public String toString() {
         return "University{" +
-                "universityCode=" + universityCode +
+                "id=" + id +
                 ", university='" + university + '\'' +
                 ", englishName='" + englishName + '\'' +
                 ", establishedTime='" + establishedTime + '\'' +
@@ -57,12 +57,12 @@ public class University {
                 '}';
     }
 
-    public Integer getUniversityCode() {
-        return universityCode;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUniversityCode(Integer universityCode) {
-        this.universityCode = universityCode;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUniversity() {

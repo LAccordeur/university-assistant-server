@@ -23,7 +23,7 @@ public class SchoolServiceImpl implements SchoolService {
         Response<List<School>> response = new Response<List<School>>();
         //组装返回的Response对象
         List<School> schools = schoolMapper.querySchoolSet(province, university);
-        response.setData(schools);
+        response.setResult(schools);
         response.setTotal(schools.size());
 
         return response;
@@ -34,7 +34,7 @@ public class SchoolServiceImpl implements SchoolService {
         Response<List<School>> response = new Response<List<School>>();
         //组装返回的Response对象
         List<School> schools = schoolMapper.querySchoolList(keyword);
-        response.setData(schools);
+        response.setResult(schools);
         response.setTotal(schools.size());
         response.setCount(schools.size());
         response.setStart(0);
@@ -47,8 +47,20 @@ public class SchoolServiceImpl implements SchoolService {
         Response<List<School>> response = new Response<List<School>>();
         //组装返回的Response对象
         List<School> school = schoolMapper.querySchoolInfo(Long.parseLong(schoolCode));
-        response.setData(school);
+        response.setResult(school);
         response.setTotal(school.size());
+
+        return response;
+    }
+
+    public Response querySchoolListById(String universityCode) {
+        Response<List<School>> response = new Response<List<School>>();
+        //组装返回的Response对象
+        List<School> schools = schoolMapper.querySchoolListById(universityCode);
+        response.setResult(schools);
+        response.setTotal(schools.size());
+        response.setCount(schools.size());
+        response.setStart(0);
 
         return response;
     }

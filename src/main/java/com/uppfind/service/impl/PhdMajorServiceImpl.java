@@ -23,7 +23,7 @@ public class PhdMajorServiceImpl implements PhdMajorService {
         Response<List<PhdMajor>> response = new Response<List<PhdMajor>>();
         //组装返回的Response对象
         List<PhdMajor> phdMajors = phdMajorMapper.queryPhdMajorSet(province, university, school);
-        response.setData(phdMajors);
+        response.setResult(phdMajors);
         response.setTotal(phdMajors.size());
 
         return response;
@@ -34,7 +34,7 @@ public class PhdMajorServiceImpl implements PhdMajorService {
         Response<List<PhdMajor>> response = new Response<List<PhdMajor>>();
         //组装返回的Response对象
         List<PhdMajor> phdMajors = phdMajorMapper.queryPhdMajorList(keyword);
-        response.setData(phdMajors);
+        response.setResult(phdMajors);
         response.setTotal(phdMajors.size());
         response.setCount(phdMajors.size());
         response.setStart(0);
@@ -46,7 +46,7 @@ public class PhdMajorServiceImpl implements PhdMajorService {
         Response<List<PhdMajor>> response = new Response<List<PhdMajor>>();
         //组装返回的Response对象
         List<PhdMajor> phdMajors = phdMajorMapper.queryPhdMajorInfo(Long.parseLong(schoolCode), Integer.parseInt(majorCode));
-        response.setData(phdMajors);
+        response.setResult(phdMajors);
         response.setTotal(phdMajors.size());
 
         return response;

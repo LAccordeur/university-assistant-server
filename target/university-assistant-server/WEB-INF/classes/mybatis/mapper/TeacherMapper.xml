@@ -37,6 +37,13 @@
     LIMIT 0 , 10
   </select>
 
+  <select id="queryTeacherListById" resultType="Teacher">
+    SELECT t.Name, t.School, t.University, t.Title, t.Degree, t.Icon, t.Id
+    FROM teacherview AS t
+    WHERE SchoolCode = #{schoolCode}
+    LIMIT 0 , 10
+  </select>
+
   <select id="queryTeacherInfo" resultType="Teacher">
     SELECT *
     FROM teacherview AS t
