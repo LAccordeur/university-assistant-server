@@ -198,6 +198,13 @@
       <version>1.2.5</version>
     </dependency>-->
 
+    <!--JWT token:nimbus-jose-jwt-4.13.1.jar (一款开源的成熟的JSON WEB TOKEN 解决方法，本仓库的代码是对其的进一步封装)-->
+    <dependency>
+      <groupId>com.nimbusds</groupId>
+      <artifactId>nimbus-jose-jwt</artifactId>
+      <version>4.13.1</version>
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>university-assistant-server</finalName>

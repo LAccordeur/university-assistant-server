@@ -2,118 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30bf4131-0e9b-4546-b08f-25db4a44e2f7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/controller/CommentController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/dao/CommentMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/entity/Comment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/CommentService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/CommentServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/util/comment/AnonymousUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CommentMapper.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/controller/TestController.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/controller/MajorController.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/controller/MajorController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/controller/ResearchFieldController.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/controller/ResearchFieldController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/controller/SchoolController.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/controller/SchoolController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/controller/TeacherController.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/controller/TeacherController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/controller/UniversityController.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/controller/UniversityController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/dao/MasterMajorMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/dao/MasterMajorMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/dao/PhdMajorMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/dao/PhdMajorMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/dao/ResearchFieldMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/dao/ResearchFieldMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/dao/SchoolMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/dao/SchoolMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/dao/TeacherMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/dao/TeacherMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/dao/UniversityMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/dao/UniversityMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/dto/Response.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/dto/Response.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/service/MasterMajorService.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/service/MasterMajorService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/service/PhdMajorService.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/service/PhdMajorService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/service/ResearchFieldService.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/service/ResearchFieldService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/service/SchoolService.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/service/SchoolService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/service/TeacherService.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/service/TeacherService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/service/UniversityService.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/service/UniversityService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/service/impl/MasterMajorServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/service/impl/MasterMajorServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/service/impl/PhdMajorServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/service/impl/PhdMajorServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/service/impl/ResearchFieldServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/service/impl/ResearchFieldServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/service/impl/SchoolServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/service/impl/SchoolServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/service/impl/TeacherServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/service/impl/TeacherServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/uppfind/service/impl/UniversityServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/uppfind/service/impl/UniversityServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/uppfind/service/impl/TeacherServiceImplTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/uppfind/service/impl/TeacherServiceImplTest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_nimbus_jose_jwt_4_13_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_jcip_jcip_annotations_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_1_3_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/controller/LikeController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/dao/LikeMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/entity/Like.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/LikeService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/LikeServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/util/jwt/JwtHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/util/jwt/TokenState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/LikeMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server.war" afterPath="$PROJECT_DIR$/target/university-assistant-server.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/controller/MajorController.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/controller/MajorController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/controller/ResearchFieldController.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/controller/ResearchFieldController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/controller/SchoolController.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/controller/SchoolController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/controller/SearchController.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/controller/SearchController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/controller/TeacherController.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/controller/TeacherController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/controller/UniversityController.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/controller/UniversityController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/dao/MasterMajorMapper.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/dao/MasterMajorMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/dao/PhdMajorMapper.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/dao/PhdMajorMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/dao/ResearchFieldMapper.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/dao/ResearchFieldMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/dao/SchoolMapper.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/dao/SchoolMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/dao/TeacherMapper.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/dao/TeacherMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/dao/UniversityMapper.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/dao/UniversityMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/dto/Response.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/dto/Response.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/MasterMajorService.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/MasterMajorService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/PhdMajorService.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/PhdMajorService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/ResearchFieldService.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/ResearchFieldService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/SchoolService.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/SchoolService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/TeacherService.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/TeacherService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/UniversityService.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/UniversityService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/impl/MasterMajorServiceImpl.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/impl/MasterMajorServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/impl/PhdMajorServiceImpl.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/impl/PhdMajorServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/impl/ResearchFieldServiceImpl.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/impl/ResearchFieldServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/impl/SchoolServiceImpl.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/impl/SchoolServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/impl/TeacherServiceImpl.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/impl/TeacherServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/impl/UniversityServiceImpl.class" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/com/uppfind/service/impl/UniversityServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/university_assistant_server_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/university_assistant_server_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/controller/MajorController.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/controller/MajorController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/controller/ResearchFieldController.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/controller/ResearchFieldController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/controller/SchoolController.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/controller/SchoolController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/controller/TeacherController.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/controller/TeacherController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/controller/UniversityController.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/controller/UniversityController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/dao/MasterMajorMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/dao/MasterMajorMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/dao/PhdMajorMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/dao/PhdMajorMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/dao/ResearchFieldMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/dao/ResearchFieldMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/dao/SchoolMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/dao/SchoolMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/dao/TeacherMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/dao/TeacherMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/dao/UniversityMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/dao/UniversityMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/dto/Response.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/dto/Response.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/service/MasterMajorService.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/MasterMajorService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/service/PhdMajorService.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/PhdMajorService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/service/ResearchFieldService.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/ResearchFieldService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/service/SchoolService.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/SchoolService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/service/TeacherService.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/TeacherService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/service/UniversityService.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/UniversityService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/MasterMajorServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/MasterMajorServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/PhdMajorServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/PhdMajorServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/ResearchFieldServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/ResearchFieldServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/SchoolServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/SchoolServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/TeacherServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/TeacherServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/UniversityServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/UniversityServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/uppfind/util/page/Page.java" afterPath="$PROJECT_DIR$/src/main/java/com/uppfind/util/page/Page.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/MasterMajorMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/MasterMajorMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/PhdMajorMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/PhdMajorMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/ResearchFieldMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/ResearchFieldMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/SchoolMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/SchoolMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/TeacherMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/TeacherMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/UniversityMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/UniversityMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/uppfind/service/impl/TeacherServiceImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/uppfind/service/impl/TeacherServiceImplTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/MasterMajorMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/MasterMajorMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/PhdMajorMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/PhdMajorMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/ResearchFieldMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/ResearchFieldMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/SchoolMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/SchoolMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/TeacherMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/TeacherMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/UniversityMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/UniversityMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/mybatis/mapper/MasterMajorMapper.xml" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/mybatis/mapper/MasterMajorMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/mybatis/mapper/PhdMajorMapper.xml" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/mybatis/mapper/PhdMajorMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/mybatis/mapper/ResearchFieldMapper.xml" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/mybatis/mapper/ResearchFieldMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/mybatis/mapper/SchoolMapper.xml" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/mybatis/mapper/SchoolMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/mybatis/mapper/TeacherMapper.xml" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/mybatis/mapper/TeacherMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/mybatis/mapper/UniversityMapper.xml" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/classes/mybatis/mapper/UniversityMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/university-assistant-server/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/university-assistant-server.iml" afterPath="$PROJECT_DIR$/university-assistant-server.iml" />
     </list>
     <ignored path="university-assistant-server.iws" />
@@ -138,52 +42,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Comment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/entity/Comment.java">
+      <file leaf-file-name="LikeMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/LikeMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+            <state relative-caret-position="238">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1221#1222#0" expanded="true" />
-                <element signature="e#1246#1247#0" expanded="true" />
-                <element signature="e#1283#1284#0" expanded="true" />
-                <element signature="e#1311#1312#0" expanded="true" />
-                <element signature="e#1346#1347#0" expanded="true" />
-                <element signature="e#1377#1378#0" expanded="true" />
-                <element signature="e#1425#1426#0" expanded="true" />
-                <element signature="e#1465#1466#0" expanded="true" />
-                <element signature="e#1503#1504#0" expanded="true" />
-                <element signature="e#1536#1537#0" expanded="true" />
-                <element signature="e#1589#1590#0" expanded="true" />
-                <element signature="e#1633#1634#0" expanded="true" />
-                <element signature="e#1667#1668#0" expanded="true" />
-                <element signature="e#1697#1698#0" expanded="true" />
-                <element signature="e#1743#1744#0" expanded="true" />
-                <element signature="e#1781#1782#0" expanded="true" />
-                <element signature="e#1816#1817#0" expanded="true" />
-                <element signature="e#1847#1848#0" expanded="true" />
-                <element signature="e#1895#1896#0" expanded="true" />
-                <element signature="e#1935#1936#0" expanded="true" />
-                <element signature="e#1972#1973#0" expanded="true" />
-                <element signature="e#2005#2006#0" expanded="true" />
-                <element signature="e#2057#2058#0" expanded="true" />
-                <element signature="e#2101#2102#0" expanded="true" />
-                <element signature="e#2138#2139#0" expanded="true" />
-                <element signature="e#2170#2171#0" expanded="true" />
-                <element signature="e#2221#2222#0" expanded="true" />
-                <element signature="e#2263#2264#0" expanded="true" />
+                <marker date="1500395022673" expanded="true" signature="923:1007" ph="SELECT id,ta... likesheet" />
+                <marker date="1500395022673" expanded="true" signature="1073:1148" ph="SELECT id,ta... likesheet" />
+                <marker date="1500395022673" expanded="true" signature="1211:1277" ph="UPDATE likes... " />
+                <marker date="1500395022673" expanded="true" signature="1217:1228" ph="INSERT INTO likesheet... " />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommentMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/dao/CommentMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -191,18 +60,18 @@
       <file leaf-file-name="CommentServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/CommentServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
+            <state relative-caret-position="88">
               <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommentController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/controller/CommentController.java">
+      <file leaf-file-name="LikeMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/dao/LikeMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="225">
+              <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -210,11 +79,62 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="CommentController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/controller/CommentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="188" column="28" selection-start-line="188" selection-start-column="28" selection-end-line="188" selection-end-column="28" />
+            <state relative-caret-position="242">
+              <caret line="27" column="17" selection-start-line="24" selection-start-column="4" selection-end-line="27" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LikeService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/service/LikeService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="379">
+              <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LikeServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/LikeServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+              <folding>
+                <element signature="e#747#753#0" expanded="true" />
+                <element signature="method#getTokenResponse#0;class#LikeServiceImpl#0" expanded="false" />
+                <element signature="e#2635#2651#0" expanded="true" />
+                <element signature="e#2957#2973#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LikeController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/controller/LikeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#845#846#0" expanded="true" />
+                <element signature="e#904#905#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TokenState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/util/jwt/TokenState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -242,14 +162,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/com/uppfind/dao/MasterMajorMapperTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/uppfind/service/impl/MasterMajorServiceImplTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/uppfind/entity/ResearchField.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/uppfind/entity/Teacher.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/uppfind/service/SearchService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/SearchServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/uppfind/controller/TestController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/uppfind/controller/SearchController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/TeacherMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/uppfind/dto/Response.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/uppfind/dao/TeacherMapper.java" />
@@ -291,8 +203,16 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CommentMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/spring-web.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/uppfind/entity/Comment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/uppfind/entity/Like.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/uppfind/dao/LikeMapper.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/uppfind/util/jwt/TokenState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/uppfind/util/jwt/JwtHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/uppfind/service/LikeService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/uppfind/controller/LikeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/LikeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/LikeMapper.xml" />
       </list>
     </option>
   </component>
@@ -455,7 +375,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -475,6 +395,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../dlt-server" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -482,11 +403,12 @@
       <recent name="com.uppfind.dao" />
       <recent name="com.uppfind.controller" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.uppfind.util.jwt" />
+      <recent name="com.uppfind.util.page" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.uppfind.util.page" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Work\IDEAWork\university-assistant-server\src\main\resources\mybatis\mapper" />
@@ -1171,7 +1093,7 @@
       <workItem from="1499858755628" duration="15716000" />
       <workItem from="1500028574066" duration="2207000" />
       <workItem from="1500051853974" duration="19784000" />
-      <workItem from="1500313959876" duration="1651000" />
+      <workItem from="1500313959876" duration="9042000" />
     </task>
     <servers />
   </component>
@@ -1208,15 +1130,15 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124694000" />
+    <option name="totallyTimeSpent" value="132085000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5376712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33561644" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1229,20 +1151,20 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27231467" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22844176" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7089041" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.57363015" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52226025" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7106164" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1258,7 +1180,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="14" />
+      <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1267,115 +1189,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/UniversityMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="41" column="11" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
-          <folding>
-            <marker date="1500052153982" expanded="true" signature="929:991" ph="SELECT locat... universitysheet" />
-            <marker date="1500052153982" expanded="true" signature="1069:1227" ph="SELECT unive... universitysheet" />
-            <marker date="1500052153982" expanded="true" signature="1309:1496" ph="SELECT unive... universitysheet" />
-            <marker date="1500052153982" expanded="true" signature="1574:1669" ph="SELECT unive... universitysheet" />
-            <marker date="1500052153982" expanded="true" signature="1747:2016" ph="SELECT unive... universitysheet" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/PhdMajorMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
-          <folding>
-            <marker date="1500052153730" expanded="true" signature="925:1213" ph="SELECT p.Maj... phdmajorview" />
-            <marker date="1500052153730" expanded="true" signature="997:1080" ph="SELECT u.Loc... universitysheet" />
-            <marker date="1500052153730" expanded="true" signature="1287:1699" ph="SELECT p.Maj... phdmajorview" />
-            <marker date="1500052153730" expanded="true" signature="1361:1428" ph="SELECT s.Ico... schoolsheet" />
-            <marker date="1500052153730" expanded="true" signature="1440:1508" ph="SELECT s.Ima... schoolsheet" />
-            <marker date="1500052153730" expanded="true" signature="1777:2218" ph="SELECT p.Maj... phdmajorview" />
-            <marker date="1500052153730" expanded="true" signature="1851:1918" ph="SELECT s.Ico... schoolsheet" />
-            <marker date="1500052153730" expanded="true" signature="1930:1998" ph="SELECT s.Ima... schoolsheet" />
-            <marker date="1500052153730" expanded="true" signature="2292:2719" ph="SELECT p.Maj... phdmajorview" />
-            <marker date="1500052153730" expanded="true" signature="2366:2433" ph="SELECT s.Ico... schoolsheet" />
-            <marker date="1500052153730" expanded="true" signature="2445:2513" ph="SELECT s.Ima... schoolsheet" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/ResearchFieldMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-          <folding>
-            <marker date="1500052153924" expanded="true" signature="939:1174" ph="SELECT j.Nam... mastermajorview" />
-            <marker date="1500052153924" expanded="true" signature="1004:1055" ph="SELECT t.Ico... teacherview" />
-            <marker date="1500052153924" expanded="true" signature="1259:1523" ph="SELECT j.Nam... mastermajorview" />
-            <marker date="1500052153924" expanded="true" signature="1324:1375" ph="SELECT t.Ico... teacherview" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/util/page/Page.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/3.2.6.RELEASE/spring-web-3.2.6.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/dao/ResearchFieldMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="27" column="0" selection-start-line="26" selection-start-column="48" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/dao/PhdMajorMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/SearchServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/SchoolMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
-          <folding>
-            <marker date="1500052153861" expanded="true" signature="919:1219" ph="SELECT s.Sch... schoolsheet" />
-            <marker date="1500052153861" expanded="true" signature="988:1072" ph="SELECT u.Loc... universitysheet" />
-            <marker date="1500052153861" expanded="true" signature="1096:1182" ph="SELECT u.Uni... universitysheet" />
-            <marker date="1500052153861" expanded="true" signature="1289:1551" ph="SELECT s.Sch... schoolsheet" />
-            <marker date="1500052153861" expanded="true" signature="1365:1451" ph="SELECT u.Uni... universitysheet" />
-            <marker date="1500052153861" expanded="true" signature="1625:1917" ph="SELECT s.Sch... schoolsheet" />
-            <marker date="1500052153861" expanded="true" signature="1701:1787" ph="SELECT u.Uni... universitysheet" />
-            <marker date="1500052153861" expanded="true" signature="1991:2241" ph="SELECT s.Sch... schoolsheet" />
-            <marker date="1500052153861" expanded="true" signature="2067:2153" ph="SELECT u.Uni... universitysheet" />
-            <marker date="1500052153861" expanded="true" signature="2311:2666" ph="SELECT *, (S... schoolsheet" />
-            <marker date="1500052153861" expanded="true" signature="2480:2566" ph="SELECT u.Uni... universitysheet" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/controller/SearchController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/dao/UniversityMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1514,20 +1327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/dao/FeedbackMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/dao/MasterMajorMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/service/FeedbackService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -1654,22 +1453,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/CommentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/dao/CommentMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/entity/Feedback.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -1678,12 +1461,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/controller/CommentController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/dao/CommentMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="247">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1726,11 +1509,158 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/entity/Like.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+          <folding>
+            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
+            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#690#691#0" expanded="true" />
+            <element signature="e#721#722#0" expanded="true" />
+            <element signature="e#769#770#0" expanded="true" />
+            <element signature="e#809#810#0" expanded="true" />
+            <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#880#881#0" expanded="true" />
+            <element signature="e#933#934#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#1014#1015#0" expanded="true" />
+            <element signature="e#1046#1047#0" expanded="true" />
+            <element signature="e#1097#1098#0" expanded="true" />
+            <element signature="e#1139#1140#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/dao/MasterMajorMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/dao/FeedbackMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/CommentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/util/jwt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="188" column="28" selection-start-line="188" selection-start-column="28" selection-end-line="188" selection-end-column="28" />
+        <state relative-caret-position="510">
+          <caret line="205" column="17" selection-start-line="205" selection-start-column="17" selection-end-line="205" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/util/jwt/TokenState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/util/jwt/JwtHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-415">
+          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/controller/CommentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="27" column="17" selection-start-line="24" selection-start-column="4" selection-end-line="27" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/service/LikeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/3.2.6.RELEASE/spring-web-3.2.6.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/dao/LikeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/LikeMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <marker date="1500395022673" expanded="true" signature="923:1007" ph="SELECT id,ta... likesheet" />
+            <marker date="1500395022673" expanded="true" signature="1073:1148" ph="SELECT id,ta... likesheet" />
+            <marker date="1500395022673" expanded="true" signature="1211:1277" ph="UPDATE likes... " />
+            <marker date="1500395022673" expanded="true" signature="1217:1228" ph="INSERT INTO likesheet... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/controller/LikeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#904#905#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uppfind/service/impl/LikeServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+          <folding>
+            <element signature="e#747#753#0" expanded="true" />
+            <element signature="method#getTokenResponse#0;class#LikeServiceImpl#0" expanded="false" />
+            <element signature="e#2635#2651#0" expanded="true" />
+            <element signature="e#2957#2973#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
