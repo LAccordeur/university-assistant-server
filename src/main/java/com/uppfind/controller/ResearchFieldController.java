@@ -26,9 +26,15 @@ public class ResearchFieldController {
             method = RequestMethod.GET,
             produces = {"application/json;charset=utf8"})
     @ResponseBody
-    public Response<List<School>> queryField(String mode, @RequestParam(required = false) String f) {
+    public Response<List<School>> queryField(String mode,
+                                             @RequestParam(required = false) String f,
+                                             @RequestParam(required = false) String ps,
+                                             @RequestParam(required = false) String cp) {
 
-        if ("2".equals(mode) && f != null) {
+        if ("2".equals(mode) && f != null && ps != null && cp != null) {
+            //返回分页信息
+            return researchFieldService.queryMajorFieldPageList(f, cp, ps);
+        } else if ("2".equals(mode) && f != null) {
             //根据关键词查询方向列表
             return researchFieldService.queryMajorFieldList(f);
         }

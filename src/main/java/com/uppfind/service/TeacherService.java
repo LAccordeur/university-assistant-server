@@ -17,7 +17,7 @@ public interface TeacherService {
     Response queryTeacherSet(String province, String university, String school);
 
     /**
-     * 根据关键词查询老师信息（部分信息）
+     * 根据关键词查询所有相关老师信息（部分信息）
      * @param keyword
      * @return
      */
@@ -36,4 +36,13 @@ public interface TeacherService {
      * @return
      */
     Response queryTeacherInfo(String teacherCode);
+
+    /**
+     * 根据关键词查询所有相关老师信息（分页）（部分信息）
+     * @param keyword
+     * @param pageSize
+     * @param currentPage
+     * @return
+     */
+    Response queryTeacherPageList( String keyword, String currentPage, String pageSize);
 }

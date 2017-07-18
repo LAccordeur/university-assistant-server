@@ -42,7 +42,8 @@ public class MajorController {
                                                @RequestParam(required = false) String pc,
                                                @RequestParam(required = false) String m,
                                                @RequestParam(required = false) String mc,
-                                               @RequestParam(required = false) String f) {
+                                               @RequestParam(required = false) String ps,
+                                               @RequestParam(required = false) String cp) {
 
         if ("1".equals(coin)) {
             //硕士专业信息查询
@@ -50,6 +51,9 @@ public class MajorController {
                 //根据省份、学校名、学院名查询专业集合
                 return masterMajorService.queryMasterMajorSet(l, u, s);
 
+            } else if ("2".equals(mode) && m != null && ps != null && cp != null) {
+                //返回分页信息
+                return masterMajorService.queryMasterMajorPageList(m, cp, ps);
             } else if ("2".equals(mode) && m != null) {
                 //根据关键词查询专业列表
                 return masterMajorService.queryMasterMajorList(m);
@@ -64,6 +68,10 @@ public class MajorController {
             if ("1".equals(mode) && l != null && u != null && s != null) {
                 //根据省份、学校名、学院名查询专业集合
                 return phdMajorService.queryPhdMajorSet(l, u, s);
+
+            } else if ("2".equals(mode) && p != null && ps != null && cp != null) {
+                //分页信息
+                return phdMajorService.queryPhdMajorPageList(p, cp, ps);
 
             } else if ("2".equals(mode) && p != null) {
                 //根据关键词查询专业列表

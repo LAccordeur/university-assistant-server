@@ -43,10 +43,14 @@ public class UniversityController {
     public Response<List<University>> queryUniversityList(String mode,
                                                           @RequestParam(required = false) String u,
                                                           @RequestParam(required = false) String uc,
-                                                          @RequestParam(required = false) String l) {
+                                                          @RequestParam(required = false) String l,
+                                                          @RequestParam(required = false) String ps,
+                                                          @RequestParam(required = false) String cp) {
 
-
-        if ("2".equals(mode) && u != null) {
+        if ("2".equals(mode) && u != null && ps != null && cp != null) {
+            //返回分页信息
+            return universityService.queryUniversityPageList(u, cp, ps);
+        } else if ("2".equals(mode) && u != null) {
             //根据关键词查询学校列表
             return universityService.queryUniversityList(u);
 

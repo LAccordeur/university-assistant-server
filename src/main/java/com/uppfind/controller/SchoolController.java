@@ -35,12 +35,17 @@ public class SchoolController {
                                               @RequestParam(required = false) String u,
                                               @RequestParam(required = false) String s,
                                               @RequestParam(required = false) String sc,
-                                              @RequestParam(required = false) String uc) {
+                                              @RequestParam(required = false) String uc,
+                                              @RequestParam(required = false) String ps,
+                                              @RequestParam(required = false) String cp) {
 
         if ("1".equals(mode) && l != null && u != null) {
             //根据省份和学校名查询学院名集合
             return schoolService.querySchoolSet(l, u);
 
+        } else if ("2".equals(mode) && s != null && ps != null && cp != null) {
+            //返回分页信息
+            return schoolService.querySchoolPageList(s, cp, ps);
         } else if ("2".equals(mode) && s != null) {
             //根据关键词查询学院列表
             return schoolService.querySchoolList(s);

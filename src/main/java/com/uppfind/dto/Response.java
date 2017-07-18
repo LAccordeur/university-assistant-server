@@ -17,14 +17,25 @@ public class Response<T> {
 
     private Integer count;
 
+    private String type; //返回的查询数据类型
+
     @Override
     public String toString() {
         return "Response{" +
-                "total=" + total +
+                "result=" + result +
+                ", total=" + total +
                 ", start=" + start +
                 ", count=" + count +
-                ", result=" + result +
+                ", type='" + type + '\'' +
                 '}';
+    }
+
+    public T getResult() {
+        return result;
+    }
+
+    public void setResult(T result) {
+        this.result = result;
     }
 
     public Integer getTotal() {
@@ -51,11 +62,11 @@ public class Response<T> {
         this.count = count;
     }
 
-    public T getResult() {
-        return result;
+    public String getType() {
+        return type;
     }
 
-    public void setResult(T result) {
-        this.result = result;
+    public void setType(String type) {
+        this.type = type;
     }
 }

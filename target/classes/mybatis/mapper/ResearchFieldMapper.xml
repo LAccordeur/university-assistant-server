@@ -28,9 +28,15 @@
     FROM  mastermajorview AS j
     WHERE j.Field LIKE concat(concat('%',#{keyword}),'%')
     AND j.Field !=''
-    LIMIT 0 , 10
   </select>
 
+  <select id="queryMajorFieldPageList" resultType="ResearchField">
+    SELECT  j.Name, j.Id, j.Major, j.Field, j.University, j.School, (SELECT t.Icon FROM teacherview AS t WHERE t.Id=j.Id) AS Icon
+    FROM  mastermajorview AS j
+    WHERE j.Field LIKE concat(concat('%',#{keyword}),'%')
+    AND j.Field !=''
+    LIMIT #{offset}, #{rows}
+  </select>
 
 
 </mapper>

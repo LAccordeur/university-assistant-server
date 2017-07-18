@@ -26,11 +26,20 @@ public interface UniversityMapper {
     List<University> queryUniversitySet(@Param("province") String province);
 
     /**
-     * 根据关键字查询学校列表（有部分详细信息）
+     * 根据关键字查询所有学校列表（有部分详细信息）
      * @param keyword
      * @return
      */
     List<University> queryUniversityList(@Param("keyword") String keyword);
+
+    /**
+     * 根据关键字查询学校列表（分页）（有部分详细信息）
+     * @param keyword
+     * @param offset
+     * @param rows
+     * @return
+     */
+    List<University> queryUniversityPageList(@Param("keyword") String keyword, @Param("offset") int offset, @Param("rows") int rows);
 
 
 

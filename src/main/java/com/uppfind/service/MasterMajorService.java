@@ -23,6 +23,14 @@ public interface MasterMajorService {
      */
     Response queryMasterMajorList(String keyword);
 
+    /**
+     * 根据关键词查询相关硕士专业信息（部分信息）
+     * @param keyword
+     * @param currentPage
+     * @param pageSize
+     * @return
+     */
+    Response queryMasterMajorPageList(String keyword, String currentPage, String pageSize);
 
     /**
      * 查询专业详细信息

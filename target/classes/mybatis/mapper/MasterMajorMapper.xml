@@ -37,7 +37,6 @@
     WHERE m.Major LIKE concat(concat('%',#{keyword}),'%')
     AND  m.Major !=''
     GROUP BY  m.Major, m.MajorCode, m.University, m.School, m.SchoolCode
-    LIMIT 0 , 10
   </select>
 
   <select id="queryMajorFieldList" resultType="MasterMajor">
@@ -45,7 +44,14 @@
     FROM  mastermajorview AS j
     WHERE j.Field LIKE concat(concat('%',#{keyword}),'%')
     AND j.Field !=''
-    LIMIT 0 , 10
+  </select>
+
+  <select id="queryMajorFieldPageList" resultType="MasterMajor">
+    SELECT  j.Name, j.Id, j.Major, j.Field, j.University, j.School, (SELECT t.Icon FROM teacherview AS t WHERE t.Id=j.Id) AS Icon
+    FROM  mastermajorview AS j
+    WHERE j.Field LIKE concat(concat('%',#{keyword}),'%')
+    AND j.Field !=''
+    LIMIT #{offset}, #{rows}
   </select>
 
   <select id="queryMasterMajorInfo" resultType="MasterMajor">
@@ -55,7 +61,6 @@
     AND m.MajorCode= #{majorCode}
     AND  m.Major !=''
     GROUP BY  m.Major,m.MajorCode, m.University, m.School,m.SchoolCode
-    LIMIT 0 , 10
   </select>
 
 

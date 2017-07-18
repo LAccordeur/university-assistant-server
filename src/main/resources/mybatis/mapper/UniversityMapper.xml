@@ -34,6 +34,13 @@
     WHERE university LIKE concat(concat('%',#{keyword}),'%')
   </select>
 
+  <select id="queryUniversityPageList" resultType="University">
+    SELECT university, universityCode AS id, location, property, uType, icon
+    FROM universitysheet
+    WHERE university LIKE concat(concat('%',#{keyword}),'%')
+    LIMIT #{offset}, #{rows}
+  </select>
+
 
   <select id="queryUniversitySet" resultType="University">
     SELECT university, universityCode AS id

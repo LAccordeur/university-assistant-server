@@ -16,4 +16,14 @@ public interface ResearchFieldMapper {
      * @return
      */
     List<ResearchField> queryMajorFieldList(@Param("keyword") String keyword);
+
+    /**
+     * 根据关键词查询所有相关的研究方向的老师，返回含有视图中部分信息的列表（分页）
+     * @param keyword
+     * @param offset
+     * @param rows
+     * @return
+     */
+    List<ResearchField> queryMajorFieldPageList(@Param("keyword") String keyword, @Param("offset") int offset, @Param("rows") int rows);
+
 }

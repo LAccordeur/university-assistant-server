@@ -35,4 +35,13 @@ public interface SchoolService {
      * @return
      */
     Response querySchoolInfo(String schoolCode);
+
+    /**
+     * 根据关键词返回相关学院（含部分学院信息）列表(分页)
+     * @param keyword
+     * @param currentPage
+     * @param pageSize
+     * @return
+     */
+    Response querySchoolPageList(String keyword, String currentPage, String pageSize);
 }

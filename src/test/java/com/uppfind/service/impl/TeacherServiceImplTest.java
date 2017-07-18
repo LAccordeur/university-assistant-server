@@ -40,4 +40,10 @@ public class TeacherServiceImplTest {
         System.out.println(response);
     }
 
+    @Test
+    public void queryTeacherPageList() throws Exception {
+        //Response response = teacherService.queryTeacherPageList("赵",8,1);
+        //System.out.println(response);
+    }
+
 }

@@ -30,4 +30,13 @@ public interface PhdMajorService {
      * @return
      */
     Response queryPhdMajorInfo(String schoolCode, String majorCode);
+
+    /**
+     * 根据关键词查询相关博士专业信息（部分信息）(分页)
+     * @param keyword
+     * @param currentPage
+     * @param pageSize
+     * @return
+     */
+    Response queryPhdMajorPageList(String keyword, String currentPage, String pageSize);
 }

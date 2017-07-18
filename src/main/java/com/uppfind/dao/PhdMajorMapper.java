@@ -26,6 +26,17 @@ public interface PhdMajorMapper {
      */
     List<PhdMajor> queryPhdMajorList(@Param("keyword") String keyword);
 
+
+    /**
+     * 根据关键词查询所有相关的博士专业(分页)
+     * @param keyword
+     * @param offset
+     * @param rows
+     * @return
+     */
+    List<PhdMajor> queryPhdMajorPageList(@Param("keyword") String keyword, @Param("offset") int offset, @Param("rows") int rows);
+
+
     /**
      * 查询某专业的具体信息
      * @param schoolCode

@@ -46,6 +46,14 @@
     AND j.Field !=''
   </select>
 
+  <select id="queryMajorFieldPageList" resultType="MasterMajor">
+    SELECT  j.Name, j.Id, j.Major, j.Field, j.University, j.School, (SELECT t.Icon FROM teacherview AS t WHERE t.Id=j.Id) AS Icon
+    FROM  mastermajorview AS j
+    WHERE j.Field LIKE concat(concat('%',#{keyword}),'%')
+    AND j.Field !=''
+    LIMIT #{offset}, #{rows}
+  </select>
+
   <select id="queryMasterMajorInfo" resultType="MasterMajor">
     SELECT  m.Major ,m.MajorCode AS id, m.University, m.School,m.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Image
     FROM  mastermajorview AS m

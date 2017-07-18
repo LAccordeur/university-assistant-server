@@ -28,6 +28,16 @@ public interface MasterMajorMapper {
 
 
     /**
+     * 根据关键词查询相关的所有专业，返回含有视图中部分专业信息的列表(分页)
+     * @param keyword
+     * @param offset
+     * @param rows
+     * @return
+     */
+    List<MasterMajor> queryMasterMajorPageList(@Param("keyword") String keyword, @Param("offset") int offset, @Param("rows") int rows);
+
+
+    /**
      * 查询具体硕士专业的详细信息
      * @param schoolCode
      * @param majorCode

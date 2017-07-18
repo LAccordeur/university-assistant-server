@@ -4,6 +4,7 @@ import com.uppfind.dao.ResearchFieldMapper;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.ResearchField;
 import com.uppfind.service.ResearchFieldService;
+import com.uppfind.util.page.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,43 @@ public class ResearchFieldServiceImpl implements ResearchFieldService {
         response.setTotal(researchFields.size());
         response.setCount(researchFields.size());
         response.setStart(0);
+        response.setType("researchField");
+
+        return response;
+    }
+
+    public Response queryMajorFieldPageList(String keyword, String currentPage, String pageSize) {
+        Response<Page<ResearchField>> response = new Response<Page<ResearchField>>();
+
+        int currentPageInt = Integer.valueOf(currentPage);
+        int pageSizeInt = Integer.valueOf(pageSize);
+
+        //当前页的下限检验
+        if (currentPageInt < 1) {
+            currentPageInt = 1;
+        }
+        if (pageSizeInt < 1) {
+            pageSizeInt = 10;
+        }
+
+        //计算分页信息
+        int offset = Page.getStart(currentPageInt, pageSizeInt);
+        int rows = pageSizeInt;
+
+
+        Page<ResearchField> pageData = null;
+        List<ResearchField> researchFields = null;
+
+
+        researchFields = researchFieldMapper.queryMajorFieldPageList(keyword, offset, rows);
+        if (researchFields != null && researchFields.size() > 0) {
+            pageData = new Page<ResearchField>(researchFields.size(), currentPageInt, researchFields);
+            response.setResult(pageData);
+            response.setStart(0);
+            response.setTotal(researchFields.size());
+            response.setCount(researchFields.size());
+            response.setType("researchField");
+        }
 
         return response;
     }

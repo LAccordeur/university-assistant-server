@@ -4,6 +4,7 @@ import com.uppfind.dao.SchoolMapper;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.School;
 import com.uppfind.service.SchoolService;
+import com.uppfind.util.page.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,7 @@ public class SchoolServiceImpl implements SchoolService {
         List<School> schools = schoolMapper.querySchoolSet(province, university);
         response.setResult(schools);
         response.setTotal(schools.size());
+        response.setType("school");
 
         return response;
     }
@@ -38,6 +40,7 @@ public class SchoolServiceImpl implements SchoolService {
         response.setTotal(schools.size());
         response.setCount(schools.size());
         response.setStart(0);
+        response.setType("school");
 
         return response;
     }
@@ -49,6 +52,7 @@ public class SchoolServiceImpl implements SchoolService {
         List<School> school = schoolMapper.querySchoolInfo(Long.parseLong(schoolCode));
         response.setResult(school);
         response.setTotal(school.size());
+        response.setType("school");
 
         return response;
     }
@@ -61,6 +65,44 @@ public class SchoolServiceImpl implements SchoolService {
         response.setTotal(schools.size());
         response.setCount(schools.size());
         response.setStart(0);
+        response.setType("school");
+
+        return response;
+    }
+
+    public Response querySchoolPageList(String keyword, String currentPage, String pageSize) {
+        Response<Page<School>> response = new Response<Page<School>>();
+
+        int currentPageInt = Integer.valueOf(currentPage);
+        int pageSizeInt = Integer.valueOf(pageSize);
+
+        //当前页的下限检验
+        if (currentPageInt < 1) {
+            currentPageInt = 1;
+        }
+        if (pageSizeInt < 1) {
+            pageSizeInt = 10;
+        }
+
+        //计算分页信息
+        int offset = Page.getStart(currentPageInt, pageSizeInt);
+        int rows = pageSizeInt;
+
+
+        Page<School> pageData = null;
+        List<School> schools = null;
+
+
+        schools = schoolMapper.querySchoolPageList(keyword, offset, rows);
+        if (schools != null && schools.size() > 0) {
+            pageData = new Page<School>(schools.size(), currentPageInt, schools);
+            response.setResult(pageData);
+            response.setStart(0);
+            response.setTotal(schools.size());
+            response.setCount(schools.size());
+            response.setType("school");
+
+        }
 
         return response;
     }

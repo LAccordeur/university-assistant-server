@@ -4,6 +4,7 @@ import com.uppfind.dao.TeacherMapper;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.Teacher;
 import com.uppfind.service.TeacherService;
+import com.uppfind.util.page.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,7 @@ public class TeacherServiceImpl implements TeacherService {
         List<Teacher> teachers = teacherMapper.queryTeacherSet(province, university, school);
         response.setResult(teachers);
         response.setTotal(teachers.size());
+        response.setType("teacher");
 
         return response;
     }
@@ -37,6 +39,7 @@ public class TeacherServiceImpl implements TeacherService {
         response.setTotal(teachers.size());
         response.setCount(teachers.size());
         response.setStart(0);
+        response.setType("teacher");
 
         return response;
     }
@@ -49,6 +52,43 @@ public class TeacherServiceImpl implements TeacherService {
         response.setTotal(teachers.size());
         response.setCount(teachers.size());
         response.setStart(0);
+        response.setType("teacher");
+
+        return response;
+    }
+
+    public Response queryTeacherPageList(String keyword, String currentPage, String pageSize) {
+        Response<Page<Teacher>> response = new Response<Page<Teacher>>();
+
+        int currentPageInt = Integer.valueOf(currentPage);
+        int pageSizeInt = Integer.valueOf(pageSize);
+
+        //当前页的下限检验
+        if (currentPageInt < 1) {
+            currentPageInt = 1;
+        }
+        if (pageSizeInt < 1) {
+            pageSizeInt = 10;
+        }
+
+        //计算分页信息
+        int offset = Page.getStart(currentPageInt, pageSizeInt);
+        int rows = pageSizeInt;
+
+
+        Page<Teacher> pageData = null;
+        List<Teacher> teachers = null;
+
+
+        teachers = teacherMapper.queryTeacherPageList(keyword, offset, rows);
+        if (teachers != null && teachers.size() > 0) {
+            pageData = new Page<Teacher>(teachers.size(), currentPageInt, teachers);
+            response.setResult(pageData);
+            response.setStart(0);
+            response.setTotal(teachers.size());
+            response.setCount(teachers.size());
+            response.setType("teacher");
+        }
 
         return response;
     }
@@ -59,7 +99,10 @@ public class TeacherServiceImpl implements TeacherService {
         List<Teacher> teacher = teacherMapper.queryTeacherInfo(Long.parseLong(teacherCode));
         response.setResult(teacher);
         response.setTotal(teacher.size());
+        response.setType("teacher");
 
         return response;
     }
+
+
 }

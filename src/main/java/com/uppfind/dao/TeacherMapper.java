@@ -21,7 +21,7 @@ public interface TeacherMapper {
     List<Teacher> queryTeacherSet(@Param("province") String province, @Param("university") String university, @Param("school") String school);
 
     /**
-     * 查询含有该关键词的所有老师，返回老师信息列表
+     * 查询含有该关键词的所有老师，返回所有老师信息列表
      * @param keyword
      * @return
      */
@@ -33,6 +33,15 @@ public interface TeacherMapper {
      * @return
      */
     List<Teacher> queryTeacherListById(@Param("schoolCode") String schoolCode);
+
+    /**
+     * 查询含有该关键词的所有老师，返回部分老师信息列表用于分页
+     * @param keyword
+     * @param offset
+     * @param rows
+     * @return
+     */
+    List<Teacher> queryTeacherPageList(@Param("keyword") String keyword, @Param("offset") int offset, @Param("rows") int rows);
 
     /**
      * 根据id查询老师的具体信息
