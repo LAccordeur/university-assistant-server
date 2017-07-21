@@ -1,5 +1,6 @@
 package com.uppfind.service;
 
+import com.uppfind.dto.CommentDTO;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.Comment;
 
@@ -9,5 +10,5 @@ import com.uppfind.entity.Comment;
 public interface CommentService {
     Response queryCommentByTeacherId(String teacherId);
 
-    int addComment(String content, String userName, String id, String type);
+    Response addComment(CommentDTO commentDTO);
 }

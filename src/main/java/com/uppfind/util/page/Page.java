@@ -2,8 +2,7 @@ package com.uppfind.util.page;
 
 
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.List;
  * 功能描述: 分页对象. 包含当前页数据及分页信息如总记录数.
  * @author guoyang
  */
-@JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Page<T> {
 
 
@@ -22,16 +21,18 @@ public class Page<T> {
 
     private Integer currentPage = 1; //当前页码，从1开始记数
 
-    private List<T> data = new ArrayList<T>(); // 当前页中存放的记录,类型一般为List
-
     private Integer resultCount = 0; // 总记录数
 
+    private List<T> data = new ArrayList<T>(); // 当前页中存放的记录,类型一般为List
 
 
-    public Page(Integer pageSize, Integer currentPage, List<T> data) {
+
+
+    public Page(Integer pageSize, Integer currentPage, Integer resultCount, List<T> data) {
         this.pageSize = pageSize;
         this.currentPage = currentPage;
         this.data = data;
+        this.resultCount = resultCount;
     }
 
 
@@ -42,12 +43,12 @@ public class Page<T> {
      * 获得第一条记录的截取位置
      * @return 第一条记录的截取位置
      */
-    public Integer getStart() {
+    /*public Integer getStart() {
         if (currentPage - 1 >= 0) {
             return (currentPage - 1) * pageSize;
         }
         return 0;
-    }
+    }*/
 
     /**
      * 获得第一条记录的截取位置
@@ -77,9 +78,9 @@ public class Page<T> {
      * 取总页数.
      * @return 符合查询条件的记录总页数
      */
-    public Integer getPageCount() {
+    /*public Integer getPageCount() {
             return (resultCount - 1) / pageSize + 1;
-    }
+    }*/
 
     /**
      * 取每页数据容量.
@@ -122,9 +123,9 @@ public class Page<T> {
      * 该页是否有下一页.
      * @return 如果当前页是最后一页，返回false，否则返回true
      */
-    public boolean hasNextPage() {
+    /*public boolean hasNextPage() {
         return this.getCurrentPage() < this.getPageCount() - 1;
-    }
+    }*/
 
     /**
      * 该页是否有上一页.

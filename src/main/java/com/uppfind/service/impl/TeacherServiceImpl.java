@@ -24,8 +24,8 @@ public class TeacherServiceImpl implements TeacherService {
         Response<List<Teacher>> response = new Response<List<Teacher>>();
         //组装返回的Response对象
         List<Teacher> teachers = teacherMapper.queryTeacherSet(province, university, school);
-        response.setResult(teachers);
-        response.setTotal(teachers.size());
+        response.setData(teachers);
+        response.setCount(teachers.size());
         response.setType("teacher");
 
         return response;
@@ -35,10 +35,8 @@ public class TeacherServiceImpl implements TeacherService {
         Response<List<Teacher>> response = new Response<List<Teacher>>();
         //组装返回的Response对象
         List<Teacher> teachers = teacherMapper.queryTeacherList(keyword);
-        response.setResult(teachers);
-        response.setTotal(teachers.size());
+        response.setData(teachers);
         response.setCount(teachers.size());
-        response.setStart(0);
         response.setType("teacher");
 
         return response;
@@ -48,10 +46,8 @@ public class TeacherServiceImpl implements TeacherService {
         Response<List<Teacher>> response = new Response<List<Teacher>>();
         //组装返回的Response对象
         List<Teacher> teachers = teacherMapper.queryTeacherListById(schoolCode);
-        response.setResult(teachers);
-        response.setTotal(teachers.size());
+        response.setData(teachers);
         response.setCount(teachers.size());
-        response.setStart(0);
         response.setType("teacher");
 
         return response;
@@ -82,10 +78,9 @@ public class TeacherServiceImpl implements TeacherService {
 
         teachers = teacherMapper.queryTeacherPageList(keyword, offset, rows);
         if (teachers != null && teachers.size() > 0) {
-            pageData = new Page<Teacher>(teachers.size(), currentPageInt, teachers);
-            response.setResult(pageData);
-            response.setStart(0);
-            response.setTotal(teachers.size());
+            pageData = new Page<Teacher>(pageSizeInt, currentPageInt, teachers.size(), teachers);
+            response.setData(pageData);
+            response.setCount(teachers.size());
             response.setCount(teachers.size());
             response.setType("teacher");
         }
@@ -97,8 +92,8 @@ public class TeacherServiceImpl implements TeacherService {
         Response<List<Teacher>> response = new Response<List<Teacher>>();
         //组装返回的Response对象
         List<Teacher> teacher = teacherMapper.queryTeacherInfo(Long.parseLong(teacherCode));
-        response.setResult(teacher);
-        response.setTotal(teacher.size());
+        response.setData(teacher);
+        response.setCount(teacher.size());
         response.setType("teacher");
 
         return response;

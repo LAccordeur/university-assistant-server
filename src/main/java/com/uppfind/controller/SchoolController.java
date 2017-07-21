@@ -20,43 +20,44 @@ import java.util.List;
  * 学院信息查询相关的controller
  */
 @Controller
-@RequestMapping
+@RequestMapping(value = "/school", produces = {"application/json;charset=utf8"})
 public class SchoolController {
 
     @Autowired
     private SchoolService schoolService;
 
-    @RequestMapping(value = "/searchschool.php",
-            method = RequestMethod.GET,
-            produces = {"application/json;charset=utf8"})
+    @RequestMapping(value = "/set",
+            method = RequestMethod.GET)
     @ResponseBody
-    public Response<List<School>> querySchool(String mode,
-                                              @RequestParam(required = false) String l,
-                                              @RequestParam(required = false) String u,
-                                              @RequestParam(required = false) String s,
-                                              @RequestParam(required = false) String sc,
-                                              @RequestParam(required = false) String uc,
-                                              @RequestParam(required = false) String ps,
-                                              @RequestParam(required = false) String cp) {
+    public Response querySchoolSet(String locationName, String universityName) {
+        return schoolService.querySchoolSet(locationName, universityName);
+    }
 
-        if ("1".equals(mode) && l != null && u != null) {
-            //根据省份和学校名查询学院名集合
-            return schoolService.querySchoolSet(l, u);
 
-        } else if ("2".equals(mode) && s != null && ps != null && cp != null) {
-            //返回分页信息
-            return schoolService.querySchoolPageList(s, cp, ps);
-        } else if ("2".equals(mode) && s != null) {
-            //根据关键词查询学院列表
-            return schoolService.querySchoolList(s);
+    @RequestMapping(value = "/list",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public Response querySchoolList(@RequestParam(required = false) String keyword,
+                                    @RequestParam(required = false) String currentPage,
+                                    @RequestParam(required = false) String pageSize,
+                                    @RequestParam(required = false) String id) {
 
-        } else if ("3".equals(mode) && sc != null) {
-            //根据学院代码查询学院详细信息
-            return schoolService.querySchoolInfo(sc);
-        } else if ("2".equals(mode) && uc != null) {
-            return schoolService.querySchoolListById(uc);
+        if (keyword != null && currentPage != null && pageSize != null) {
+            return schoolService.querySchoolPageList(keyword, currentPage, pageSize);
+        } else if (keyword != null) {
+            return schoolService.querySchoolList(keyword);
+        } else if (id != null) {
+            return schoolService.querySchoolListById(id);
         }
-
         return null;
+    }
+
+
+
+    @RequestMapping(value = "/info",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public Response querySchoolInfo(String id) {
+        return schoolService.querySchoolInfo(id);
     }
 }

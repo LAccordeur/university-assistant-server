@@ -1,12 +1,12 @@
 package com.uppfind.entity;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  * Created by LAccordeur on 2017/6/1.
  * 与MasterMajor视图对应的实体类
  */
-@JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MasterMajor {
     private Integer id;      //招生专业代码
 

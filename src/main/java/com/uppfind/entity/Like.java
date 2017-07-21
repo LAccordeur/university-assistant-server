@@ -1,9 +1,12 @@
 package com.uppfind.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  * Created by LAccordeur on 2017/7/18.
  * 与点赞表对应的实体类
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Like {
 
     private Integer id; //主键

@@ -1,6 +1,6 @@
 package com.uppfind.entity;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.Locale;
 
@@ -9,7 +9,7 @@ import java.util.Locale;
  *
  * 对应phdmajor视图的实体类
  */
-@JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PhdMajor {
     private String name;        //导师姓名
 

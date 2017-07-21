@@ -24,10 +24,8 @@ public class ResearchFieldServiceImpl implements ResearchFieldService {
         Response<List<ResearchField>> response = new Response<List<ResearchField>>();
         //组装返回的Response对象
         List<ResearchField> researchFields = researchFieldMapper.queryMajorFieldList(keyword);
-        response.setResult(researchFields);
-        response.setTotal(researchFields.size());
+        response.setData(researchFields);
         response.setCount(researchFields.size());
-        response.setStart(0);
         response.setType("researchField");
 
         return response;
@@ -58,10 +56,8 @@ public class ResearchFieldServiceImpl implements ResearchFieldService {
 
         researchFields = researchFieldMapper.queryMajorFieldPageList(keyword, offset, rows);
         if (researchFields != null && researchFields.size() > 0) {
-            pageData = new Page<ResearchField>(researchFields.size(), currentPageInt, researchFields);
-            response.setResult(pageData);
-            response.setStart(0);
-            response.setTotal(researchFields.size());
+            pageData = new Page<ResearchField>(pageSizeInt, currentPageInt, researchFields.size(), researchFields);
+            response.setData(pageData);
             response.setCount(researchFields.size());
             response.setType("researchField");
         }

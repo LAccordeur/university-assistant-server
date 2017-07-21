@@ -11,7 +11,7 @@ public interface FeedbackMapper {
      * 保存用户的反馈信息至数据库
      * @param feedback
      */
-    void addFeedbackInfo(Feedback feedback);
+    int addFeedbackInfo(Feedback feedback);
 
 
 }

@@ -1,11 +1,14 @@
 package com.uppfind.service.impl;
 
 import com.uppfind.dao.CommentMapper;
+import com.uppfind.dto.CommentDTO;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.Comment;
 import com.uppfind.service.CommentService;
+import com.uppfind.util.assembler.CommentAssembler;
 import com.uppfind.util.comment.AnonymousUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,29 +28,25 @@ public class CommentServiceImpl implements CommentService {
 
         //组装
         List<Comment> commentList = commentMapper.queryCommentByTeacherId(teacherId);
-        response.setResult(commentList);
+        response.setData(commentList);
         response.setCount(commentList.size());
-        response.setTotal(commentList.size());
-        response.setStart(0);
         response.setType("comment");
 
         return response;
     }
 
-    public int addComment(String content, String userName, String id, String type) {
+    public Response addComment(CommentDTO commentDTO) {
 
-        if (userName == null) {
-            userName = AnonymousUtil.getAnonymousName();
-        }
-
-        Comment comment = null;
-        if ("teacher".equals(type) || "1".equals(type)) {
-            comment = new Comment(id, 1, content, userName);
-        }
+        Comment comment = CommentAssembler.toEntity(commentDTO);
+        comment.setUserName(AnonymousUtil.getAnonymousName());
 
         if (commentMapper.addComment(comment) > 0) {
-            return 1;
+            Response response = new Response();
+            response.setType("comment");
+            response.setMsg("评论成功");
+            response.setCode(HttpStatus.OK.value());
+            return response;
         }
-        return 0;
+        return null;
     }
 }

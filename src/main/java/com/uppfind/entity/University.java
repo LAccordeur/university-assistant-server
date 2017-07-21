@@ -5,12 +5,12 @@ package com.uppfind.entity;
  */
 
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  * 对应学校表的实体类
  */
-@JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class University {
     private Integer id;     //学校代码
 

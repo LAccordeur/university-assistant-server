@@ -24,7 +24,7 @@ public class SearchController {
     @Autowired
     private TeacherService teacherService;
 
-    @RequestMapping(value = "/searchall.php",
+    @RequestMapping(value = "/all/list",
             method = RequestMethod.GET,
             produces = {"application/json;charset=utf8"})
     @ResponseBody

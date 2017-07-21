@@ -19,7 +19,7 @@ public class LikeController {
     @Autowired
     private LikeService likeService;
 
-    @RequestMapping(value = "/like/teacher/query",
+    @RequestMapping(value = "/like/teacher",
             method = RequestMethod.GET,
             produces = {"application/json;charset=utf8"})
     @ResponseBody
@@ -27,11 +27,20 @@ public class LikeController {
         return likeService.queryLikeByTeacherId(id);
     }
 
-    @RequestMapping(value = "/like/teacher/add",
+    @RequestMapping(value = "/like/teacher",
             method = RequestMethod.POST,
             produces = {"application/json;charset=utf8"})
     @ResponseBody
     public Response addLike(String id, @RequestParam(required = false) String token) {
         return likeService.addLike(id, token);
     }
+
+    @RequestMapping(value = "/like/token",
+            method = RequestMethod.GET,
+            produces = {"application/json;charset=utf8"})
+    @ResponseBody
+    public Response getToken() {
+        return likeService.getTokenResponse();
+    }
+
 }

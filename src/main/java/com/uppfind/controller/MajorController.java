@@ -18,7 +18,7 @@ import java.util.List;
  * 专业信息查询相关的controller
  */
 @Controller
-@RequestMapping
+@RequestMapping(value = "/major", produces = {"application/json;charset=utf8"})
 public class MajorController {
 
     @Autowired
@@ -28,66 +28,59 @@ public class MajorController {
     private MasterMajorService masterMajorService;
 
 
-    @RequestMapping(value = "/searchmajor.php",
-            method = RequestMethod.GET,
-            produces = {"application/json;charset=utf8"})
+    @RequestMapping(value = "/phd/set",
+            method = RequestMethod.GET)
     @ResponseBody
-    public Response<List<School>> queryMajor(String mode,
-                                               String coin,
-                                               @RequestParam(required = false) String l,
-                                               @RequestParam(required = false) String u,
-                                               @RequestParam(required = false) String s,
-                                               @RequestParam(required = false) String sc,
-                                               @RequestParam(required = false) String p,
-                                               @RequestParam(required = false) String pc,
-                                               @RequestParam(required = false) String m,
-                                               @RequestParam(required = false) String mc,
-                                               @RequestParam(required = false) String ps,
-                                               @RequestParam(required = false) String cp) {
-
-        if ("1".equals(coin)) {
-            //硕士专业信息查询
-            if ("1".equals(mode) && l != null && u != null && s != null) {
-                //根据省份、学校名、学院名查询专业集合
-                return masterMajorService.queryMasterMajorSet(l, u, s);
-
-            } else if ("2".equals(mode) && m != null && ps != null && cp != null) {
-                //返回分页信息
-                return masterMajorService.queryMasterMajorPageList(m, cp, ps);
-            } else if ("2".equals(mode) && m != null) {
-                //根据关键词查询专业列表
-                return masterMajorService.queryMasterMajorList(m);
-
-            } else if ("3".equals(mode) && sc != null && mc != null) {
-                //根据学院代码和专业代码查详情
-                return masterMajorService.queryMasterMajorInfo(sc, mc);
-            }
-
-        } else if ("2".equals(coin)) {
-            //博士专业信息查询
-            if ("1".equals(mode) && l != null && u != null && s != null) {
-                //根据省份、学校名、学院名查询专业集合
-                return phdMajorService.queryPhdMajorSet(l, u, s);
-
-            } else if ("2".equals(mode) && p != null && ps != null && cp != null) {
-                //分页信息
-                return phdMajorService.queryPhdMajorPageList(p, cp, ps);
-
-            } else if ("2".equals(mode) && p != null) {
-                //根据关键词查询专业列表
-                return phdMajorService.queryPhdMajorList(p);
-
-            } else if ("3".equals(mode) && sc != null && pc != null) {
-                //根据学院代码和专业代码查详情
-                return masterMajorService.queryMasterMajorInfo(sc, pc);
-            }
-        }
-
-
-        return null;
+    public Response queryPhdMajorSet(String locationName, String universityName, String schoolName) {
+        return phdMajorService.queryPhdMajorSet(locationName, universityName, schoolName);
     }
 
+    @RequestMapping(value = "/phd/list",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public Response queryPhdMajorList(String keyword,
+                                      @RequestParam(required = false) String currentPage,
+                                      @RequestParam(required = false) String pageSize) {
+        if (keyword != null && currentPage != null && pageSize != null) {
+            return phdMajorService.queryPhdMajorPageList(keyword, currentPage, pageSize);
+        } else {
+            return phdMajorService.queryPhdMajorList(keyword);
+        }
+    }
 
+    @RequestMapping(value = "/phd/info",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public Response queryPhdMajorInfo(String schoolId, String majorId) {
+        return phdMajorService.queryPhdMajorInfo(schoolId, majorId);
+    }
+
+    @RequestMapping(value = "/master/set",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public Response queryMasterMajorSet(String locationName, String universityName, String schoolName) {
+        return phdMajorService.queryPhdMajorSet(locationName, universityName, schoolName);
+    }
+
+    @RequestMapping(value = "/master/list",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public Response queryMasterMajorList(String keyword,
+                                      @RequestParam(required = false) String currentPage,
+                                      @RequestParam(required = false) String pageSize) {
+        if (keyword != null && currentPage != null && pageSize != null) {
+            return phdMajorService.queryPhdMajorPageList(keyword, currentPage, pageSize);
+        } else {
+            return phdMajorService.queryPhdMajorList(keyword);
+        }
+    }
+
+    @RequestMapping(value = "/master/info",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public Response queryMasterMajorInfo(String schoolId, String majorId) {
+        return phdMajorService.queryPhdMajorInfo(schoolId, majorId);
+    }
 
 
 }

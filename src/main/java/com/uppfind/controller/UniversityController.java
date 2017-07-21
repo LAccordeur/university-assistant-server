@@ -18,7 +18,7 @@ import java.util.List;
  * 学校信息查询相关的controller
  */
 @Controller
-@RequestMapping
+@RequestMapping(value = "/university", produces = {"application/json;charset=utf8"})
 public class UniversityController {
 
     @Autowired
@@ -26,43 +26,63 @@ public class UniversityController {
 
 
 
-    @RequestMapping(value = "/searchlocation.php",
-                    method = RequestMethod.GET,
-                    produces = {"application/json;charset=utf8"})
+    @RequestMapping(value = "/location",
+                    method = RequestMethod.GET)
     @ResponseBody
     public Response<List<University>> queryProvinceSet() {
         return universityService.queryProvinceSet();
     }
 
 
-
-    @RequestMapping(value = "/searchuniversity.php",
-                    method = RequestMethod.GET,
-                    produces = {"application/json;charset=utf8"})
+    /**
+     * 根据关键词查询学校列表
+     * @param keyword
+     * @param currentPage
+     * @param pageSize
+     * @return
+     */
+    @RequestMapping(value = "/list",
+                    method = RequestMethod.GET)
     @ResponseBody
-    public Response<List<University>> queryUniversityList(String mode,
-                                                          @RequestParam(required = false) String u,
-                                                          @RequestParam(required = false) String uc,
-                                                          @RequestParam(required = false) String l,
-                                                          @RequestParam(required = false) String ps,
-                                                          @RequestParam(required = false) String cp) {
-
-        if ("2".equals(mode) && u != null && ps != null && cp != null) {
-            //返回分页信息
-            return universityService.queryUniversityPageList(u, cp, ps);
-        } else if ("2".equals(mode) && u != null) {
-            //根据关键词查询学校列表
-            return universityService.queryUniversityList(u);
-
-        } else if ("3".equals(mode) && uc != null) {
-            //根据学校代码查询详情
-            return universityService.queryUniversityInfo(uc);
-
-        } else if ("1".equals(mode) && l != null) {
-            //根据省份查询学校名集合
-            return universityService.queryUniversitySet(l);
+    public Response queryUniversityList(String keyword,
+                                        @RequestParam(required = false) String currentPage,
+                                        @RequestParam(required = false) String pageSize) {
+        if (keyword != null && currentPage != null && pageSize != null) {
+            //返回分页列表
+            return universityService.queryUniversityPageList(keyword, currentPage, pageSize);
+        } else if (keyword != null) {
+            //返回整个列表
+            return universityService.queryUniversityList(keyword);
         }
+
         return null;
     }
+
+
+    /**
+     * 根据省份查询学校集合（id+名称）
+     * @param locationName
+     * @return
+     */
+    @RequestMapping(value = "/set",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public Response queryUniversitySet(String locationName) {
+        return universityService.queryUniversitySet(locationName);
+    }
+
+
+    /**
+     * 根据学校id查询学校详细信息
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/info",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public Response queryUniversityInfo(String id) {
+        return universityService.queryUniversityInfo(id);
+    }
+
 
 }

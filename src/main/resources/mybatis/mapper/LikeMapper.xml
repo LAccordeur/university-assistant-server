@@ -25,7 +25,7 @@
 
 
   <select id="queryLikeByTeacherId" resultType="Like">
-    SELECT id,targetId,targetType,likeCount FROM likesheet WHERE targetId = #{teacherId}
+    SELECT id,targetId,targetType,likeCount FROM likesheet WHERE targetId = #{teacherId} AND targetType = 1
   </select>
 
   <select id="queryLikeById" resultType="Like">

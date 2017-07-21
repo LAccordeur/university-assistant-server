@@ -24,8 +24,8 @@ public class MasterMajorServiceImpl implements MasterMajorService {
         Response<List<MasterMajor>> response = new Response<List<MasterMajor>>();
         //组装返回的Response对象
         List<MasterMajor> masterMajors = masterMajorMapper.queryMasterMajorSet(province, university, school);
-        response.setResult(masterMajors);
-        response.setTotal(masterMajors.size());
+        response.setData(masterMajors);
+        response.setCount(masterMajors.size());
         response.setType("masterMajor");
 
         return response;
@@ -35,10 +35,8 @@ public class MasterMajorServiceImpl implements MasterMajorService {
         Response<List<MasterMajor>> response = new Response<List<MasterMajor>>();
         //组装返回的Response对象
         List<MasterMajor> masterMajors = masterMajorMapper.queryMasterMajorList(keyword);
-        response.setResult(masterMajors);
-        response.setTotal(masterMajors.size());
+        response.setData(masterMajors);
         response.setCount(masterMajors.size());
-        response.setStart(0);
         response.setType("masterMajor");
 
         return response;
@@ -49,8 +47,8 @@ public class MasterMajorServiceImpl implements MasterMajorService {
         Response<List<MasterMajor>> response = new Response<List<MasterMajor>>();
         //组装返回的Response对象
         List<MasterMajor> masterMajors = masterMajorMapper.queryMasterMajorInfo(Long.parseLong(schoolCode), Integer.parseInt(majorCode));
-        response.setResult(masterMajors);
-        response.setTotal(masterMajors.size());
+        response.setData(masterMajors);
+        response.setCount(masterMajors.size());
         response.setType("masterMajor");
 
         return response;
@@ -81,10 +79,8 @@ public class MasterMajorServiceImpl implements MasterMajorService {
 
         masterMajors = masterMajorMapper.queryMasterMajorPageList(keyword, offset, rows);
         if (masterMajors!= null && masterMajors.size() > 0) {
-            pageData = new Page<MasterMajor>(masterMajors.size(), currentPageInt, masterMajors);
-            response.setResult(pageData);
-            response.setStart(0);
-            response.setTotal(masterMajors.size());
+            pageData = new Page<MasterMajor>(pageSizeInt, currentPageInt, masterMajors.size(), masterMajors);
+            response.setData(pageData);
             response.setCount(masterMajors.size());
             response.setType("masterMajor");
         }

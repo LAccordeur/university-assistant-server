@@ -24,8 +24,8 @@ public class PhdMajorServiceImpl implements PhdMajorService {
         Response<List<PhdMajor>> response = new Response<List<PhdMajor>>();
         //组装返回的Response对象
         List<PhdMajor> phdMajors = phdMajorMapper.queryPhdMajorSet(province, university, school);
-        response.setResult(phdMajors);
-        response.setTotal(phdMajors.size());
+        response.setData(phdMajors);
+        response.setCount(phdMajors.size());
         response.setType("phdMajor");
 
         return response;
@@ -36,10 +36,8 @@ public class PhdMajorServiceImpl implements PhdMajorService {
         Response<List<PhdMajor>> response = new Response<List<PhdMajor>>();
         //组装返回的Response对象
         List<PhdMajor> phdMajors = phdMajorMapper.queryPhdMajorList(keyword);
-        response.setResult(phdMajors);
-        response.setTotal(phdMajors.size());
+        response.setData(phdMajors);
         response.setCount(phdMajors.size());
-        response.setStart(0);
         response.setType("phdMajor");
 
         return response;
@@ -49,8 +47,8 @@ public class PhdMajorServiceImpl implements PhdMajorService {
         Response<List<PhdMajor>> response = new Response<List<PhdMajor>>();
         //组装返回的Response对象
         List<PhdMajor> phdMajors = phdMajorMapper.queryPhdMajorInfo(Long.parseLong(schoolCode), Integer.parseInt(majorCode));
-        response.setResult(phdMajors);
-        response.setTotal(phdMajors.size());
+        response.setData(phdMajors);
+        response.setCount(phdMajors.size());
         response.setType("phdMajor");
 
         return response;
@@ -81,10 +79,8 @@ public class PhdMajorServiceImpl implements PhdMajorService {
 
         phdMajors = phdMajorMapper.queryPhdMajorPageList(keyword, offset, rows);
         if (phdMajors!= null && phdMajors.size() > 0) {
-            pageData = new Page<PhdMajor>(phdMajors.size(), currentPageInt, phdMajors);
-            response.setResult(pageData);
-            response.setStart(0);
-            response.setTotal(phdMajors.size());
+            pageData = new Page<PhdMajor>(pageSizeInt, currentPageInt, phdMajors.size(), phdMajors);
+            response.setData(pageData);
             response.setCount(phdMajors.size());
             response.setType("phdMajor");
         }

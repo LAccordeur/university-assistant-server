@@ -21,4 +21,10 @@ public interface LikeService {
      * @return
      */
     Response addLike(String likeId, String token);
+
+    /**
+     * 返回token
+     * @return
+     */
+    Response getTokenResponse();
 }

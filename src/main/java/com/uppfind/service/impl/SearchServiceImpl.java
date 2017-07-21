@@ -46,10 +46,8 @@ public class SearchServiceImpl implements SearchService{
         list.add(researchFieldService.queryMajorFieldList(keyword));
 
 
-        response.setResult(list);
+        response.setData(list);
         response.setCount(list.size());
-        response.setTotal(list.size());
-        response.setStart(0);
 
         return response;
     }

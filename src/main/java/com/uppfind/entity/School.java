@@ -1,12 +1,12 @@
 package com.uppfind.entity;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  * Created by LAccordeur on 2017/5/31.
  * 与学院表对应的实体类
  */
-@JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class School {
     private Long id;     //学院代码
 

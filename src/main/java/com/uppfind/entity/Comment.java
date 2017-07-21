@@ -1,6 +1,7 @@
 package com.uppfind.entity;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.Date;
 
@@ -8,7 +9,7 @@ import java.util.Date;
  * Created by LAccordeur on 2017/7/17.
  * 评论表
  */
-@JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Comment {
     private Integer id; //评论id
 
@@ -20,9 +21,10 @@ public class Comment {
 
     private String userName; //评论者名字
 
-    private String createTime; //评论时间
+    private Date createTime; //评论时间
 
     private Integer likeCount; //点赞数
+
 
     @Override
     public String toString() {
@@ -36,10 +38,9 @@ public class Comment {
                 ", likeCount=" + likeCount +
                 '}';
     }
-
     public Comment() {}
 
-    public Comment(String targetId, int targetType, String content, String userName) {
+    public Comment(String targetId, Integer targetType, String content, String userName) {
         this.targetId = targetId;
         this.targetType = targetType;
         this.content = content;
@@ -86,11 +87,12 @@ public class Comment {
         this.userName = userName;
     }
 
-    public String getCreateTime() {
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 

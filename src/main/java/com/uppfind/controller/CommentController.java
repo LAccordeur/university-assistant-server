@@ -1,14 +1,12 @@
 package com.uppfind.controller;
 
+import com.uppfind.dto.CommentDTO;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.Comment;
 import com.uppfind.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,7 +31,7 @@ public class CommentController {
     @RequestMapping(value = "/comment/teacher",
             method = RequestMethod.POST)
     @ResponseBody
-    public void addComment(String content, @RequestParam(required = false) String userName, String id, String type) {
-        commentService.addComment(content, userName, id, type);
+    public Response addComment(@RequestBody CommentDTO commentDTO) {
+        return commentService.addComment(commentDTO);
     }
 }

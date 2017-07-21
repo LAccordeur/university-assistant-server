@@ -28,7 +28,7 @@ public class LikeServiceImpl implements LikeService {
         Response<Like> response = new Response<Like>();
 
         Like like = likeMapper.queryLikeByTeacherId(teacherId);
-        response.setResult(like);
+        response.setData(like);
         response.setType("like");
 
 
@@ -52,7 +52,7 @@ public class LikeServiceImpl implements LikeService {
             }
 
             //生成token返回
-            return getTokenResponse(likeId);
+            return getTokenResponse();
 
         } else {
             //该用户已经点过赞了，判断其限制时间是否过期，若过期则可再点赞
@@ -62,7 +62,11 @@ public class LikeServiceImpl implements LikeService {
             switch (state) {
                 case VALID:{
                     //说明限制点赞时间还没过期，则不允许点赞
-                    return null;
+                    Response response = new Response();
+                    response.setType("token");
+                    response.setData(null);
+                    response.setMsg("时间限制未解除");
+                    return response;
                 }
                 case EXPIRED:{
                     //说明限制点赞的时间已经过了，可以再点赞
@@ -73,12 +77,16 @@ public class LikeServiceImpl implements LikeService {
                         likeMapper.addLike(like);
                     }
                     //返回新的token
-                    return getTokenResponse(likeId);
+                    return getTokenResponse();
 
                 }
                 case INVALID:{
                     //无效的token
-                    return null;
+                    Response response = new Response();
+                    response.setType("token");
+                    response.setData(null);
+                    response.setMsg("token无效");
+                    return response;
                 }
             }
         }
@@ -87,21 +95,21 @@ public class LikeServiceImpl implements LikeService {
 
     }
 
-    private Response getTokenResponse(String likeId) {
+    public Response getTokenResponse() {
         Response response = new Response();
         Map<String, Object> payload = new HashMap<String, Object>();
         Date date = new Date();
 
-        payload.put("id", likeId); //点赞表id
+        //payload.put("id", likeId); //点赞表id
         payload.put("iat", date.getTime()); //生成时间
-        payload.put("ext", date.getTime() + 1000 * 60); //一分钟内不能再点赞
+        payload.put("ext", date.getTime() + 1000 * 60); //60s内不能再点赞
         String tokenStr = JwtHelper.createToken(payload);
 
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("token", tokenStr);
 
         //返回数据
-        response.setResult(result);
+        response.setData(result);
         response.setType("token");
         return response;
     }

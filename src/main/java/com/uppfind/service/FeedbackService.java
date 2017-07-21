@@ -1,5 +1,6 @@
 package com.uppfind.service;
 
+import com.uppfind.dto.Response;
 import com.uppfind.entity.Feedback;
 
 /**
@@ -13,6 +14,6 @@ public interface FeedbackService {
      * @param problemType
      * @param detail
      */
-    void addFeedbackInfo(String contact, String problemType, String detail);
+    Response addFeedbackInfo(String contact, String problemType, String detail);
 
 }

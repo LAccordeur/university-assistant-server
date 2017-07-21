@@ -17,48 +17,42 @@ import java.util.List;
  * 老师信息查询的相关controller
  */
 @Controller
-@RequestMapping
+@RequestMapping(value = "/teacher", produces = {"application/json;charset=utf8"})
 public class TeacherController {
 
     @Autowired
     private TeacherService teacherService;
 
-    @RequestMapping(value = "/searchteacher.php",
-            method = RequestMethod.GET,
-            produces = {"application/json;charset=utf8"})
+    @RequestMapping(value = "/set",
+            method = RequestMethod.GET)
     @ResponseBody
-    public Response<List<School>> queryTeacher(String mode,
-                                               @RequestParam(required = false) String l,
-                                               @RequestParam(required = false) String u,
-                                               @RequestParam(required = false) String s,
-                                               @RequestParam(required = false) String n,
-                                               @RequestParam(required = false) String nc,
-                                               @RequestParam(required = false) String sc,
-                                               @RequestParam(required = false) String cp,
-                                               @RequestParam(required = false) String ps) {
+    public Response queryTeacherSet(String locationName, String universityName, String schoolName) {
+        return teacherService.queryTeacherSet(locationName, universityName, schoolName);
+    }
 
-        if ("1".equals(mode) && l != null && u != null && s!= null) {
-            //根据省份、学校名、学院名查询该学院下的老师集合
-            return teacherService.queryTeacherSet(l, u, s);
+    @RequestMapping(value = "/list",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public Response queryTeacherList(@RequestParam(required = false) String keyword,
+                                    @RequestParam(required = false) String currentPage,
+                                    @RequestParam(required = false) String pageSize,
+                                    @RequestParam(required = false) String id) {
 
-        } else if ("2".equals(mode) && cp != null && ps != null && n != null) {
-
-            //返回分页信息
-            return teacherService.queryTeacherPageList(n, cp, ps);
-
-        } else if ("2".equals(mode) && sc != null) {
-            //根据学院id查询老师列表
-            return teacherService.queryTeacherListById(sc);
-
-        } else if ("2".equals(mode) && n != null) {
-            //根据关键词查询老师列表
-            return teacherService.queryTeacherList(n);
-        } else if ("3".equals(mode) && nc != null) {
-            //根据老师代码查询详细信息
-            return teacherService.queryTeacherInfo(nc);
+        if (keyword != null && currentPage != null && pageSize != null) {
+            return teacherService.queryTeacherPageList(keyword, currentPage, pageSize);
+        } else if (keyword != null) {
+            return teacherService.queryTeacherList(keyword);
+        } else if (id != null) {
+            return teacherService.queryTeacherListById(id);
         }
-
         return null;
+    }
+
+    @RequestMapping(value = "/info",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public Response queryTeacherInfo(String id) {
+        return teacherService.queryTeacherInfo(id);
     }
 
 }

@@ -24,8 +24,8 @@ public class SchoolServiceImpl implements SchoolService {
         Response<List<School>> response = new Response<List<School>>();
         //组装返回的Response对象
         List<School> schools = schoolMapper.querySchoolSet(province, university);
-        response.setResult(schools);
-        response.setTotal(schools.size());
+        response.setData(schools);
+        response.setCount(schools.size());
         response.setType("school");
 
         return response;
@@ -36,10 +36,8 @@ public class SchoolServiceImpl implements SchoolService {
         Response<List<School>> response = new Response<List<School>>();
         //组装返回的Response对象
         List<School> schools = schoolMapper.querySchoolList(keyword);
-        response.setResult(schools);
-        response.setTotal(schools.size());
+        response.setData(schools);
         response.setCount(schools.size());
-        response.setStart(0);
         response.setType("school");
 
         return response;
@@ -50,8 +48,8 @@ public class SchoolServiceImpl implements SchoolService {
         Response<List<School>> response = new Response<List<School>>();
         //组装返回的Response对象
         List<School> school = schoolMapper.querySchoolInfo(Long.parseLong(schoolCode));
-        response.setResult(school);
-        response.setTotal(school.size());
+        response.setData(school);
+        response.setCount(school.size());
         response.setType("school");
 
         return response;
@@ -61,10 +59,8 @@ public class SchoolServiceImpl implements SchoolService {
         Response<List<School>> response = new Response<List<School>>();
         //组装返回的Response对象
         List<School> schools = schoolMapper.querySchoolListById(universityCode);
-        response.setResult(schools);
-        response.setTotal(schools.size());
+        response.setData(schools);
         response.setCount(schools.size());
-        response.setStart(0);
         response.setType("school");
 
         return response;
@@ -95,10 +91,8 @@ public class SchoolServiceImpl implements SchoolService {
 
         schools = schoolMapper.querySchoolPageList(keyword, offset, rows);
         if (schools != null && schools.size() > 0) {
-            pageData = new Page<School>(schools.size(), currentPageInt, schools);
-            response.setResult(pageData);
-            response.setStart(0);
-            response.setTotal(schools.size());
+            pageData = new Page<School>(pageSizeInt, currentPageInt, schools.size(), schools);
+            response.setData(pageData);
             response.setCount(schools.size());
             response.setType("school");
 

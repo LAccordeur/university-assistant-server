@@ -6,6 +6,7 @@ import com.uppfind.entity.University;
 import com.uppfind.service.UniversityService;
 import com.uppfind.util.page.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,9 +26,16 @@ public class UniversityServiceImpl implements UniversityService {
         Response<List<University>> response = new Response<List<University>>();
         //组装返回的Response对象
         List<University> universities = universityMapper.queryProvinceSet();
-        response.setResult(universities);
-        response.setTotal(universities.size());
-        response.setType("province");
+
+        if (universities != null) {
+            response.setData(universities);
+            response.setCount(universities.size());
+            response.setType("province");
+        } else {
+            response.setData(null);
+            response.setCount(0);
+            response.setType("province");
+        }
 
         return response;
     }
@@ -37,11 +45,15 @@ public class UniversityServiceImpl implements UniversityService {
         Response<List<University>> response = new Response<List<University>>();
         //组装返回的Response对象
         List<University> universities = universityMapper.queryUniversityList(keyword);
-        response.setResult(universities);
-        response.setTotal(universities.size());
-        response.setStart(0);
-        response.setCount(universities.size());
-        response.setType("university");
+        if (universities != null) {
+            response.setData(universities);
+            response.setCount(universities.size());
+            response.setType("university");
+        } else {
+            response.setData(null);
+            response.setCount(0);
+            response.setType("university");
+        }
 
         return response;
     }
@@ -51,8 +63,9 @@ public class UniversityServiceImpl implements UniversityService {
         Response<List<University>> response = new Response<List<University>>();
         //组装返回的Response对象
         List<University> universities = universityMapper.queryUniversitySet(province);
-        response.setResult(universities);
-        response.setTotal(universities.size());
+
+        response.setData(universities);
+        response.setCount(universities.size());
         response.setType("university");
 
         return response;
@@ -63,8 +76,8 @@ public class UniversityServiceImpl implements UniversityService {
         Response<List<University>> response = new Response<List<University>>();
         //组装返回的Response对象
         List<University> university = universityMapper.queryUniversityInfo(Integer.parseInt(universityCode));
-        response.setResult(university);
-        response.setTotal(university.size());
+        response.setData(university);
+        response.setCount(university.size());
         response.setType("university");
         return response;
     }
@@ -94,10 +107,9 @@ public class UniversityServiceImpl implements UniversityService {
 
         universities= universityMapper.queryUniversityPageList(keyword, offset, rows);
         if (universities != null && universities.size() > 0) {
-            pageData = new Page<University>(universities.size(), currentPageInt, universities);
-            response.setResult(pageData);
-            response.setStart(0);
-            response.setTotal(universities.size());
+            pageData = new Page<University>(pageSizeInt, currentPageInt, universities.size(), universities);
+            response.setData(pageData);
+            response.setCount(universities.size());
             response.setCount(universities.size());
             response.setType("university");
         }

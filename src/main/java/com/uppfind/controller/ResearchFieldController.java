@@ -16,28 +16,23 @@ import java.util.List;
  * Created by LAccordeur on 2017/7/10.
  */
 @Controller
-@RequestMapping
+@RequestMapping(value = "/field", produces = {"application/json;charset=utf8"})
 public class ResearchFieldController {
 
     @Autowired
     private ResearchFieldService researchFieldService;
 
-    @RequestMapping(value = "/searchfield.php",
-            method = RequestMethod.GET,
-            produces = {"application/json;charset=utf8"})
+    @RequestMapping(value = "/list",
+            method = RequestMethod.GET)
     @ResponseBody
-    public Response<List<School>> queryField(String mode,
-                                             @RequestParam(required = false) String f,
-                                             @RequestParam(required = false) String ps,
-                                             @RequestParam(required = false) String cp) {
+    public Response<List<School>> queryField(String keyword,
+                                             @RequestParam(required = false) String currentPage,
+                                             @RequestParam(required = false) String pageSize) {
 
-        if ("2".equals(mode) && f != null && ps != null && cp != null) {
-            //返回分页信息
-            return researchFieldService.queryMajorFieldPageList(f, cp, ps);
-        } else if ("2".equals(mode) && f != null) {
-            //根据关键词查询方向列表
-            return researchFieldService.queryMajorFieldList(f);
+        if (keyword != null && currentPage != null && pageSize != null) {
+            return researchFieldService.queryMajorFieldPageList(keyword, currentPage, pageSize);
+        } else {
+            return researchFieldService.queryMajorFieldList(keyword);
         }
-        return null;
     }
 }

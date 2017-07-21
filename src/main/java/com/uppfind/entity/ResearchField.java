@@ -4,12 +4,12 @@ package com.uppfind.entity;
  * Created by LAccordeur on 2017/7/10.
  */
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  * 导师研究方向实体
  */
-@JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResearchField {
     private Long id;        //导师代码
 

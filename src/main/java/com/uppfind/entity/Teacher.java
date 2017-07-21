@@ -1,12 +1,12 @@
 package com.uppfind.entity;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  * Created by LAccordeur on 2017/5/31.
  * 对应teacher视图的实体类
  */
-@JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Teacher {
     private Long id;     //导师代码
 
