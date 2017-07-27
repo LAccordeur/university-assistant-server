@@ -1,8 +1,12 @@
 package com.uppfind.controller;
 
+import com.uppfind.controller.base.BaseController;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.School;
 import com.uppfind.service.TeacherService;
+import com.uppfind.util.log.ConstCommonString;
+import com.uppfind.util.log.LogUtil;
+import org.apache.log4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +22,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "/teacher", produces = {"application/json;charset=utf8"})
-public class TeacherController {
+public class TeacherController extends BaseController {
 
     @Autowired
     private TeacherService teacherService;
@@ -27,6 +31,10 @@ public class TeacherController {
             method = RequestMethod.GET)
     @ResponseBody
     public Response queryTeacherSet(String locationName, String universityName, String schoolName) {
+        //日志跟踪
+        MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_TEACHER_SET"));
+        logger.info("Request--" + locationName + "_" + universityName + "_" + schoolName);
+
         return teacherService.queryTeacherSet(locationName, universityName, schoolName);
     }
 
@@ -39,10 +47,22 @@ public class TeacherController {
                                     @RequestParam(required = false) String id) {
 
         if (keyword != null && currentPage != null && pageSize != null) {
+            //日志跟踪
+            MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_TEACHER_LIST_PAGE"));
+            logger.info("Request--" + keyword + "_" + currentPage + "_" + pageSize);
+
             return teacherService.queryTeacherPageList(keyword, currentPage, pageSize);
         } else if (keyword != null) {
+            //日志跟踪
+            MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_TEACHER_LIST"));
+            logger.info("Request--" + keyword);
+
             return teacherService.queryTeacherList(keyword);
         } else if (id != null) {
+            //日志跟踪
+            MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_TEACHER_INFO"));
+            logger.info("Request--" + id);
+
             return teacherService.queryTeacherListById(id);
         }
         return null;
@@ -52,6 +72,10 @@ public class TeacherController {
             method = RequestMethod.GET)
     @ResponseBody
     public Response queryTeacherInfo(String id) {
+        //日志跟踪
+        MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_TEACHER_INFO"));
+        logger.info("Request--" + id);
+
         return teacherService.queryTeacherInfo(id);
     }
 

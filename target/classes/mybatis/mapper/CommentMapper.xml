@@ -33,8 +33,12 @@
 
   </resultMap>-->
 
-  <select id="queryCommentByTeacherId" resultType="Comment">
-    SELECT content,userName,likeCount,createTime FROM commentsheet WHERE targetId = #{teacherId}
+  <select id="queryCommentByTargetId" parameterType="Comment" resultType="Comment">
+    SELECT content,userName,likeCount,createTime FROM commentsheet WHERE targetId = #{targetId} and targetType = #{targetType}
+  </select>
+
+  <select id="queryCommentCountByTargetId" parameterType="Comment" resultType="Integer">
+    SELECT COUNT(*) FROM commentsheet WHERE targetId = #{targetId} and targetType = #{targetType}
   </select>
 
   <insert id="addComment" parameterType="Comment">

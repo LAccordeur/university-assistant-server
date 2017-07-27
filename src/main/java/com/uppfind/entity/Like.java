@@ -27,6 +27,19 @@ public class Like {
                 '}';
     }
 
+    public Like() {}
+
+    public Like(String targetId, Integer targetType) {
+        this.targetId = targetId;
+        this.targetType = targetType;
+    }
+
+    public Like(String targetId, Integer targetType, Integer likeCount) {
+        this.targetId = targetId;
+        this.targetType = targetType;
+        this.likeCount = likeCount;
+    }
+
     public Integer getId() {
         return id;
     }

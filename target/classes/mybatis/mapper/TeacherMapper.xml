@@ -31,13 +31,13 @@
   </select>
 
   <select id="queryTeacherList" resultType="Teacher">
-    SELECT t.Name, t.School, t.University, t.Title, t.Degree, t.Icon, t.Id
+    SELECT t.Name, t.School, t.University, t.Title, t.Degree, t.Icon, t.Id, t.likeCount, t.commentCount
     FROM teacherview AS t
     WHERE t.Name LIKE concat(concat('%',#{keyword}),'%')
   </select>
 
   <select id="queryTeacherListById" resultType="Teacher">
-    SELECT t.Name, t.School, t.University, t.Title, t.Degree, t.Icon, t.Id
+    SELECT t.Name, t.School, t.University, t.Title, t.Degree, t.Icon, t.Id, t.likeCount, t.commentCount
     FROM teacherview AS t
     WHERE SchoolCode = #{schoolCode}
   </select>

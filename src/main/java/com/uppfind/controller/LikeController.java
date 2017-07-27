@@ -1,7 +1,11 @@
 package com.uppfind.controller;
 
+import com.uppfind.controller.base.BaseController;
 import com.uppfind.dto.Response;
 import com.uppfind.service.LikeService;
+import com.uppfind.util.log.ConstCommonString;
+import com.uppfind.util.log.LogUtil;
+import org.apache.log4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping
-public class LikeController {
+public class LikeController extends BaseController {
 
     @Autowired
     private LikeService likeService;
@@ -24,6 +28,10 @@ public class LikeController {
             produces = {"application/json;charset=utf8"})
     @ResponseBody
     public Response queryLikeByTeacherId(String id) {
+        //日志跟踪
+        MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_TEACHER_LIKE"));
+        logger.info("Request--" + id);
+
         return likeService.queryLikeByTeacherId(id);
     }
 
@@ -32,6 +40,10 @@ public class LikeController {
             produces = {"application/json;charset=utf8"})
     @ResponseBody
     public Response addLike(String id, @RequestParam(required = false) String token) {
+        //日志跟踪
+        MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("ADD_TEACHER_LIKE"));
+        logger.info("Request--" + id + "_" + token);
+
         return likeService.addLike(id, token);
     }
 
@@ -40,6 +52,10 @@ public class LikeController {
             produces = {"application/json;charset=utf8"})
     @ResponseBody
     public Response getToken() {
+        //日志跟踪
+        MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("GET_TOKEN"));
+        logger.info("Request--");
+
         return likeService.getTokenResponse();
     }
 

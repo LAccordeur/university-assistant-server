@@ -1,8 +1,12 @@
 package com.uppfind.controller;
 
+import com.uppfind.controller.base.BaseController;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.School;
 import com.uppfind.service.ResearchFieldService;
+import com.uppfind.util.log.ConstCommonString;
+import com.uppfind.util.log.LogUtil;
+import org.apache.log4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +21,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "/field", produces = {"application/json;charset=utf8"})
-public class ResearchFieldController {
+public class ResearchFieldController extends BaseController {
 
     @Autowired
     private ResearchFieldService researchFieldService;
@@ -30,8 +34,16 @@ public class ResearchFieldController {
                                              @RequestParam(required = false) String pageSize) {
 
         if (keyword != null && currentPage != null && pageSize != null) {
+            //日志跟踪
+            MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_FIELD_LIST_PAGE"));
+            logger.info("Request--" + keyword + "_" + currentPage + "_" + pageSize);
+
             return researchFieldService.queryMajorFieldPageList(keyword, currentPage, pageSize);
         } else {
+            //日志跟踪
+            MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_FIELD_LIST"));
+            logger.info("Request--" + keyword);
+
             return researchFieldService.queryMajorFieldList(keyword);
         }
     }

@@ -27,17 +27,7 @@ public class UniversityServiceImpl implements UniversityService {
         //组装返回的Response对象
         List<University> universities = universityMapper.queryProvinceSet();
 
-        if (universities != null) {
-            response.setData(universities);
-            response.setCount(universities.size());
-            response.setType("province");
-        } else {
-            response.setData(null);
-            response.setCount(0);
-            response.setType("province");
-        }
-
-        return response;
+        return getResponse(response, universities,"province");
     }
 
     public Response queryUniversityList(String keyword) {
@@ -45,18 +35,10 @@ public class UniversityServiceImpl implements UniversityService {
         Response<List<University>> response = new Response<List<University>>();
         //组装返回的Response对象
         List<University> universities = universityMapper.queryUniversityList(keyword);
-        if (universities != null) {
-            response.setData(universities);
-            response.setCount(universities.size());
-            response.setType("university");
-        } else {
-            response.setData(null);
-            response.setCount(0);
-            response.setType("university");
-        }
 
-        return response;
+        return getResponse(response, universities,"university");
     }
+
 
     public Response queryUniversitySet(String province) {
 
@@ -64,11 +46,7 @@ public class UniversityServiceImpl implements UniversityService {
         //组装返回的Response对象
         List<University> universities = universityMapper.queryUniversitySet(province);
 
-        response.setData(universities);
-        response.setCount(universities.size());
-        response.setType("university");
-
-        return response;
+        return getResponse(response, universities,"university");
     }
 
     public Response queryUniversityInfo(String universityCode) {
@@ -76,10 +54,8 @@ public class UniversityServiceImpl implements UniversityService {
         Response<List<University>> response = new Response<List<University>>();
         //组装返回的Response对象
         List<University> university = universityMapper.queryUniversityInfo(Integer.parseInt(universityCode));
-        response.setData(university);
-        response.setCount(university.size());
-        response.setType("university");
-        return response;
+
+        return getResponse(response, university,"university");
     }
 
     public Response queryUniversityPageList(String keyword, String currentPage, String pageSize) {
@@ -110,8 +86,26 @@ public class UniversityServiceImpl implements UniversityService {
             pageData = new Page<University>(pageSizeInt, currentPageInt, universities.size(), universities);
             response.setData(pageData);
             response.setCount(universities.size());
-            response.setCount(universities.size());
             response.setType("university");
+        } else {
+            response.setData(null);
+            response.setCount(0);
+            response.setType("university");
+        }
+
+        return response;
+    }
+
+    private Response getResponse(Response<List<University>> response, List<University> universities, String type) {
+
+        if (universities != null) {
+            response.setData(universities);
+            response.setCount(universities.size());
+            response.setType(type);
+        } else {
+            response.setData(null);
+            response.setCount(0);
+            response.setType(type);
         }
 
         return response;

@@ -100,4 +100,19 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
 
+    private Response getResponse(Response<List<Teacher>> response, List<Teacher> teachers, String type) {
+
+        if (teachers != null) {
+            response.setData(teachers);
+            response.setCount(teachers.size());
+            response.setType(type);
+        } else {
+            response.setData(null);
+            response.setCount(0);
+            response.setType(type);
+        }
+
+        return response;
+    }
+
 }

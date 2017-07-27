@@ -44,6 +44,10 @@ public class Teacher {
 
     private Integer masterMajor;        //硕士招生资格
 
+    private Integer likeCount;      //点赞数
+
+    private Integer commentCount;   //评论数
+
     @Override
     public String toString() {
         return "Teacher{" +
@@ -65,7 +69,25 @@ public class Teacher {
                 ", paper='" + paper + '\'' +
                 ", phdMajor=" + phdMajor +
                 ", masterMajor=" + masterMajor +
+                ", likeCount=" + likeCount +
+                ", commentCount=" + commentCount +
                 '}';
+    }
+
+    public Integer getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(Integer likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    public Integer getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(Integer commentCount) {
+        this.commentCount = commentCount;
     }
 
     public Long getId() {

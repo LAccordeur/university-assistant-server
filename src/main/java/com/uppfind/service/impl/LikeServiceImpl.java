@@ -1,6 +1,7 @@
 package com.uppfind.service.impl;
 
 import com.uppfind.dao.LikeMapper;
+import com.uppfind.dao.TeacherMapper;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.Like;
 import com.uppfind.service.LikeService;
@@ -22,12 +23,23 @@ public class LikeServiceImpl implements LikeService {
     @Autowired
     private LikeMapper likeMapper;
 
+    @Autowired
+    private TeacherMapper teacherMapper;
+
     private Object lock = new Object();
 
     public Response queryLikeByTeacherId(String teacherId) {
         Response<Like> response = new Response<Like>();
 
-        Like like = likeMapper.queryLikeByTeacherId(teacherId);
+        Like queryLike = new Like(teacherId, 1);
+        Like like = likeMapper.queryLikeByTargetId(queryLike);
+
+        if (like == null) {
+
+            like = new Like(teacherId, 1, 0);
+            likeMapper.addLike(like);
+
+        }
         response.setData(like);
         response.setType("like");
 
@@ -48,7 +60,7 @@ public class LikeServiceImpl implements LikeService {
             synchronized (lock) {
                 likeCount = (likeMapper.queryLikeById(likeId)).getLikeCount();
                 like.setLikeCount(likeCount);
-                likeMapper.addLike(like);
+                likeMapper.updateLike(like);
             }
 
             //生成token返回
@@ -74,7 +86,7 @@ public class LikeServiceImpl implements LikeService {
                     synchronized (lock) {
                         likeCount = likeMapper.queryLikeById(likeId).getLikeCount();
                         like.setLikeCount(likeCount);
-                        likeMapper.addLike(like);
+                        likeMapper.updateLike(like);
                     }
                     //返回新的token
                     return getTokenResponse();

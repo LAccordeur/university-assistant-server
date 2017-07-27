@@ -24,17 +24,24 @@
 
 
 
-  <select id="queryLikeByTeacherId" resultType="Like">
-    SELECT id,targetId,targetType,likeCount FROM likesheet WHERE targetId = #{teacherId} AND targetType = 1
+  <select id="queryLikeByTargetId" parameterType="Like" resultType="Like">
+    SELECT id,targetId,targetType,likeCount FROM likesheet WHERE targetId = #{targetId} AND targetType = #{targetType}
   </select>
 
   <select id="queryLikeById" resultType="Like">
     SELECT id,targetId,targetType,likeCount FROM likesheet WHERE id = #{likeId}
   </select>
 
-  <update id="addLike" parameterType="Like">
+  <select id="queryLikeCountByTargetId" parameterType="Like" resultType="Integer">
+    SELECT COUNT(*) FROM likesheet WHERE id = #{targetId} AND targetType = #{targetType}
+  </select>
+
+  <update id="updateLike" parameterType="Like">
     UPDATE likesheet SET likeCount = #{likeCount} + 1 WHERE id = #{id}
   </update>
 
+  <insert id="addLike" parameterType="Like" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO likesheet (targetId,targetType,likeCount) VALUES (#{targetId},#{targetType},#{likeCount})
+  </insert>
 
 </mapper>

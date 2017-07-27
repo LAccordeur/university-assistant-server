@@ -10,11 +10,11 @@ import org.apache.ibatis.annotations.Param;
 public interface LikeMapper {
 
     /**
-     * 根据老师id查询该老师的点赞数
-     * @param teacherId
+     * 根据对象id查询该对象的点赞数
+     * @param like
      * @return
      */
-    Like queryLikeByTeacherId(@Param("teacherId") String teacherId);
+    Like queryLikeByTargetId(Like like);
 
     /**
      *
@@ -24,9 +24,23 @@ public interface LikeMapper {
     Like queryLikeById(@Param("likeId") String likeId);
 
     /**
-     * 为喜欢的对象点赞
+     * 为喜欢的对象点赞（该对象已有赞更新即可）
+     * @param like
+     * @return
+     */
+    int updateLike(Like like);
+
+    /**
+     * 初次点赞
      * @param like
      * @return
      */
     int addLike(Like like);
+
+    /**
+     * 获取指定对象的点赞数
+     * @param like
+     * @return
+     */
+    int queryLikeCountByTargetId(Like like);
 }

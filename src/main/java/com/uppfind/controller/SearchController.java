@@ -1,8 +1,12 @@
 package com.uppfind.controller;
 
+import com.uppfind.controller.base.BaseController;
 import com.uppfind.dto.Response;
 import com.uppfind.service.SearchService;
 import com.uppfind.service.TeacherService;
+import com.uppfind.util.log.ConstCommonString;
+import com.uppfind.util.log.LogUtil;
+import org.apache.log4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +20,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping
-public class SearchController {
+public class SearchController extends BaseController {
 
     @Autowired
     private SearchService searchService;
@@ -29,6 +33,9 @@ public class SearchController {
             produces = {"application/json;charset=utf8"})
     @ResponseBody
     Response<List<Response<Object>>> queryAll(String keyword) {
+        //日志跟踪
+        MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_ALL"));
+        logger.info("Request--" + keyword);
 
         return searchService.queryAllList(keyword);
     }

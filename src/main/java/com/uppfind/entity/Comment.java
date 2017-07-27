@@ -40,6 +40,11 @@ public class Comment {
     }
     public Comment() {}
 
+    public Comment(String targetId, Integer targetType) {
+        this.targetId = targetId;
+        this.targetType = targetType;
+    }
+
     public Comment(String targetId, Integer targetType, String content, String userName) {
         this.targetId = targetId;
         this.targetType = targetType;

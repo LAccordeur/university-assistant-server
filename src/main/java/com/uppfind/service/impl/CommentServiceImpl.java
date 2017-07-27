@@ -25,9 +25,9 @@ public class CommentServiceImpl implements CommentService {
     public Response queryCommentByTeacherId(String teacherId) {
         Response<List<Comment>> response = new Response<List<Comment>>();
 
-
+        Comment queryComment = new Comment(teacherId, 1);
         //组装
-        List<Comment> commentList = commentMapper.queryCommentByTeacherId(teacherId);
+        List<Comment> commentList = commentMapper.queryCommentByTargetId(queryComment);
         response.setData(commentList);
         response.setCount(commentList.size());
         response.setType("comment");
@@ -39,6 +39,7 @@ public class CommentServiceImpl implements CommentService {
 
         Comment comment = CommentAssembler.toEntity(commentDTO);
         comment.setUserName(AnonymousUtil.getAnonymousName());
+
 
         if (commentMapper.addComment(comment) > 0) {
             Response response = new Response();

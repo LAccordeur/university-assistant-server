@@ -11,14 +11,21 @@ import java.util.List;
  */
 public interface CommentMapper {
     /**
-     * 根据导师id查询某位导师下的评论
-     * @param teacherId
+     * 根据对象id查询该对象下的评论
+     * @param comment
      */
-    List<Comment> queryCommentByTeacherId(@Param("teacherId") String teacherId);
+    List<Comment> queryCommentByTargetId(Comment comment);
 
     /**
      * 添加评论
      * @param comment
      */
     int addComment(Comment comment);
+
+    /**
+     * 获取指定对象下的评论数
+     * @param comment
+     * @return
+     */
+    int queryCommentCountByTargetId(Comment comment);
 }
