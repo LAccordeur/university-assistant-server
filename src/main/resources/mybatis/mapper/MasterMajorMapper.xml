@@ -20,7 +20,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.uppfind.dao.MasterMajorMapper">
+<mapper namespace="com.uppfind.dao.mybatis.MasterMajorMapper">
 
   <select id="queryMasterMajorSet" resultType="MasterMajor">
     SELECT  m.Major ,m.MajorCode AS id  FROM  mastermajorview as m  WHERE  (SELECT u.Location FROM universitysheet AS u

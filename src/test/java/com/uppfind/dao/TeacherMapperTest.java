@@ -1,5 +1,6 @@
 package com.uppfind.dao;
 
+import com.uppfind.dao.mybatis.TeacherMapper;
 import com.uppfind.entity.Teacher;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,8 +10,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by LAccordeur on 2017/5/31.

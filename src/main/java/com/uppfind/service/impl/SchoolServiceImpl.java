@@ -1,6 +1,6 @@
 package com.uppfind.service.impl;
 
-import com.uppfind.dao.SchoolMapper;
+import com.uppfind.dao.mybatis.SchoolMapper;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.School;
 import com.uppfind.service.SchoolService;

@@ -1,7 +1,7 @@
 package com.uppfind.service.impl;
 
-import com.uppfind.dao.LikeMapper;
-import com.uppfind.dao.TeacherMapper;
+import com.uppfind.dao.mybatis.LikeMapper;
+import com.uppfind.dao.mybatis.TeacherMapper;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.Like;
 import com.uppfind.service.LikeService;
@@ -47,20 +47,22 @@ public class LikeServiceImpl implements LikeService {
         return response;
     }
 
-    public Response addLike(String likeId, String token) {
-
-        Like like = new Like();
-        int likeCount;
-        like.setId(Integer.valueOf(likeId));
+    public Response addLike(Like like, String token) {
 
         //利用jwt验证token防止相同用户连续点赞
         if (token == null) {
-            //用户第一次点赞
+            //用户第一次点赞或者后端不验证
             //防止多个线程同时更新
             synchronized (lock) {
-                likeCount = (likeMapper.queryLikeById(likeId)).getLikeCount();
-                like.setLikeCount(likeCount);
-                likeMapper.updateLike(like);
+                Like oldLike = likeMapper.queryLikeByTargetId(like);
+                if (oldLike == null) {
+                    //说明还没人给该对象点赞
+                    like.setLikeCount(1);
+                    likeMapper.addLike(like);
+                } else {
+                    like.setLikeCount(oldLike.getLikeCount());
+                    likeMapper.updateLike(like);
+                }
             }
 
             //生成token返回
@@ -84,10 +86,15 @@ public class LikeServiceImpl implements LikeService {
                     //说明限制点赞的时间已经过了，可以再点赞
                     //防止多个线程同时更新
                     synchronized (lock) {
-                        likeCount = likeMapper.queryLikeById(likeId).getLikeCount();
-                        like.setLikeCount(likeCount);
-                        likeMapper.updateLike(like);
-                    }
+                        Like oldLike = likeMapper.queryLikeByTargetId(like);
+                        if (likeMapper.queryLikeByTargetId(like) == null) {
+                            //说明还没人给该对象点赞
+                            likeMapper.addLike(like);
+                        } else {
+                            like.setLikeCount(oldLike.getLikeCount());
+                            likeMapper.updateLike(like);
+                        }
+                     }
                     //返回新的token
                     return getTokenResponse();
 
@@ -114,7 +121,7 @@ public class LikeServiceImpl implements LikeService {
 
         //payload.put("id", likeId); //点赞表id
         payload.put("iat", date.getTime()); //生成时间
-        payload.put("ext", date.getTime() + 1000 * 60); //60s内不能再点赞
+        payload.put("ext", date.getTime() + 1000 * 20); //20s内不能再点赞
         String tokenStr = JwtHelper.createToken(payload);
 
         Map<String, Object> result = new HashMap<String, Object>();

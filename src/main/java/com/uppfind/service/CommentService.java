@@ -8,7 +8,7 @@ import com.uppfind.entity.Comment;
  * Created by LAccordeur on 2017/7/17.
  */
 public interface CommentService {
-    Response queryCommentByTeacherId(String teacherId);
+    Response queryCommentByTargetId(Comment comment);
 
     Response addComment(CommentDTO commentDTO);
 }

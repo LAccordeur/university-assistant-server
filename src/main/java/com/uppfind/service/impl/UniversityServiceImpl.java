@@ -1,16 +1,14 @@
 package com.uppfind.service.impl;
 
-import com.uppfind.dao.UniversityMapper;
+import com.uppfind.dao.mybatis.UniversityMapper;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.University;
 import com.uppfind.service.UniversityService;
 import com.uppfind.util.page.Page;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by LAccordeur on 2017/5/31.

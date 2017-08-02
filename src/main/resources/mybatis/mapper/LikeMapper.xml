@@ -20,7 +20,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.uppfind.dao.LikeMapper">
+<mapper namespace="com.uppfind.dao.mybatis.LikeMapper">
 
 
 
@@ -37,7 +37,7 @@
   </select>
 
   <update id="updateLike" parameterType="Like">
-    UPDATE likesheet SET likeCount = #{likeCount} + 1 WHERE id = #{id}
+    UPDATE likesheet SET likeCount = #{likeCount} + 1 WHERE targetId = #{targetId} AND targetType = #{targetType}
   </update>
 
   <insert id="addLike" parameterType="Like" useGeneratedKeys="true" keyProperty="id">

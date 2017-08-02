@@ -17,10 +17,10 @@ public interface LikeService {
 
     /**
      * 为喜欢的对象点赞
-     * @param likeId
+     * @param like
      * @return
      */
-    Response addLike(String likeId, String token);
+    Response addLike(Like like, String token);
 
     /**
      * 返回token

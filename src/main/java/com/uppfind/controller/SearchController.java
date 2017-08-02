@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by LAccordeur on 2017/7/12.
@@ -39,4 +40,17 @@ public class SearchController extends BaseController {
 
         return searchService.queryAllList(keyword);
     }
+
+    @RequestMapping(value = "/heatSearch",
+            method = RequestMethod.GET,
+            produces = {"application/json;charset=utf8"})
+    @ResponseBody
+    Response<Set<String>> getHeatSearch() {
+        //日志跟踪
+        MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("HEAT_SEARCH"));
+        logger.info("Request--");
+
+        return searchService.getHeatSearch();
+    }
+
 }

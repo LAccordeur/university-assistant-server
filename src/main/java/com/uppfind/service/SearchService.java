@@ -7,4 +7,6 @@ import com.uppfind.dto.Response;
  */
 public interface SearchService {
     Response queryAllList(String keyword);
+
+    Response getHeatSearch();
 }

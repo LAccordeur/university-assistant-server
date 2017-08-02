@@ -1,5 +1,6 @@
 package com.uppfind.dao;
 
+import com.uppfind.dao.mybatis.FeedbackMapper;
 import com.uppfind.entity.Feedback;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,8 +8,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by LAccordeur on 2017/6/10.

@@ -20,7 +20,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.uppfind.dao.SchoolMapper">
+<mapper namespace="com.uppfind.dao.mybatis.SchoolMapper">
 
   <select id="querySchoolSet" resultType="School">
     SELECT s.School, s.SchoolCode AS id FROM schoolsheet AS s

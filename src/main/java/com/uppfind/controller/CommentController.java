@@ -33,7 +33,8 @@ public class CommentController extends BaseController {
         MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_TEACHER_COMMENT"));
         logger.info("Request--" + id);
 
-        return commentService.queryCommentByTeacherId(id);
+        Comment comment = new Comment(id, 1);
+        return commentService.queryCommentByTargetId(comment);
     }
 
     @RequestMapping(value = "/comment/teacher",

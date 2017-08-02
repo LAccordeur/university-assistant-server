@@ -1,6 +1,6 @@
 package com.uppfind.service.impl;
 
-import com.uppfind.dao.*;
+import com.uppfind.dao.redis.CacheRedisDao;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.School;
 import com.uppfind.entity.University;
@@ -30,6 +30,8 @@ public class SearchServiceImpl implements SearchService{
     private ResearchFieldService researchFieldService;
     @Autowired
     private TeacherService teacherService;
+    @Autowired
+    private CacheRedisDao cacheRedisDao;
 
 
     public Response queryAllList(String keyword) {
@@ -49,6 +51,14 @@ public class SearchServiceImpl implements SearchService{
         response.setData(list);
         response.setCount(list.size());
 
+        return response;
+    }
+
+    public Response getHeatSearch() {
+        Response response = new Response();
+        response.setData(cacheRedisDao.getHeatSearch());
+        response.setType("heatSearch");
+        response.setCount(cacheRedisDao.getHeatSearch().size());
         return response;
     }
 }

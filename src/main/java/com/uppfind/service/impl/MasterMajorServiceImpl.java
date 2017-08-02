@@ -1,6 +1,6 @@
 package com.uppfind.service.impl;
 
-import com.uppfind.dao.MasterMajorMapper;
+import com.uppfind.dao.mybatis.MasterMajorMapper;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.MasterMajor;
 import com.uppfind.service.MasterMajorService;

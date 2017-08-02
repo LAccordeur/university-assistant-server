@@ -1,6 +1,6 @@
 package com.uppfind.service.impl;
 
-import com.uppfind.dao.CommentMapper;
+import com.uppfind.dao.mybatis.CommentMapper;
 import com.uppfind.dto.CommentDTO;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.Comment;
@@ -22,12 +22,11 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private CommentMapper commentMapper;
 
-    public Response queryCommentByTeacherId(String teacherId) {
+    public Response queryCommentByTargetId(Comment comment) {
         Response<List<Comment>> response = new Response<List<Comment>>();
 
-        Comment queryComment = new Comment(teacherId, 1);
         //组装
-        List<Comment> commentList = commentMapper.queryCommentByTargetId(queryComment);
+        List<Comment> commentList = commentMapper.queryCommentByTargetId(comment);
         response.setData(commentList);
         response.setCount(commentList.size());
         response.setType("comment");

@@ -1,6 +1,6 @@
 package com.uppfind.service.impl;
 
-import com.uppfind.dao.ResearchFieldMapper;
+import com.uppfind.dao.mybatis.ResearchFieldMapper;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.ResearchField;
 import com.uppfind.service.ResearchFieldService;

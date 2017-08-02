@@ -1,6 +1,6 @@
 package com.uppfind.service.impl;
 
-import com.uppfind.dao.FeedbackMapper;
+import com.uppfind.dao.mybatis.FeedbackMapper;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.Feedback;
 import com.uppfind.service.FeedbackService;

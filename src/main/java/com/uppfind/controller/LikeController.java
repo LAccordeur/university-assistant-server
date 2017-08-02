@@ -2,6 +2,7 @@ package com.uppfind.controller;
 
 import com.uppfind.controller.base.BaseController;
 import com.uppfind.dto.Response;
+import com.uppfind.entity.Like;
 import com.uppfind.service.LikeService;
 import com.uppfind.util.log.ConstCommonString;
 import com.uppfind.util.log.LogUtil;
@@ -39,12 +40,26 @@ public class LikeController extends BaseController {
             method = RequestMethod.POST,
             produces = {"application/json;charset=utf8"})
     @ResponseBody
-    public Response addLike(String id, @RequestParam(required = false) String token) {
+    public Response addTeacherLike(String id, @RequestParam(required = false) String token) {
         //日志跟踪
         MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("ADD_TEACHER_LIKE"));
         logger.info("Request--" + id + "_" + token);
 
-        return likeService.addLike(id, token);
+        Like like = new Like(id, 1);
+        return likeService.addLike(like, token);
+    }
+
+    @RequestMapping(value = "/like/comment",
+            method = RequestMethod.POST,
+            produces = {"application/json;charset=utf8"})
+    @ResponseBody
+    public Response addCommentLike(String id, @RequestParam(required = false) String token) {
+        //日志跟踪
+        MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("ADD_TEACHER_LIKE"));
+        logger.info("Request--" + id + "_" + token);
+
+        Like like = new Like(id, 7);
+        return likeService.addLike(like, token);
     }
 
     @RequestMapping(value = "/like/token",
