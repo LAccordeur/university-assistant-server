@@ -90,12 +90,17 @@ public class SchoolServiceImpl implements SchoolService {
 
 
         schools = schoolMapper.querySchoolPageList(keyword, offset, rows);
+        int resultCount = schoolMapper.querySchoolCount(keyword);
         if (schools != null && schools.size() > 0) {
             pageData = new Page<School>(pageSizeInt, currentPageInt, schools.size(), schools);
             response.setData(pageData);
-            response.setCount(schools.size());
+            response.setCount(resultCount);
             response.setType("school");
 
+        } else {
+            response.setData(null);
+            response.setCount(0);
+            response.setType("school");
         }
 
         return response;

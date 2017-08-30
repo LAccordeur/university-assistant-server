@@ -51,6 +51,11 @@ public interface SchoolMapper {
      */
     List<School> querySchoolInfo(@Param("schoolCode") Long schoolCode);
 
-
+    /**
+     * 总记录数
+     * @param keyword
+     * @return
+     */
+    Integer querySchoolCount(@Param("keyword") String keyword);
 
 }

@@ -66,6 +66,7 @@ public class CacheRedisDao {
             operations.set(key, objectMapper.writeValueAsString(response), 60*60, TimeUnit.SECONDS);
         }catch (JsonProcessingException e) {
             e.printStackTrace();
+            return;
         }
     }
 

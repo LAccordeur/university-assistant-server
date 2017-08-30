@@ -78,10 +78,15 @@ public class PhdMajorServiceImpl implements PhdMajorService {
 
 
         phdMajors = phdMajorMapper.queryPhdMajorPageList(keyword, offset, rows);
+        int resultCount = phdMajorMapper.queryPhdMajorCount(keyword);
         if (phdMajors!= null && phdMajors.size() > 0) {
             pageData = new Page<PhdMajor>(pageSizeInt, currentPageInt, phdMajors.size(), phdMajors);
             response.setData(pageData);
-            response.setCount(phdMajors.size());
+            response.setCount(resultCount);
+            response.setType("phdMajor");
+        } else {
+            response.setData(null);
+            response.setCount(0);
             response.setType("phdMajor");
         }
 

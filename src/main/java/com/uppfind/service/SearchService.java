@@ -8,5 +8,9 @@ import com.uppfind.dto.Response;
 public interface SearchService {
     Response queryAllList(String keyword);
 
+    Response queryAllPageList(String keyword);
+
+    Response queryAllListByThread(String keyword);
+
     Response getHeatSearch();
 }

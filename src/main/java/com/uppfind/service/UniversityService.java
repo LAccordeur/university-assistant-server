@@ -45,4 +45,6 @@ public interface UniversityService {
      * @return
      */
     Response queryUniversityInfo(String universityCode);
+
+
 }

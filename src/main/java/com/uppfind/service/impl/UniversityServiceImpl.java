@@ -80,10 +80,11 @@ public class UniversityServiceImpl implements UniversityService {
 
 
         universities= universityMapper.queryUniversityPageList(keyword, offset, rows);
+        int resultCount = universityMapper.queryUniversityCount(keyword);
         if (universities != null && universities.size() > 0) {
             pageData = new Page<University>(pageSizeInt, currentPageInt, universities.size(), universities);
             response.setData(pageData);
-            response.setCount(universities.size());
+            response.setCount(resultCount);
             response.setType("university");
         } else {
             response.setData(null);

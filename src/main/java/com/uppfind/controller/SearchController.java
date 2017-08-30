@@ -39,6 +39,31 @@ public class SearchController extends BaseController {
         logger.info("Request--" + keyword);
 
         return searchService.queryAllList(keyword);
+        //return searchService.queryAllPageList(keyword);
+    }
+
+    @RequestMapping(value = "/all/page",
+            method = RequestMethod.GET,
+            produces = {"application/json;charset=utf8"})
+    @ResponseBody
+    Response<List<Response<Object>>> queryAllPage(String keyword) {
+        //日志跟踪
+        MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_ALL_PAGE"));
+        logger.info("Request--" + keyword);
+
+        return searchService.queryAllPageList(keyword);
+    }
+
+    @RequestMapping(value = "/all/thread",
+            method = RequestMethod.GET,
+            produces = {"application/json;charset=utf8"})
+    @ResponseBody
+    Response<List<Response<Object>>> queryAllThread(String keyword) {
+        //日志跟踪
+        MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_ALL_PAGE"));
+        logger.info("Request--" + keyword);
+
+        return searchService.queryAllListByThread(keyword);
     }
 
     @RequestMapping(value = "/heatSearch",

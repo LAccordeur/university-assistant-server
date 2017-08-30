@@ -83,7 +83,7 @@ public class MajorController extends BaseController {
         MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_MASTER_MAJOR_SET"));
         logger.info("Request--" + locationName + "_" + universityName + "_" + schoolName);
 
-        return phdMajorService.queryPhdMajorSet(locationName, universityName, schoolName);
+        return masterMajorService.queryMasterMajorSet(locationName, universityName, schoolName);
     }
 
     @RequestMapping(value = "/master/list",
@@ -97,13 +97,13 @@ public class MajorController extends BaseController {
             MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_MASTER_MAJOR_LIST_PAGE"));
             logger.info("Request--" + keyword + "_" + currentPage + "_" + pageSize);
 
-            return phdMajorService.queryPhdMajorPageList(keyword, currentPage, pageSize);
+            return masterMajorService.queryMasterMajorPageList(keyword, currentPage, pageSize);
         } else {
             //日志跟踪
             MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_PHD_MAJOR_LIST"));
             logger.info("Request--" + keyword);
 
-            return phdMajorService.queryPhdMajorList(keyword);
+            return masterMajorService.queryMasterMajorList(keyword);
         }
     }
 
@@ -115,7 +115,7 @@ public class MajorController extends BaseController {
         MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_PHD_MAJOR_INFO"));
         logger.info("Request--");
 
-        return phdMajorService.queryPhdMajorInfo(schoolId, majorId);
+        return masterMajorService.queryMasterMajorInfo(schoolId, majorId);
     }
 
 

@@ -44,4 +44,6 @@ public interface MasterMajorMapper {
      * @return
      */
     List<MasterMajor> queryMasterMajorInfo(@Param("schoolCode") Long schoolCode, @Param("majorCode") Integer majorCode);
+
+    Integer queryMasterMajorCount(@Param("keyword") String keyword);
 }

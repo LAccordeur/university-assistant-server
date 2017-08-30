@@ -26,4 +26,10 @@ public interface ResearchFieldMapper {
      */
     List<ResearchField> queryMajorFieldPageList(@Param("keyword") String keyword, @Param("offset") int offset, @Param("rows") int rows);
 
+    /**
+     * 总记录数
+     * @param keyword
+     * @return
+     */
+    Integer queryMajorFieldCount(@Param("keyword") String keyword);
 }

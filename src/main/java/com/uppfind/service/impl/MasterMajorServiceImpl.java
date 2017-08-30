@@ -78,10 +78,15 @@ public class MasterMajorServiceImpl implements MasterMajorService {
 
 
         masterMajors = masterMajorMapper.queryMasterMajorPageList(keyword, offset, rows);
+        int resultCount = masterMajorMapper.queryMasterMajorCount(keyword);
         if (masterMajors!= null && masterMajors.size() > 0) {
             pageData = new Page<MasterMajor>(pageSizeInt, currentPageInt, masterMajors.size(), masterMajors);
             response.setData(pageData);
-            response.setCount(masterMajors.size());
+            response.setCount(resultCount);
+            response.setType("masterMajor");
+        } else {
+            response.setData(null);
+            response.setCount(0);
             response.setType("masterMajor");
         }
 

@@ -36,11 +36,76 @@
     WHERE t.Name LIKE concat(concat('%',#{keyword}),'%')
   </select>
 
+  <select id="queryTeacherCount" resultType="Integer">
+    SELECT count(*)
+    FROM teacherview AS t
+    WHERE t.Name LIKE concat(concat('%',#{keyword}),'%')
+  </select>
+
+
+
   <select id="queryTeacherListById" resultType="Teacher">
     SELECT t.Name, t.School, t.University, t.Title, t.Degree, t.Icon, t.Id, t.likeCount, t.commentCount
     FROM teacherview AS t
     WHERE SchoolCode = #{schoolCode}
   </select>
+
+  <select id="queryTeacherPageListById" resultType="Teacher">
+    SELECT t.Name, t.School, t.University, t.Title, t.Degree, t.Icon, t.Id, t.likeCount, t.commentCount
+    FROM teacherview AS t
+    WHERE SchoolCode = #{schoolCode}
+    LIMIT #{offset}, #{rows}
+  </select>
+
+  <select id="queryTeacherCountById" resultType="Integer">
+    SELECT count(*)
+    FROM teacherview AS t
+    WHERE SchoolCode = #{schoolCode}
+  </select>
+
+
+
+
+  <select id="queryTeacherListByPhdMajorId" resultType="Teacher">
+    SELECT t.Name, t.School, t.University, t.Title, t.Degree, t.Icon, t.Id, t.likeCount, t.commentCount
+    FROM teacherview AS t
+    WHERE Id IN (SELECT Id FROM phdmajorview WHERE MajorCode = #{majorCode})
+  </select>
+
+  <select id="queryTeacherPageListByPhdMajorId" resultType="Teacher">
+    SELECT t.Name, t.School, t.University, t.Title, t.Degree, t.Icon, t.Id, t.likeCount, t.commentCount
+    FROM teacherview AS t
+    WHERE Id IN (SELECT Id FROM phdmajorview WHERE MajorCode = #{majorCode})
+    LIMIT #{offset}, #{rows}
+  </select>
+
+  <select id="queryTeacherCountByPhdMajorId" resultType="Integer">
+    SELECT count(*)
+    FROM teacherview AS t
+    WHERE Id IN (SELECT Id FROM phdmajorview WHERE MajorCode = #{majorCode})
+  </select>
+
+
+
+  <select id="queryTeacherListByMasterMajorId" resultType="Teacher">
+    SELECT t.Name, t.School, t.University, t.Title, t.Degree, t.Icon, t.Id, t.likeCount, t.commentCount
+    FROM teacherview AS t
+    WHERE Id IN (SELECT Id FROM mastermajorview WHERE MajorCode = #{majorCode})
+  </select>
+
+  <select id="queryTeacherPageListByMasterMajorId" resultType="Teacher">
+    SELECT t.Name, t.School, t.University, t.Title, t.Degree, t.Icon, t.Id, t.likeCount, t.commentCount
+    FROM teacherview AS t
+    WHERE Id IN (SELECT Id FROM mastermajorview WHERE MajorCode = #{majorCode})
+    LIMIT #{offset}, #{rows}
+  </select>
+
+  <select id="queryTeacherCountByMasterMajorId" resultType="Integer">
+    SELECT count(*)
+    FROM teacherview AS t
+    WHERE Id IN (SELECT Id FROM mastermajorview WHERE MajorCode = #{majorCode})
+  </select>
+
 
   <select id="queryTeacherInfo" resultType="Teacher">
     SELECT *

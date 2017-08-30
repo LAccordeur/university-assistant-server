@@ -44,7 +44,8 @@ public class TeacherController extends BaseController {
     public Response queryTeacherList(@RequestParam(required = false) String keyword,
                                     @RequestParam(required = false) String currentPage,
                                     @RequestParam(required = false) String pageSize,
-                                    @RequestParam(required = false) String id) {
+                                    @RequestParam(required = false) String id,
+                                     @RequestParam(required = false) String type) {
 
         if (keyword != null && currentPage != null && pageSize != null) {
             //日志跟踪
@@ -58,13 +59,34 @@ public class TeacherController extends BaseController {
             logger.info("Request--" + keyword);
 
             return teacherService.queryTeacherList(keyword);
-        } else if (id != null) {
+        } else if (id != null && type != null && currentPage != null && pageSize != null) {
             //日志跟踪
-            MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_TEACHER_INFO"));
+            MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_TEACHER_LIST"));
             logger.info("Request--" + id);
 
+            if ("2".equals(type)) {
+                return teacherService.queryTeacherPageListById(id, currentPage, pageSize);
+            } else if ("3".equals(type)) {
+                return teacherService.queryTeacherPageListByPhdMajorId(id, currentPage, pageSize);
+            } else if ("4".equals(type)) {
+                return teacherService.queryTeacherPageListByMasterMajorId(id, currentPage, pageSize);
+            }
+        } else if (id != null && type != null) {
+            //日志跟踪
+            MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_TEACHER_LIST"));
+            logger.info("Request--" + id);
+
+            if ("2".equals(type)) {
+                return teacherService.queryTeacherListById(id);
+            } else if ("3".equals(type)) {
+                return teacherService.queryTeacherListByPhdMajorId(id);
+            } else if ("4".equals(type)) {
+                return teacherService.queryTeacherListByMasterMajorId(id);
+            }
+        } else if (id != null) {
             return teacherService.queryTeacherListById(id);
         }
+
         return null;
     }
 

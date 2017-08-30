@@ -55,10 +55,15 @@ public class ResearchFieldServiceImpl implements ResearchFieldService {
 
 
         researchFields = researchFieldMapper.queryMajorFieldPageList(keyword, offset, rows);
+        int resultCount = researchFieldMapper.queryMajorFieldCount(keyword);
         if (researchFields != null && researchFields.size() > 0) {
             pageData = new Page<ResearchField>(pageSizeInt, currentPageInt, researchFields.size(), researchFields);
             response.setData(pageData);
-            response.setCount(researchFields.size());
+            response.setCount(resultCount);
+            response.setType("researchField");
+        } else {
+            response.setData(null);
+            response.setCount(0);
             response.setType("researchField");
         }
 

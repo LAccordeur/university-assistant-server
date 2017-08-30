@@ -31,6 +31,47 @@ public interface TeacherService {
     Response queryTeacherListById(String schoolCode);
 
     /**
+     * 分页
+     * @param schoolCode
+     * @param currentPage
+     * @param pageSize
+     * @return
+     */
+    Response queryTeacherPageListById(String schoolCode, String currentPage, String pageSize);
+
+    /**
+     * 查询某博士专业的指导老师
+     * @param majorCode
+     * @return
+     */
+    Response queryTeacherListByPhdMajorId(String majorCode);
+
+    /**
+     * 分页
+     * @param majorCode
+     * @param currentPage
+     * @param pageSize
+     * @return
+     */
+    Response queryTeacherPageListByPhdMajorId(String majorCode, String currentPage, String pageSize);
+
+    /**
+     * 查询某硕士专业的指导老师
+     * @param majorCode
+     * @return
+     */
+    Response queryTeacherListByMasterMajorId(String majorCode);
+
+    /**
+     * 分页
+     * @param majorCode
+     * @param currentPage
+     * @param pageSize
+     * @return
+     */
+    Response queryTeacherPageListByMasterMajorId(String majorCode, String currentPage, String pageSize);
+
+    /**
      * 查询老师的详细信息
      * @param teacherCode
      * @return
@@ -45,4 +86,6 @@ public interface TeacherService {
      * @return
      */
     Response queryTeacherPageList( String keyword, String currentPage, String pageSize);
+
+
 }

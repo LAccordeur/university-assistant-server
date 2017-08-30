@@ -44,4 +44,11 @@ public interface PhdMajorMapper {
      * @return
      */
     List<PhdMajor> queryPhdMajorInfo(@Param("schoolCode") Long schoolCode, @Param("majorCode") Integer majorCode);
+
+    /**
+     * 查询总记录数
+     * @param keyword
+     * @return
+     */
+    Integer queryPhdMajorCount(@Param("keyword") String keyword);
 }

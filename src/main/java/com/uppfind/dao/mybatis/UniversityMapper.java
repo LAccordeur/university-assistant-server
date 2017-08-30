@@ -49,4 +49,11 @@ public interface UniversityMapper {
      * @return
      */
     List<University> queryUniversityInfo(@Param("universityCode") Integer universityCode);
+
+    /**
+     * 查询记录数
+     * @param keyword
+     * @return
+     */
+    Integer queryUniversityCount(@Param("keyword") String keyword);
 }

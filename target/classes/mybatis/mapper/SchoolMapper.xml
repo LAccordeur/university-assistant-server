@@ -32,13 +32,19 @@
   <select id="querySchoolList" resultType="School">
     SELECT s.School, s.SchoolCode AS id, s.Website, s.EstablishedTime, s.Icon, (SELECT u.University FROM universitysheet AS u WHERE s.UniversityCode= u.UniversityCode) AS university
     FROM schoolsheet AS s
-    WHERE S.School LIKE concat(concat('%',#{keyword}),'%')
+    WHERE s.School LIKE concat(concat('%',#{keyword}),'%')
+  </select>
+
+  <select id="querySchoolCount" resultType="Integer">
+    SELECT count(*)
+    FROM schoolsheet AS s
+    WHERE s.School LIKE concat(concat('%',#{keyword}),'%')
   </select>
 
   <select id="querySchoolPageList" resultType="School">
     SELECT s.School, s.SchoolCode AS id, s.Website, s.EstablishedTime, s.Icon, (SELECT u.University FROM universitysheet AS u WHERE s.UniversityCode= u.UniversityCode) AS university
     FROM schoolsheet AS s
-    WHERE S.School LIKE concat(concat('%',#{keyword}),'%')
+    WHERE s.School LIKE concat(concat('%',#{keyword}),'%')
     LIMIT #{offset} , #{rows}
   </select>
 

@@ -39,6 +39,15 @@
     GROUP BY  p.Major, p.MajorCode, p.University, p.School, p.SchoolCode
   </select>
 
+  <select id="queryPhdMajorCount" resultType="Integer">
+    SELECT count(*) FROM (
+    SELECT count(*)
+    FROM  phdmajorview as p
+    WHERE p.Major LIKE concat(concat('%',#{keyword}),'%')
+    AND  p.Major !=''
+    GROUP BY  p.Major, p.MajorCode, p.University, p.School, p.SchoolCode) groupmajor
+  </select>
+
   <select id="queryPhdMajorPageList" resultType="PhdMajor">
     SELECT  p.Major ,p.MajorCode AS id, p.University, p.School,p.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode) AS Image
     FROM  phdmajorview as p
