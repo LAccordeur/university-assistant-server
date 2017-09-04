@@ -28,12 +28,12 @@ public class CommentController extends BaseController {
             method = RequestMethod.GET,
             produces = {"application/json;charset=utf8"})
     @ResponseBody
-    public Response<List<Comment>> queryCommentByTeacherId(String id) {
+    public Response<List<Comment>> queryCommentByTeacherId(String id, String userId) {
         //日志跟踪
         MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_TEACHER_COMMENT"));
         logger.info("Request--" + id);
 
-        Comment comment = new Comment(id, 1);
+        Comment comment = new Comment(id, 1, userId);
         return commentService.queryCommentByTargetId(comment);
     }
 

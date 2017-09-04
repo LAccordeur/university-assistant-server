@@ -27,4 +27,11 @@ public interface LikeService {
      * @return
      */
     Response getTokenResponse();
+
+
+    /**
+     * 取消对某个对象的点赞
+     * @return
+     */
+    Response minusLike(Like like);
 }

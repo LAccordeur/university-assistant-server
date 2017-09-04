@@ -1,5 +1,6 @@
 package com.uppfind.util.comment;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -10,6 +11,15 @@ import java.util.Random;
 public class AnonymousUtil {
     private static List<String> names = new ArrayList<String>();
     private static int[] marks = new int[30]; //0表示未使用
+    private static int iconNum = 16;
+
+    static {
+        File file = new File("/usr/local/app/tomcat7/webapps/university-assistant-server/img/icon");
+        if (file.exists()) {
+            String[] files = file.list();
+            iconNum = files.length;
+        }
+    }
 
     static {
         names.add("李逵");names.add("林冲");names.add("公孙胜");
@@ -46,6 +56,11 @@ public class AnonymousUtil {
         }
 
         return name;
+    }
+
+    public static int getAnonymousId() {
+        Random random = new Random(System.currentTimeMillis());
+        return Math.abs(random.nextInt(iconNum));
     }
 
     public static void main(String[] args) {

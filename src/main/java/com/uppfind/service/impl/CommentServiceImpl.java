@@ -37,14 +37,17 @@ public class CommentServiceImpl implements CommentService {
     public Response addComment(CommentDTO commentDTO) {
 
         Comment comment = CommentAssembler.toEntity(commentDTO);
-        comment.setUserName(AnonymousUtil.getAnonymousName());
+        comment.setUserName(AnonymousUtil.getAnonymousName() + AnonymousUtil.getAnonymousId() + "号");
+        comment.setIcon("/img/icon/" + AnonymousUtil.getAnonymousId() + ".jpg");
 
 
         if (commentMapper.addComment(comment) > 0) {
+            Comment newComment = commentMapper.queryCommentById(comment);
+            newComment.setIsLike(0);
             Response response = new Response();
+            response.setData(newComment);
+            response.setCount(1);
             response.setType("comment");
-            response.setMsg("评论成功");
-            response.setCode(HttpStatus.OK.value());
             return response;
         }
         return null;

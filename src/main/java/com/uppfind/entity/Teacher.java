@@ -48,6 +48,10 @@ public class Teacher {
 
     private Integer commentCount;   //评论数
 
+    private Integer isLike; //该评论是否被某用户点赞
+
+    private String userId;  //点赞用户
+
     @Override
     public String toString() {
         return "Teacher{" +
@@ -71,7 +75,25 @@ public class Teacher {
                 ", masterMajor=" + masterMajor +
                 ", likeCount=" + likeCount +
                 ", commentCount=" + commentCount +
+                ", isLike=" + isLike +
+                ", userId='" + userId + '\'' +
                 '}';
+    }
+
+    public Integer getIsLike() {
+        return isLike;
+    }
+
+    public void setIsLike(Integer isLike) {
+        this.isLike = isLike;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public Integer getLikeCount() {

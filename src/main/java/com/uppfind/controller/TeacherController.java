@@ -93,12 +93,12 @@ public class TeacherController extends BaseController {
     @RequestMapping(value = "/info",
             method = RequestMethod.GET)
     @ResponseBody
-    public Response queryTeacherInfo(String id) {
+    public Response queryTeacherInfo(String id, String userId) {
         //日志跟踪
         MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_TEACHER_INFO"));
         logger.info("Request--" + id);
 
-        return teacherService.queryTeacherInfo(id);
+        return teacherService.queryTeacherInfo(id, userId);
     }
 
 }

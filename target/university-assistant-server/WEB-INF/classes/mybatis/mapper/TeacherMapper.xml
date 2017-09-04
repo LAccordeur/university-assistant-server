@@ -108,7 +108,7 @@
 
 
   <select id="queryTeacherInfo" resultType="Teacher">
-    SELECT *
+    SELECT *, (SELECT count(*) FROM likerecordsheet WHERE targetId = t.Id and targetType = 1 and userId = #{userId}) AS isLike
     FROM teacherview AS t
     WHERE t.Id= #{teacherId}
   </select>

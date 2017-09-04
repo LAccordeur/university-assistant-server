@@ -44,4 +44,11 @@ public interface LikeMapper {
      * @return
      */
     int queryLikeCountByTargetId(Like like);
+
+    /**
+     * 取消对某个对象的点赞
+     * @param like
+     * @return
+     */
+    int minusLike(Like like);
 }

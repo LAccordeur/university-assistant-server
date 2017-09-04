@@ -25,6 +25,12 @@ public class Comment {
 
     private Integer likeCount; //点赞数
 
+    private Integer isLike; //该评论是否被某用户点赞
+
+    private String userId;  //点赞用户
+
+    private String icon;   //评论者头像uri
+
 
     @Override
     public String toString() {
@@ -34,15 +40,44 @@ public class Comment {
                 ", targetType=" + targetType +
                 ", content='" + content + '\'' +
                 ", userName='" + userName + '\'' +
-                ", createTime='" + createTime + '\'' +
+                ", createTime=" + createTime +
                 ", likeCount=" + likeCount +
+                ", isLike=" + isLike +
+                ", userId='" + userId + '\'' +
+                ", icon='" + icon + '\'' +
                 '}';
     }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public Integer getIsLike() {
+        return isLike;
+    }
+
+    public void setIsLike(Integer isLike) {
+        this.isLike = isLike;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     public Comment() {}
 
-    public Comment(String targetId, Integer targetType) {
+    public Comment(String targetId, Integer targetType, String token) {
         this.targetId = targetId;
         this.targetType = targetType;
+        this.userId = token;
     }
 
     public Comment(String targetId, Integer targetType, String content, String userName) {

@@ -40,27 +40,59 @@ public class LikeController extends BaseController {
             method = RequestMethod.POST,
             produces = {"application/json;charset=utf8"})
     @ResponseBody
-    public Response addTeacherLike(String id, @RequestParam(required = false) String token) {
+    public Response addTeacherLike(String id, String userId,@RequestParam(required = false) String token) {
         //日志跟踪
         MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("ADD_TEACHER_LIKE"));
         logger.info("Request--" + id + "_" + token);
 
-        Like like = new Like(id, 1);
+        Like like = new Like(id, 1, userId);
         return likeService.addLike(like, token);
     }
+
+
+    @RequestMapping(value = "/dislike/teacher",
+            method = RequestMethod.POST,
+            produces = {"application/json;charset=utf8"})
+    @ResponseBody
+    public Response minusTeacherLike(String id, String userId) {
+        //日志跟踪
+        MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("MINUS_TEACHER_LIKE"));
+        logger.info("Request--" + id + "_" + userId);
+
+        Like like = new Like(id, 1, userId);
+        return likeService.minusLike(like);
+    }
+
+
+
 
     @RequestMapping(value = "/like/comment",
             method = RequestMethod.POST,
             produces = {"application/json;charset=utf8"})
     @ResponseBody
-    public Response addCommentLike(String id, @RequestParam(required = false) String token) {
+    public Response addCommentLike(String id, String userId, @RequestParam(required = false) String token) {
         //日志跟踪
         MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("ADD_TEACHER_LIKE"));
         logger.info("Request--" + id + "_" + token);
 
-        Like like = new Like(id, 7);
+        Like like = new Like(id, 7, userId);
         return likeService.addLike(like, token);
     }
+
+
+    @RequestMapping(value = "/dislike/comment",
+            method = RequestMethod.POST,
+            produces = {"application/json;charset=utf8"})
+    @ResponseBody
+    public Response minusCommentLike(String id, String userId) {
+        //日志跟踪
+        MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("ADD_TEACHER_LIKE"));
+        logger.info("Request--" + id + "_" + userId);
+
+        Like like = new Like(id, 7, userId);
+        return likeService.minusLike(like);
+    }
+
 
     @RequestMapping(value = "/like/token",
             method = RequestMethod.GET,

@@ -17,6 +17,10 @@ public class Like {
 
     private Integer likeCount; //点赞数
 
+    private Integer isLike; //该评论是否被某用户点赞
+
+    private String userId;  //点赞用户
+
     @Override
     public String toString() {
         return "Like{" +
@@ -24,6 +28,8 @@ public class Like {
                 ", targetId='" + targetId + '\'' +
                 ", targetType=" + targetType +
                 ", likeCount=" + likeCount +
+                ", isLike=" + isLike +
+                ", userId='" + userId + '\'' +
                 '}';
     }
 
@@ -34,10 +40,32 @@ public class Like {
         this.targetType = targetType;
     }
 
+    public Like(String targetId, Integer targetType, String userId) {
+        this.targetId = targetId;
+        this.targetType = targetType;
+        this.userId = userId;
+    }
+
     public Like(String targetId, Integer targetType, Integer likeCount) {
         this.targetId = targetId;
         this.targetType = targetType;
         this.likeCount = likeCount;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Integer getIsLike() {
+        return isLike;
+    }
+
+    public void setIsLike(Integer isLike) {
+        this.isLike = isLike;
     }
 
     public Integer getId() {

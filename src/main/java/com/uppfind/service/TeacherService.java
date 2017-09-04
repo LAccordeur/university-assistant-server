@@ -76,7 +76,7 @@ public interface TeacherService {
      * @param teacherCode
      * @return
      */
-    Response queryTeacherInfo(String teacherCode);
+    Response queryTeacherInfo(String teacherCode, String token);
 
     /**
      * 根据关键词查询所有相关老师信息（分页）（部分信息）

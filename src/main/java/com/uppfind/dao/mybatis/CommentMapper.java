@@ -28,4 +28,11 @@ public interface CommentMapper {
      * @return
      */
     int queryCommentCountByTargetId(Comment comment);
+
+    /**
+     * 根据评论表id获取评论
+     * @param comment
+     * @return
+     */
+    Comment queryCommentById(Comment comment);
 }

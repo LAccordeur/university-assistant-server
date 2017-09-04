@@ -48,11 +48,11 @@ public class CacheRedisDaoTest {
     @Test
     public void saveToCache() {
 
-        List<Teacher> teachers = teacherMapper.queryTeacherInfo(1061400011157L);
+        //List<Teacher> teachers = teacherMapper.queryTeacherInfo(1061400011157L);
 
         Response<List<Teacher>> response = new Response<List<Teacher>>();
-        response.setData(teachers);
-        response.setCount(teachers.size());
+        //response.setData(teachers);
+        //response.setCount(teachers.size());
         response.setType("teacher");
         cacheRedisDao.saveToCache(response, response.getType()+response.getData().get(0).getId());
 

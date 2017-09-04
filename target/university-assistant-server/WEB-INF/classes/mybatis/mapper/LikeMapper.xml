@@ -37,11 +37,18 @@
   </select>
 
   <update id="updateLike" parameterType="Like">
-    UPDATE likesheet SET likeCount = #{likeCount} + 1 WHERE targetId = #{targetId} AND targetType = #{targetType}
+    UPDATE likesheet SET likeCount = #{likeCount} + 1 WHERE targetId = #{targetId} AND targetType = #{targetType};
+    INSERT INTO likerecordsheet (targetId,targetType,userId) VALUES (#{targetId},#{targetType},#{userId})
   </update>
 
   <insert id="addLike" parameterType="Like" useGeneratedKeys="true" keyProperty="id">
-    INSERT INTO likesheet (targetId,targetType,likeCount) VALUES (#{targetId},#{targetType},#{likeCount})
+    INSERT INTO likesheet (targetId,targetType,likeCount) VALUES (#{targetId},#{targetType},#{likeCount});
+    INSERT INTO likerecordsheet (targetId,targetType,userId) VALUES (#{targetId},#{targetType},#{userId})
   </insert>
+  
+  <update id="minusLike" parameterType="Like">
+    UPDATE likesheet SET likeCount = #{likeCount} - 1 WHERE targetId = #{targetId} AND targetType = #{targetType};
+    DELETE FROM likerecordsheet WHERE targetId = #{targetId} AND targetType = #{targetType} AND userId = #{userId}
+  </update>
 
 </mapper>

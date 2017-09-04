@@ -27,6 +27,7 @@ public class LikeServiceImpl implements LikeService {
     private TeacherMapper teacherMapper;
 
     private Object lock = new Object();
+    private Object lock1 = new Object();
 
     public Response queryLikeByTeacherId(String teacherId) {
         Response<Like> response = new Response<Like>();
@@ -65,8 +66,10 @@ public class LikeServiceImpl implements LikeService {
                 }
             }
 
-            //生成token返回
-            return getTokenResponse();
+            Response response = new Response();
+            response.setCode(200);
+            response.setMsg("点赞成功");
+            return response;
 
         } else {
             //该用户已经点过赞了，判断其限制时间是否过期，若过期则可再点赞
@@ -112,6 +115,30 @@ public class LikeServiceImpl implements LikeService {
 
         return null;
 
+    }
+
+    public Response minusLike(Like like) {
+        Response response = new Response();
+
+        synchronized (lock1) {
+            Like oldLike = likeMapper.queryLikeByTargetId(like);
+
+            if (oldLike != null) {
+                like.setLikeCount(oldLike.getLikeCount());
+                if (likeMapper.minusLike(like) > 0) {
+                    response.setCode(200);
+                    response.setMsg("取消点赞成功");
+                } else {
+                    response.setCode(500);
+                    response.setMsg("取消点赞失败");
+                }
+            } else {
+                response.setCode(500);
+                response.setMsg("取消点赞失败");
+            }
+        }
+
+        return response;
     }
 
     public Response getTokenResponse() {

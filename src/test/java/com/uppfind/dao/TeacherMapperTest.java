@@ -36,8 +36,8 @@ public class TeacherMapperTest {
 
     @Test
     public void queryTeacherInfo() throws Exception {
-        List<Teacher> teacher = teacherMapper.queryTeacherInfo(1061402211243L);
-        System.out.println(teacher);
+        //List<Teacher> teacher = teacherMapper.queryTeacherInfo(1061402211243L);
+        //System.out.println(teacher);
     }
 
 }

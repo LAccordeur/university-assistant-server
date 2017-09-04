@@ -106,13 +106,13 @@ public interface TeacherMapper {
     List<Teacher> queryTeacherPageList(@Param("keyword") String keyword, @Param("offset") int offset, @Param("rows") int rows);
 
 
-
     /**
      * 根据id查询老师的具体信息
      * @param teacherId
+     * @param userId
      * @return
      */
-    List<Teacher> queryTeacherInfo(@Param("teacherId") Long teacherId);
+    List<Teacher> queryTeacherInfo(@Param("teacherId") Long teacherId, @Param("userId") String userId);
 
 
     /**

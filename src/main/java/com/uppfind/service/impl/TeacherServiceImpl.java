@@ -231,10 +231,10 @@ public class TeacherServiceImpl implements TeacherService {
         return response;
     }
 
-    public Response queryTeacherInfo(String teacherCode) {
+    public Response queryTeacherInfo(String teacherCode, String userId) {
         Response<List<Teacher>> response = new Response<List<Teacher>>();
         //组装返回的Response对象
-        List<Teacher> teacher = teacherMapper.queryTeacherInfo(Long.parseLong(teacherCode));
+        List<Teacher> teacher = teacherMapper.queryTeacherInfo(Long.parseLong(teacherCode), userId);
         response.setData(teacher);
         response.setCount(teacher.size());
         response.setType("teacher");
