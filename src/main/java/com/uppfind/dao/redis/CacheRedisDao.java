@@ -29,15 +29,21 @@ public class CacheRedisDao {
      * @param keyword
      */
     public void updateHeatSearch(String keyword) {
-        ZSetOperations<String, String> operations = redisTemplate.opsForZSet();
-        operations.incrementScore(key.toLowerCase(), keyword, 1);
 
-        if (redisTemplate.getExpire(key.toLowerCase()) == -1) {
-            redisTemplate.expire(key, 24*60*60, TimeUnit.SECONDS);
-        }
+        try {
+            ZSetOperations<String, String> operations = redisTemplate.opsForZSet();
+            operations.incrementScore(key.toLowerCase(), keyword, 1);
 
-        if (operations.zCard(key.toLowerCase()) > 100) {
-            operations.removeRange(key.toLowerCase(), 100, -1);
+            if (redisTemplate.getExpire(key.toLowerCase()) == -1) {
+                redisTemplate.expire(key, 24 * 60 * 60, TimeUnit.SECONDS);
+            }
+
+            if (operations.zCard(key.toLowerCase()) > 100) {
+                operations.removeRange(key.toLowerCase(), 100, -1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
         }
 
     }
@@ -47,9 +53,14 @@ public class CacheRedisDao {
      * @return
      */
     public Set<String> getHeatSearch() {
-
-        ZSetOperations<String, String> operations = redisTemplate.opsForZSet();
-        Set<String> resultSet = operations.reverseRange(key.toLowerCase(),0,5);
+        Set<String> resultSet;
+        try {
+            ZSetOperations<String, String> operations = redisTemplate.opsForZSet();
+            resultSet = operations.reverseRange(key.toLowerCase(), 0, 5);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
         return resultSet;
     }
 
@@ -89,6 +100,7 @@ public class CacheRedisDao {
                 return null;
             }
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
         return result;
