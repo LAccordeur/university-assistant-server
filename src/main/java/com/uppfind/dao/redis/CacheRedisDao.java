@@ -60,10 +60,13 @@ public class CacheRedisDao {
      * @param key
      */
     public void saveToCache(Response response, String key) {
-        ValueOperations<String, String> operations = redisTemplate.opsForValue();
-        ObjectMapper objectMapper = new ObjectMapper();
         try {
-            operations.set(key, objectMapper.writeValueAsString(response), 60*60, TimeUnit.SECONDS);
+            ValueOperations<String, String> operations = redisTemplate.opsForValue();
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            if (operations.get(key) == null) {
+                operations.set(key, objectMapper.writeValueAsString(response), 60 * 60, TimeUnit.SECONDS);
+            }
         }catch (JsonProcessingException e) {
             e.printStackTrace();
             return;
@@ -77,10 +80,15 @@ public class CacheRedisDao {
      * @return
      */
     public String getFromCache(String key) {
-        ValueOperations<String, String> operations = redisTemplate.opsForValue();
-        String result = operations.get(key);
-        if (result == null) {
-            //缓存中不存在
+        String result = null;
+        try {
+            ValueOperations<String, String> operations = redisTemplate.opsForValue();
+            result = operations.get(key);
+            if (result == null) {
+                //缓存中不存在
+                return null;
+            }
+        } catch (Exception e) {
             return null;
         }
         return result;

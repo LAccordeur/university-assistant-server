@@ -6,11 +6,13 @@ import com.uppfind.service.SearchService;
 import com.uppfind.service.TeacherService;
 import com.uppfind.util.log.ConstCommonString;
 import com.uppfind.util.log.LogUtil;
+import org.apache.ibatis.annotations.Param;
 import org.apache.log4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -29,7 +31,7 @@ public class SearchController extends BaseController {
     @Autowired
     private TeacherService teacherService;
 
-    @RequestMapping(value = "/all/list",
+    /*@RequestMapping(value = "/all/list",
             method = RequestMethod.GET,
             produces = {"application/json;charset=utf8"})
     @ResponseBody
@@ -40,18 +42,20 @@ public class SearchController extends BaseController {
 
         return searchService.queryAllList(keyword);
         //return searchService.queryAllPageList(keyword);
-    }
+    }*/
 
-    @RequestMapping(value = "/all/page",
+    @RequestMapping(value = "/all/list",
             method = RequestMethod.GET,
             produces = {"application/json;charset=utf8"})
     @ResponseBody
-    Response<List<Response<Object>>> queryAllPage(String keyword) {
+    Response<List<Response<Object>>> queryAllPageList(String keyword, @RequestParam(required = false) String currentPage, @RequestParam(required = false) String pageSize) {
         //日志跟踪
-        MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_ALL_PAGE"));
+        MDC.put(ConstCommonString.TRACE_ID, LogUtil.getTraceId("QUERY_ALL_LIST"));
         logger.info("Request--" + keyword);
-
-        return searchService.queryAllPageList(keyword);
+        if (currentPage != null && pageSize != null) {
+            return searchService.queryAllPageList(keyword, currentPage, pageSize);
+        }
+        return searchService.queryAllList(keyword);
     }
 
     @RequestMapping(value = "/all/thread",

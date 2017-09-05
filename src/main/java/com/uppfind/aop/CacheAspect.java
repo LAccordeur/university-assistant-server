@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.ExecutorService;
+
 /**
  * Created by LAccordeur on 2017/8/1.
  */
@@ -70,7 +72,11 @@ public class CacheAspect {
                     key.append((String)args[i]);
                 }
             }
-            cacheRedisDao.saveToCache(response, (key.toString()).toLowerCase());
+            try {
+                cacheRedisDao.saveToCache(response, (key.toString()).toLowerCase());
+            } catch (Exception e) {
+                return;
+            }
         }
     }
 }

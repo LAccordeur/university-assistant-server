@@ -29,7 +29,7 @@ public class RedisSpringTest {
         Apple apple = new Apple();
         apple.setId("1");
         apple.setColor("red");
-        //template.opsForValue().set("testjson", objectMapper.writeValueAsString(apple));
+        template.opsForValue().set("testjson", objectMapper.writeValueAsString(apple));
 
         System.out.println(template.opsForValue().get("test"));
 

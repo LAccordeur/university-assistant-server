@@ -168,17 +168,17 @@ public class SearchServiceImpl implements SearchService{
         }
     }
 
-    public Response queryAllPageList(String keyword) {
+    public Response queryAllPageList(String keyword, String currentPage, String pageSize) {
 
         Response<List<Response<Object>>> response = new Response<List<Response<Object>>>();
         List<Response<Object>> list = new ArrayList<Response<Object>>();
 
-        list.add(universityService.queryUniversityPageList(keyword, "1", "5"));
-        list.add(schoolService.querySchoolPageList(keyword, "1", "5"));
-        list.add(teacherService.queryTeacherPageList(keyword, "1", "5"));
-        list.add(masterMajorService.queryMasterMajorPageList(keyword, "1", "5"));
-        list.add(phdMajorService.queryPhdMajorPageList(keyword, "1", "5"));
-        list.add(researchFieldService.queryMajorFieldPageList(keyword, "1", "5"));
+        list.add(universityService.queryUniversityPageList(keyword, currentPage, pageSize));
+        list.add(schoolService.querySchoolPageList(keyword, currentPage, pageSize));
+        list.add(teacherService.queryTeacherPageList(keyword, currentPage, pageSize));
+        list.add(masterMajorService.queryMasterMajorPageList(keyword, currentPage, pageSize));
+        list.add(phdMajorService.queryPhdMajorPageList(keyword, currentPage, pageSize));
+        list.add(researchFieldService.queryMajorFieldPageList(keyword, currentPage, pageSize));
 
         response.setData(list);
         response.setCount(list.size());

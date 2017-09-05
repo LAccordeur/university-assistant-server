@@ -8,7 +8,7 @@ import com.uppfind.dto.Response;
 public interface SearchService {
     Response queryAllList(String keyword);
 
-    Response queryAllPageList(String keyword);
+    Response queryAllPageList(String keyword, String currentPage, String pageSize);
 
     Response queryAllListByThread(String keyword);
 
