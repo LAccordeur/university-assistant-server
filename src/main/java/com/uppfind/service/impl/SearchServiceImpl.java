@@ -1,5 +1,6 @@
 package com.uppfind.service.impl;
 
+import com.uppfind.dao.mybatis.*;
 import com.uppfind.dao.redis.CacheRedisDao;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.School;
@@ -38,6 +39,24 @@ public class SearchServiceImpl implements SearchService{
     @Autowired
     private CacheRedisDao cacheRedisDao;
 
+    @Autowired
+    private PhdMajorMapper phdMajorMapper;
+
+    @Autowired
+    private MasterMajorMapper masterMajorMapper;
+
+    @Autowired
+    private SchoolMapper schoolMapper;
+
+    @Autowired
+    private UniversityMapper universityMapper;
+
+    @Autowired
+    private ResearchFieldMapper researchFieldMapper;
+
+    @Autowired
+    private TeacherMapper teacherMapper;
+
     private static ExecutorService executorService = Executors.newCachedThreadPool();
 
     public Response queryAllList(String keyword) {
@@ -46,13 +65,36 @@ public class SearchServiceImpl implements SearchService{
         List<Response<Object>> list = new ArrayList<Response<Object>>();
 
 
+        Response response1 = new Response();
+        response1.setCount(universityMapper.queryUniversityCount(keyword));
+        response1.setType("university");
 
-        list.add(universityService.queryUniversityList(keyword));
-        list.add(schoolService.querySchoolList(keyword));
-        list.add(teacherService.queryTeacherList(keyword));
-        list.add(masterMajorService.queryMasterMajorList(keyword));
-        list.add(phdMajorService.queryPhdMajorList(keyword));
-        list.add(researchFieldService.queryMajorFieldList(keyword));
+        Response response2 = new Response();
+        response2.setCount(schoolMapper.querySchoolCount(keyword));
+        response2.setType("school");
+
+        Response response3 = new Response();
+        response3.setCount(teacherMapper.queryTeacherCount(keyword));
+        response3.setType("teacher");
+
+        Response response4 = new Response();
+        response4.setCount(masterMajorMapper.queryMasterMajorCount(keyword));
+        response4.setType("masterMajor");
+
+        Response response5 = new Response();
+        response5.setCount(phdMajorMapper.queryPhdMajorCount(keyword));
+        response5.setType("phdMajor");
+
+        Response response6 = new Response();
+        response6.setCount(researchFieldMapper.queryMajorFieldCount(keyword));
+        response6.setType("researchField");
+
+        list.add(response1);
+        list.add(response2);
+        list.add(response3);
+        list.add(response4);
+        list.add(response5);
+        list.add(response6);
 
 
         response.setData(list);
