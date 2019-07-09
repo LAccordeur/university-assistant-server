@@ -1,0 +1,12 @@
+#### Environment
+- Java 1.8
+- Tomcat 7
+- Mysql 5.7.19
+- Redis 3.2.9
+
+#### Deployment
+1. 安装上述环境
+2. 修改props/database.properties中的数据库密码（mysql和redis）
+3. 使用maven打包
+4. 利用resources/uppfind.sql进行数据库初始化
+5. 部署至tomcat中，并将img目录放置于项目的根目录下
