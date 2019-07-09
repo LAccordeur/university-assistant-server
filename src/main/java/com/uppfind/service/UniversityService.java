@@ -29,6 +29,14 @@ public interface UniversityService {
      */
     Response queryUniversityList(String keyword);
 
+    /**
+     * 根据关键词查询相应学校的列表，返回学校的部分信息(分页)
+     * @param keyword
+     * @param currentPage
+     * @param pageSize
+     * @return
+     */
+    Response queryUniversityPageList(String keyword, String currentPage, String pageSize);
 
 
     /**
@@ -37,4 +45,6 @@ public interface UniversityService {
      * @return
      */
     Response queryUniversityInfo(String universityCode);
+
+
 }

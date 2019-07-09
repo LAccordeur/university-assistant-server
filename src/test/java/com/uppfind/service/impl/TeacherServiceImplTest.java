@@ -36,8 +36,14 @@ public class TeacherServiceImplTest {
 
     @Test
     public void queryTeacherInfo() throws Exception {
-        Response response = teacherService.queryTeacherInfo("1061402210729");
-        System.out.println(response);
+        //Response response = teacherService.queryTeacherInfo("1061402210729");
+        //System.out.println(response);
+    }
+
+    @Test
+    public void queryTeacherPageList() throws Exception {
+        //Response response = teacherService.queryTeacherPageList("赵",8,1);
+        //System.out.println(response);
     }
 
 }

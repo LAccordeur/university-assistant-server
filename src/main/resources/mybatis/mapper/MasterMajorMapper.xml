@@ -20,42 +20,50 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.uppfind.dao.MasterMajorMapper">
+<mapper namespace="com.uppfind.dao.mybatis.MasterMajorMapper">
 
   <select id="queryMasterMajorSet" resultType="MasterMajor">
-    SELECT  m.Major ,m.MajorCode  FROM  mastermajorview as m  WHERE  (SELECT u.Location FROM universitysheet AS u
+    SELECT  m.Major ,m.MajorCode AS id  FROM  mastermajorview as m  WHERE  (SELECT u.Location FROM universitysheet AS u
     WHERE m.UniversityCode=u.UniversityCode)= #{province}
     AND m.University=#{university}
     AND m.School=#{school}
     AND  m.Major !=''
-    GROUP BY  m.Major, M.MajorCode
+    GROUP BY  m.Major, m.MajorCode
   </select>
 
   <select id="queryMasterMajorList" resultType="MasterMajor">
-    SELECT  m.Major ,m.MajorCode, m.University, m.School,m.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Image
+    SELECT  m.Major ,m.MajorCode AS id, m.University, m.School,m.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Image
     FROM  mastermajorview AS m
     WHERE m.Major LIKE concat(concat('%',#{keyword}),'%')
     AND  m.Major !=''
     GROUP BY  m.Major, m.MajorCode, m.University, m.School, m.SchoolCode
-    LIMIT 0 , 10
   </select>
 
-  <select id="queryMajorFieldList" resultType="MasterMajor">
-    SELECT  j.Name, j.Id, j.Major, j.Field, j.University, j.School, (SELECT t.Icon FROM teacherview AS t WHERE t.Id=j.Id) AS Icon
-    FROM  mastermajorview AS j
-    WHERE j.Field LIKE concat(concat('%',#{keyword}),'%')
-    AND j.Field !=''
-    LIMIT 0 , 10
+  <select id="queryMasterMajorCount" resultType="Integer">
+    SELECT count(*) FROM
+    (SELECT count(*)
+    FROM  mastermajorview AS m
+    WHERE m.Major LIKE concat(concat('%',#{keyword}),'%')
+    AND  m.Major !=''
+    GROUP BY  m.Major, m.MajorCode, m.University, m.School, m.SchoolCode) groupmajor
+  </select>
+
+  <select id="queryMasterMajorPageList" resultType="MasterMajor">
+    SELECT  m.Major ,m.MajorCode AS id, m.University, m.School,m.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Image
+    FROM  mastermajorview AS m
+    WHERE m.Major LIKE concat(concat('%',#{keyword}),'%')
+    AND  m.Major !=''
+    GROUP BY  m.Major, m.MajorCode, m.University, m.School, m.SchoolCode
+    LIMIT #{offset}, #{rows}
   </select>
 
   <select id="queryMasterMajorInfo" resultType="MasterMajor">
-    SELECT  m.Major ,m.MajorCode, m.University, m.School,m.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Image
+    SELECT  m.Major ,m.MajorCode AS id, m.University, m.School,m.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE m.SchoolCode=s.SchoolCode ) AS Image
     FROM  mastermajorview AS m
     WHERE m.SchoolCode= #{schoolCode}
     AND m.MajorCode= #{majorCode}
     AND  m.Major !=''
     GROUP BY  m.Major,m.MajorCode, m.University, m.School,m.SchoolCode
-    LIMIT 0 , 10
   </select>
 
 

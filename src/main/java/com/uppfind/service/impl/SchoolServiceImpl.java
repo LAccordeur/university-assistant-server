@@ -1,9 +1,10 @@
 package com.uppfind.service.impl;
 
-import com.uppfind.dao.SchoolMapper;
+import com.uppfind.dao.mybatis.SchoolMapper;
 import com.uppfind.dto.Response;
 import com.uppfind.entity.School;
 import com.uppfind.service.SchoolService;
+import com.uppfind.util.page.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,8 @@ public class SchoolServiceImpl implements SchoolService {
         //组装返回的Response对象
         List<School> schools = schoolMapper.querySchoolSet(province, university);
         response.setData(schools);
-        response.setTotal(schools.size());
+        response.setCount(schools.size());
+        response.setType("school");
 
         return response;
     }
@@ -35,9 +37,8 @@ public class SchoolServiceImpl implements SchoolService {
         //组装返回的Response对象
         List<School> schools = schoolMapper.querySchoolList(keyword);
         response.setData(schools);
-        response.setTotal(schools.size());
         response.setCount(schools.size());
-        response.setStart(0);
+        response.setType("school");
 
         return response;
     }
@@ -48,7 +49,59 @@ public class SchoolServiceImpl implements SchoolService {
         //组装返回的Response对象
         List<School> school = schoolMapper.querySchoolInfo(Long.parseLong(schoolCode));
         response.setData(school);
-        response.setTotal(school.size());
+        response.setCount(school.size());
+        response.setType("school");
+
+        return response;
+    }
+
+    public Response querySchoolListById(String universityCode) {
+        Response<List<School>> response = new Response<List<School>>();
+        //组装返回的Response对象
+        List<School> schools = schoolMapper.querySchoolListById(universityCode);
+        response.setData(schools);
+        response.setCount(schools.size());
+        response.setType("school");
+
+        return response;
+    }
+
+    public Response querySchoolPageList(String keyword, String currentPage, String pageSize) {
+        Response<Page<School>> response = new Response<Page<School>>();
+
+        int currentPageInt = Integer.valueOf(currentPage);
+        int pageSizeInt = Integer.valueOf(pageSize);
+
+        //当前页的下限检验
+        if (currentPageInt < 1) {
+            currentPageInt = 1;
+        }
+        if (pageSizeInt < 1) {
+            pageSizeInt = 10;
+        }
+
+        //计算分页信息
+        int offset = Page.getStart(currentPageInt, pageSizeInt);
+        int rows = pageSizeInt;
+
+
+        Page<School> pageData = null;
+        List<School> schools = null;
+
+
+        schools = schoolMapper.querySchoolPageList(keyword, offset, rows);
+        int resultCount = schoolMapper.querySchoolCount(keyword);
+        if (schools != null && schools.size() > 0) {
+            pageData = new Page<School>(pageSizeInt, currentPageInt, schools.size(), schools);
+            response.setData(pageData);
+            response.setCount(resultCount);
+            response.setType("school");
+
+        } else {
+            response.setData(null);
+            response.setCount(0);
+            response.setType("school");
+        }
 
         return response;
     }

@@ -1,11 +1,14 @@
 package com.uppfind.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  * Created by LAccordeur on 2017/5/31.
  * 与学院表对应的实体类
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class School {
-    private Long schoolCode;     //学院代码
+    private Long id;     //学院代码
 
     private String school;      //学院名称
 
@@ -30,7 +33,7 @@ public class School {
     @Override
     public String toString() {
         return "School{" +
-                "schoolCode=" + schoolCode +
+                "id=" + id +
                 ", school='" + school + '\'' +
                 ", englishName='" + englishName + '\'' +
                 ", universityCode=" + universityCode +
@@ -44,12 +47,12 @@ public class School {
                 '}';
     }
 
-    public Long getSchoolCode() {
-        return schoolCode;
+    public Long getId() {
+        return id;
     }
 
-    public void setSchoolCode(Long schoolCode) {
-        this.schoolCode = schoolCode;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getSchool() {

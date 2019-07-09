@@ -1,6 +1,6 @@
 package com.uppfind.dao;
 
-import com.sun.codemodel.internal.util.MS1252Encoder;
+import com.uppfind.dao.mybatis.MasterMajorMapper;
 import com.uppfind.entity.MasterMajor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,8 +10,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by LAccordeur on 2017/6/1.
@@ -36,11 +34,7 @@ public class MasterMajorMapperTest {
         System.out.println(masterMajors);
     }
 
-    @Test
-    public void queryMajorFieldList() throws Exception {
-        List<MasterMajor> masterMajors = masterMajorMapper.queryMajorFieldList("人工");
-        System.out.println(masterMajors);
-    }
+
 
     @Test
     public void queryMajorMajorInfo() throws Exception {

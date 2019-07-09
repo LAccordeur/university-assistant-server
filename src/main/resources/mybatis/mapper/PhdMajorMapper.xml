@@ -20,10 +20,10 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.uppfind.dao.PhdMajorMapper">
+<mapper namespace="com.uppfind.dao.mybatis.PhdMajorMapper">
 
   <select id="queryPhdMajorSet" resultType="PhdMajor">
-    SELECT  p.Major ,p.MajorCode  FROM  phdmajorview as p
+    SELECT  p.Major ,p.MajorCode AS id  FROM  phdmajorview as p
     WHERE  (SELECT u.Location FROM universitysheet AS u WHERE p.UniversityCode=u.UniversityCode)= #{province}
     AND p.University=#{university}
     AND p.School=#{school}
@@ -32,22 +32,38 @@
   </select>
 
   <select id="queryPhdMajorList" resultType="PhdMajor">
-    SELECT  p.Major ,p.MajorCode, p.University, p.School,p.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode) AS Image
+    SELECT  p.Major ,p.MajorCode AS id, p.University, p.School,p.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode) AS Image
     FROM  phdmajorview as p
     WHERE p.Major LIKE concat(concat('%',#{keyword}),'%')
     AND  p.Major !=''
     GROUP BY  p.Major, p.MajorCode, p.University, p.School, p.SchoolCode
-    LIMIT 0 , 10
+  </select>
+
+  <select id="queryPhdMajorCount" resultType="Integer">
+    SELECT count(*) FROM (
+    SELECT count(*)
+    FROM  phdmajorview as p
+    WHERE p.Major LIKE concat(concat('%',#{keyword}),'%')
+    AND  p.Major !=''
+    GROUP BY  p.Major, p.MajorCode, p.University, p.School, p.SchoolCode) groupmajor
+  </select>
+
+  <select id="queryPhdMajorPageList" resultType="PhdMajor">
+    SELECT  p.Major ,p.MajorCode AS id, p.University, p.School,p.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode) AS Image
+    FROM  phdmajorview as p
+    WHERE p.Major LIKE concat(concat('%',#{keyword}),'%')
+    AND  p.Major !=''
+    GROUP BY  p.Major, p.MajorCode, p.University, p.School, p.SchoolCode
+    LIMIT #{offset}, #{rows}
   </select>
 
   <select id="queryPhdMajorInfo" resultType="PhdMajor">
-    SELECT  p.Major ,p.MajorCode, p.University, p.School,p.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode ) AS Image
+    SELECT  p.Major ,p.MajorCode AS id, p.University, p.School,p.SchoolCode, (SELECT s.Icon FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode ) AS Icon,(SELECT s.Image FROM schoolsheet AS s WHERE p.SchoolCode=s.SchoolCode ) AS Image
     FROM  phdmajorview as p
     WHERE p.SchoolCode= #{schoolCode}
     AND p.MajorCode= #{majorCode}
     AND  p.Major !=''
     GROUP BY  p.Major, p.MajorCode, p.University, p.School, p.SchoolCode
-    LIMIT 0 , 10
   </select>
 
 

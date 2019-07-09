@@ -1,13 +1,18 @@
 package com.uppfind.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  * Created by LAccordeur on 2017/6/1.
  * 与MasterMajor视图对应的实体类
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MasterMajor {
+    private Integer id;      //招生专业代码
+
     private String name;        //导师姓名
 
-    private Long id;        //导师代码
+    private Long teacherCode;        //导师代码
 
     private String university;      //学校名称
 
@@ -23,15 +28,13 @@ public class MasterMajor {
 
     private String major;       //招生专业名称
 
-    private Integer majorCode;      //招生专业代码
-
     private String field;       //专业细分方向
 
     @Override
     public String toString() {
         return "MasterMajor{" +
                 "name='" + name + '\'' +
-                ", id=" + id +
+                ", teacherCode=" + teacherCode +
                 ", university='" + university + '\'' +
                 ", universityCode=" + universityCode +
                 ", school='" + school + '\'' +
@@ -39,7 +42,7 @@ public class MasterMajor {
                 ", icon='" + icon + '\'' +
                 ", image='" + image + '\'' +
                 ", major='" + major + '\'' +
-                ", majorCode=" + majorCode +
+                ", id=" + id +
                 ", field='" + field + '\'' +
                 '}';
     }
@@ -52,12 +55,12 @@ public class MasterMajor {
         this.name = name;
     }
 
-    public Long getId() {
-        return id;
+    public Long getTeacherCode() {
+        return teacherCode;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTeacherCode(Long teacherCode) {
+        this.teacherCode = teacherCode;
     }
 
     public String getUniversity() {
@@ -116,12 +119,12 @@ public class MasterMajor {
         this.major = major;
     }
 
-    public Integer getMajorCode() {
-        return majorCode;
+    public Integer getId() {
+        return id;
     }
 
-    public void setMajorCode(Integer majorCode) {
-        this.majorCode = majorCode;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getField() {

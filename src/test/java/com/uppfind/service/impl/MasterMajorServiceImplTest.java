@@ -34,11 +34,7 @@ public class MasterMajorServiceImplTest {
         System.out.println(response);
     }
 
-    @Test
-    public void queryMajorFieldList() throws Exception {
-        Response response = masterMajorService.queryMajorFieldList("人工智能");
-        System.out.println(response);
-    }
+
 
     @Test
     public void queryMasterMajorInfo() throws Exception {

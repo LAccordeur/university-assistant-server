@@ -33,4 +33,6 @@
 
     <!--4:扫描web相关的controller-->
     <context:component-scan base-package="com.uppfind.controller"/>
+
+    <context:component-scan base-package="com.uppfind.filter"/>
 </beans>

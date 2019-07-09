@@ -1,9 +1,12 @@
 package com.uppfind.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  * Created by LAccordeur on 2017/5/31.
  * 对应teacher视图的实体类
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Teacher {
     private Long id;     //导师代码
 
@@ -35,11 +38,21 @@ public class Teacher {
 
     private String project;     //科研项目
 
-    private String papre;       //发表论文
+    private String paper;       //发表论文
 
     private Integer phdMajor;       //博士招生资格
 
     private Integer masterMajor;        //硕士招生资格
+
+    private Integer likeCount;      //点赞数
+
+    private Integer commentCount;   //评论数
+
+    private Integer isLike; //该评论是否被某用户点赞
+
+    private String userId;  //点赞用户
+
+    private Integer isFetch;  //信息是否被领取
 
     @Override
     public String toString() {
@@ -59,10 +72,54 @@ public class Teacher {
                 ", experience='" + experience + '\'' +
                 ", introduction='" + introduction + '\'' +
                 ", project='" + project + '\'' +
-                ", papre='" + papre + '\'' +
+                ", paper='" + paper + '\'' +
                 ", phdMajor=" + phdMajor +
                 ", masterMajor=" + masterMajor +
+                ", likeCount=" + likeCount +
+                ", commentCount=" + commentCount +
+                ", isLike=" + isLike +
+                ", userId='" + userId + '\'' +
                 '}';
+    }
+
+    public Integer getIsFetch() {
+        return isFetch;
+    }
+
+    public void setIsFetch(Integer isFetch) {
+        this.isFetch = isFetch;
+    }
+
+    public Integer getIsLike() {
+        return isLike;
+    }
+
+    public void setIsLike(Integer isLike) {
+        this.isLike = isLike;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Integer getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(Integer likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    public Integer getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(Integer commentCount) {
+        this.commentCount = commentCount;
     }
 
     public Long getId() {
@@ -185,12 +242,12 @@ public class Teacher {
         this.project = project;
     }
 
-    public String getPapre() {
-        return papre;
+    public String getPaper() {
+        return paper;
     }
 
-    public void setPapre(String papre) {
-        this.papre = papre;
+    public void setPaper(String paper) {
+        this.paper = paper;
     }
 
     public Integer getPhdMajor() {
